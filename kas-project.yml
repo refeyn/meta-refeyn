@@ -2,7 +2,7 @@ header:
   version: 13
 
 machine: imx8qmmek
-distro: fsl-wayland
+distro: fsl-imx-wayland
 target:
  - imx-image-full
 
@@ -79,9 +79,9 @@ repos:
     refspec: 4f7d02004cd78f0fca77489deb7487bfb301ea36
     # refspec: "6.4"
 
-  meta-timesys:
-    url: "https://github.com/TimesysGit/meta-timesys"
-    refspec: 33a45eb06bead2509f1bf5bf46a5bbc85d66583b
+  # meta-timesys:
+    # url: "https://github.com/TimesysGit/meta-timesys"
+    # refspec: 33a45eb06bead2509f1bf5bf46a5bbc85d66583b
     # refspec: langdale
 
   meta-imx:
@@ -123,6 +123,8 @@ local_conf_header:
     PACKAGECONFIG:append:pn-qemu-system-native = " sdl"
     CONF_VERSION = "2"
     ACCEPT_FSL_EULA = "1"
+    PARALLEL_MAKE = "-j 5"
+    BB_NUMBER_THREADS = "4"
 
   deb_packaging: |
     PACKAGE_CLASSES = "package_deb"
