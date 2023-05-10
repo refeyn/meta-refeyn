@@ -3,6 +3,8 @@ header:
 
 machine: imx8qmmek
 distro: fsl-wayland
+target:
+ - imx-image-full
 
 repos:
   meta-arm:
