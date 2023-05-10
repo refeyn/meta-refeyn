@@ -1,0 +1,127 @@
+header:
+  version: 13
+
+machine: imx8qmmek
+distro: fsl-wayland
+
+repos:
+  meta-arm:
+    url: "https://git.yoctoproject.org/meta-arm"
+    refspec: 025124814e8676e46d42ec5b07220283f1bdbcd0
+    # refspec: langdale
+    layers:
+      meta-arm:
+      meta-arm-toolchain:
+
+  meta-security:
+    url: "https://git.yoctoproject.org/meta-security"
+    refspec: 2aa48e6f4e519abc7d6bd56da2c067309a303e80
+    # refspec: langdale
+    layers:
+      meta-parsec:
+      meta-tpm:
+
+  meta-virtualization: #
+    url: "https://git.yoctoproject.org/meta-virtualization"
+    refspec: 8857b36ebfec3d548755755b009adc491ef320ab
+    # refspec: langdale
+
+  poky:
+    url: "https://git.yoctoproject.org/poky"
+    refspec: b50f718e4cb73214e7ad298484ecdadd6cfeb866
+    # refspec: langdale
+    layers:
+      meta:
+      meta-poky:
+
+  meta-openembedded:
+    url: "https://github.com/openembedded/meta-openembedded"
+    refspec: c354f92778c1d4bcd3680af7e0fb0d1414de2344
+    # refspec: langdale
+    layers:
+      meta-oe:
+      meta-multimedia:
+      meta-python:
+      meta-gnome:
+      meta-networking:
+      meta-filesystems:
+
+  meta-clang: #
+    url: "https://github.com/kraj/meta-clang"
+    refspec: 22f1cc330d3501923d2dc27cd3fc424c69c3a73a
+    # refspec: master
+
+  meta-freescale: #
+    url: "https://github.com/Freescale/meta-freescale"
+    refspec: 09c47379218167dda9fb0098129909a667fea2ec
+    # refspec: master
+
+  meta-freescale-3rdparty: #
+    url: "https://github.com/Freescale/meta-freescale-3rdparty"
+    refspec: 96c1f6a6c2cad246687cd695e0873fcc6cdde935
+    # refspec: master
+
+  meta-freescale-distro: #
+    url: "https://github.com/Freescale/meta-freescale-distro"
+    refspec: 1069c2f210b18cd707a4d8a82140a684a42a4ff6
+    # refspec: master
+
+  meta-browser:
+    url: "https://github.com/OSSystems/meta-browser"
+    refspec: e232c2e21b96dc092d9af8bea4b3a528e7a46dd6
+    layers:
+      meta-chromium:
+
+  meta-qt6: #
+    url: "https://code.qt.io/yocto/meta-qt6"
+    refspec: 4f7d02004cd78f0fca77489deb7487bfb301ea36
+    # refspec: "6.4"
+
+  meta-timesys:
+    url: "https://github.com/TimesysGit/meta-timesys"
+    refspec: 33a45eb06bead2509f1bf5bf46a5bbc85d66583b
+    # refspec: langdale
+
+  meta-imx:
+    url: "https://github.com/nxp-imx/meta-imx"
+    refspec: refs/tags/rel_imx_6.1.1_1.0.0
+    # refspec: langdale-6.1.1-1.0.0
+    layers:
+      meta-bsp:
+      meta-sdk:
+      meta-ml:
+      meta-v2x:
+
+  meta-nxp-demo-experience: #
+    url: "https://github.com/nxp-imx-support/meta-nxp-demo-experience"
+    refspec: c057a681cf11923b22e16b9cdb0ad2b9187eced2
+    # refspec: langdale-6.1.1-1.0.0
+
+bblayers_conf_header:
+  standard: |
+    LCONF_VERSION = "7"
+    BBPATH = "${TOPDIR}"
+    BSPDIR := "${@os.path.abspath(os.path.dirname(d.getVar('FILE', True)) + '/../..')}"
+    BBFILES ?= ""
+
+local_conf_header:
+  standard: |
+    EXTRA_IMAGE_FEATURES ?= "debug-tweaks"
+    USER_CLASSES ?= "buildstats"
+    PATCHRESOLVE = "noop"
+    BB_DISKMON_DIRS ??= "\
+        STOPTASKS,${TMPDIR},1G,100K \
+        STOPTASKS,${DL_DIR},1G,100K \
+        STOPTASKS,${SSTATE_DIR},1G,100K \
+        STOPTASKS,/tmp,100M,100K \
+        HALT,${TMPDIR},100M,1K \
+        HALT,${DL_DIR},100M,1K \
+        HALT,${SSTATE_DIR},100M,1K \
+        HALT,/tmp,10M,1K"
+    PACKAGECONFIG:append:pn-qemu-system-native = " sdl"
+    CONF_VERSION = "2"
+    ACCEPT_FSL_EULA = "1"
+
+  deb_packaging: |
+    PACKAGE_CLASSES = "package_deb"
+    EXTRA_IMAGE_FEATURES += "package-management"
