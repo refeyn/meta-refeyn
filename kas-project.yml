@@ -7,6 +7,8 @@ target:
  - imx-image-full
 
 repos:
+  meta-refeyn:
+
   meta-arm:
     url: "https://git.yoctoproject.org/meta-arm"
     refspec: 025124814e8676e46d42ec5b07220283f1bdbcd0
@@ -99,6 +101,14 @@ repos:
     refspec: c057a681cf11923b22e16b9cdb0ad2b9187eced2
     # refspec: langdale-6.1.1-1.0.0
 
+  meta-scipy:
+    url: "https://github.com/tuxable-ltd/meta-scipy"
+    refspec: 0bd2756b296ad7eb9510083ca2a2fb866775c741
+
+  meta-scikit-learn:
+    url: "https://github.com/tuxable-ltd/meta-scikit-learn"
+    refspec: 91ff5874aaed7419b523c10e831dc087a8168a7a
+
 bblayers_conf_header:
   standard: |
     LCONF_VERSION = "7"
@@ -129,3 +139,9 @@ local_conf_header:
   deb_packaging: |
     PACKAGE_CLASSES = "package_deb"
     EXTRA_IMAGE_FEATURES += "package-management"
+
+  scipy: |
+    FORTRAN:forcevariable = ",fortran"
+    RUNTIMETARGET:append:pn-gcc-runtime = " libquadmath"
+    HOSTTOOLS += "gfortran"
+    IMAGE_INSTALL:append = " python3-scikit-learn python3-scipy"
