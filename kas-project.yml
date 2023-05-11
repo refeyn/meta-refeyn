@@ -107,7 +107,7 @@ repos:
 
   meta-scikit-learn:
     url: "https://github.com/tuxable-ltd/meta-scikit-learn"
-    refspec: 91ff5874aaed7419b523c10e831dc087a8168a7a
+    refspec: fa7689d9bfd717370aa9562479b719d89ab4d620
 
 bblayers_conf_header:
   standard: |
