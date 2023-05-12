@@ -3,7 +3,14 @@ Yocto layer for Refeyn applications
 
 # Initial build
 
-You need to be on an Ubuntu VM with at least 400GB of disk space and 20GB of memory (RAM + swap). You also need to install the [yocto dependencies](https://docs.yoctoproject.org/ref-manual/system-requirements.html#ubuntu-and-debian) and kas ([via pip](https://kas.readthedocs.io/en/3.2.3/userguide.html#usage)). Then:
+You need to be on an Ubuntu VM with at least 400GB of disk space and 20GB of memory (RAM + swap). You also need to install:
+
+ - The [yocto dependencies](https://docs.yoctoproject.org/ref-manual/system-requirements.html#ubuntu-and-debian)
+ - kas ([via pip](https://kas.readthedocs.io/en/3.2.3/userguide.html#usage))
+ - gfortran
+ - git-lfs
+
+Then:
 
 ```bash
 $ mkdir imx-refeyn

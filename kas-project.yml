@@ -4,7 +4,7 @@ header:
 machine: imx8qmmek
 distro: fsl-imx-wayland
 target:
- - imx-image-full
+ - imx-image-refeyn
 
 repos:
   meta-refeyn:
@@ -118,7 +118,6 @@ bblayers_conf_header:
 
 local_conf_header:
   standard: |
-    EXTRA_IMAGE_FEATURES ?= "debug-tweaks"
     USER_CLASSES ?= "buildstats"
     PATCHRESOLVE = "noop"
     BB_DISKMON_DIRS ??= "\
@@ -136,12 +135,7 @@ local_conf_header:
     PARALLEL_MAKE = "-j 5"
     BB_NUMBER_THREADS = "4"
 
-  deb_packaging: |
-    PACKAGE_CLASSES = "package_deb"
-    EXTRA_IMAGE_FEATURES += "package-management"
-
   scipy: |
     FORTRAN:forcevariable = ",fortran"
     RUNTIMETARGET:append:pn-gcc-runtime = " libquadmath"
     HOSTTOOLS += "gfortran"
-    IMAGE_INSTALL:append = " python3-scikit-learn python3-scipy"
