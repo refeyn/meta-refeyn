@@ -135,6 +135,9 @@ local_conf_header:
     PARALLEL_MAKE = "-j 5"
     BB_NUMBER_THREADS = "4"
 
+  packaging: |
+    PACKAGE_CLASSES = "package_deb"
+
   scipy: |
     FORTRAN:forcevariable = ",fortran"
     RUNTIMETARGET:append:pn-gcc-runtime = " libquadmath"

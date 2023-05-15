@@ -68,10 +68,11 @@ CORE_IMAGE_EXTRA_INSTALL += " \
     packagegroup-fsl-gstreamer1.0 \
     packagegroup-fsl-gstreamer1.0-full \
     firmwared \
+    nano \
+    lrzsz \
+    htop \
     ${DOCKER} \
 "
-
-PACKAGE_CLASSES = "package_deb"
 
 FORTRAN:forcevariable = ",fortran"
 RUNTIMETARGET:append:pn-gcc-runtime = " libquadmath"
