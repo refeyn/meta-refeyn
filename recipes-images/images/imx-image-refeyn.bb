@@ -16,6 +16,7 @@ IMAGE_INSTALL += " \
     python3-scikit-learn \
     python3-scipy \
     python3-iscat \
+    python3-pyside6 \
 "
 
 IMAGE_INSTALL_OPENCV              = ""
