@@ -16,3 +16,5 @@ EXTRA_OECMAKE += " \
 
 INSANE_SKIP:${PN} += "already-stripped"
 FILES:${PN} += "${datadir}/PySide6/*"
+
+BBCLASSEXTEND = "native nativesdk"
