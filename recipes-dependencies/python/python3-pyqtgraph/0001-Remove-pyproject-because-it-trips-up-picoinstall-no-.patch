@@ -1,0 +1,53 @@
+From b68bfb92dbf12bdacc0d56f387fec39e7b067f94 Mon Sep 17 00:00:00 2001
+From: Matthew Joyce <matthew.joyce@refeyn.com>
+Date: Mon, 22 May 2023 15:06:26 +0100
+Subject: [PATCH] Remove pyproject because it trips up picoinstall (no build
+ system)
+
+---
+ pyproject.toml | 36 ------------------------------------
+ 1 file changed, 36 deletions(-)
+ delete mode 100644 pyproject.toml
+
+diff --git a/pyproject.toml b/pyproject.toml
+deleted file mode 100644
+index 74da328..0000000
+--- a/pyproject.toml
++++ /dev/null
+@@ -1,36 +0,0 @@
+-[tool.black]
+-line-length = 88
+-target-version = ['py38']
+-include = '\.pyi?$'
+-exclude = '''
+-
+-(
+-  /(
+-      \.eggs         # exclude a few common directories in the
+-    | \.git          # root of the project
+-    | \.hg
+-    | \.mypy_cache
+-    | \.tox
+-    | \.venv*
+-    | _build
+-    | buck-out
+-    | build
+-    | dist
+-  )/
+-
+-)
+-'''
+-
+-[tool.isort]
+-profile = "black"
+-honor_noqa = true
+-color_output = true
+-py_version = 38
+-src_paths = ["pyqtgraph", "tests"]
+-skip_glob = ["**/*Template*.py", "**/colorama"]
+-skip_gitignore = true
+-known_third_party = ["QtCore", "QtGui", "QtWidgets"]
+-
+-[tool.pycln]
+-all = true
+-exclude = '(Template|__init__.py)'

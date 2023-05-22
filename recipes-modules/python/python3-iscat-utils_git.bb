@@ -15,7 +15,7 @@ inherit setuptools3
 
 do_compile_ui() {
     cd ${S}
-    rm iscat_utils/.ui_cache
+    rm -f iscat_utils/.ui_cache
     echo '#!/usr/bin/env bash
 ${STAGING_DIR_NATIVE}/usr/libexec/uic -g python "$@"' > ${STAGING_BINDIR_NATIVE}/pyside6-uic
     chmod +x ${STAGING_BINDIR_NATIVE}/pyside6-uic
@@ -23,6 +23,6 @@ ${STAGING_DIR_NATIVE}/usr/libexec/uic -g python "$@"' > ${STAGING_BINDIR_NATIVE}
 }
 addtask do_compile_ui before do_compile after do_configure
 
-DEPENDS += "python3-dev-utils-native python3-pyside6-native"
+DEPENDS += "python3-dev-utils-native"
 
-RDEPENDS:${PN} += "python3-asyncio python3-core python3-crypt python3-ctypes python3-datetime python3-html python3-image python3-io python3-json python3-logging python3-misc python3-multiprocessing python3-netclient python3-netserver python3-numpy python3-packaging python3-pillow python3-profile python3-pyside6 python3-pytest python3-shell python3-threading python3-typing-extensions python3-unittest python3-dev-utils python3-matplotlib"
+RDEPENDS:${PN} += "python3-asyncio python3-core python3-crypt python3-ctypes python3-datetime python3-html python3-image python3-io python3-json python3-logging python3-misc python3-multiprocessing python3-netclient python3-netserver python3-numpy python3-packaging python3-pillow python3-profile python3-pyside6 python3-pytest python3-shell python3-threading python3-typing-extensions python3-unittest python3-dev-utils python3-matplotlib python3-qasync python3-pyqtgraph"
