@@ -22,6 +22,9 @@ SRCREV = "392559ed8c4d6a733a72af9c1311b8cb2ff3e633"
 
 PYSIDE_QTMODULES = "\
     qtbase \
+    qtsvg \
+    qtdeclarative \
+    qtcharts \
 "
 
 DEPENDS += "\

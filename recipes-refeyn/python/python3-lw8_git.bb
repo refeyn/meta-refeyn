@@ -3,17 +3,22 @@ HOMEPAGE = "https://github.com/refeyn/lw8"
 
 LICENSE = "CLOSED"
 
-SRC_URI = "gitsm://git@github.com/refeyn/lw8.git;protocol=ssh;branch=master;lfs=0 \
+SRC_URI = "gitsm://git@github.com/refeyn/lw8.git;protocol=ssh;branch=feature/posix-compatability;lfs=0 \
            file://0001-Remove-internal-dependencies-and-C-extension-from-se.patch \
            "
 
 # Modify these as desired
 PV = "v2023.2.0dev2+git${SRCPV}"
-SRCREV = "0bf9013e4ae58a2a14a193bd61b17abae5dbfaf1"
+SRCREV = "68570bee8174579fcabe1d9d867dadde397cf0a7"
 
 S = "${WORKDIR}/git"
 
 inherit setuptools3
+
+do_write_version() {
+    echo "VERSION_SHA = '${SRCREV}'" > ${S}/lw8/_versionSha.py
+}
+addtask do_write_version before do_compile after do_configure
 
 do_compile_ui() {
     cd ${S}

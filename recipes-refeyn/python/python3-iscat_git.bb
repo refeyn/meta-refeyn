@@ -112,12 +112,18 @@ SRC_URI = "gitsm://git@github.com/refeyn/iscat.git;protocol=ssh;branch=feature/g
 
 # Modify these as desired
 PV = "1.0+git${SRCPV}"
-SRCREV = "e8e15033b54912802cafd65b7151a2d212c32a61"
+SRCREV = "26cc4fe044499b7328a2a9c42ed1509e22516046"
 
 S = "${WORKDIR}/git"
 
 inherit python_setuptools3_rust
 
+do_write_version() {
+    echo "VERSION_SHA = '${SRCREV}'" > ${S}/iscat/_versionSha.py
+}
+addtask do_write_version before do_compile after do_configure
+
 DEPENDS += "python3-dev-utils-native"
 
 RDEPENDS:${PN} += "hdf5plugin-zstandard python3-asyncio python3-core python3-datetime python3-distutils python3-h5py python3-io python3-json python3-logging python3-more-itertools python3-multiprocessing python3-numpy python3-pickle python3-profile python3-psutil python3-pydantic python3-pytest python3-scikit-learn python3-scipy python3-threading python3-typing-extensions python3-unittest"
+PREFERRED_VERSION_python3-pydantic = "1.10.7"
