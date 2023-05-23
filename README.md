@@ -24,6 +24,6 @@ This will take several hours.
 # Layout
 
  - `kas-project.yml` defines which layers we depend on (a bit like git submodules), what our target machine distro and image is, and any modifications to the bitbake conf
- - `recipies-images` defines our images (a complete image with our applications and other tools bundled inside)
- - `recipies-refeyn` defines recipes for our apps and libraries
- - `recipies-python` defines recipes for third-party python dependencies
+ - `recipes-images` defines our images (a complete image with our applications and other tools bundled inside)
+ - `recipes-refeyn` defines recipes for our apps and libraries
+ - `recipes-dependencies` defines recipes for third-party python dependencies

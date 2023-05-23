@@ -13,10 +13,7 @@ IMAGE_INSTALL += " \
     tzdata \
     ${IMAGE_INSTALL_OPENCV} \
     ${IMAGE_INSTALL_PARSEC} \
-    python3-scikit-learn \
-    python3-scipy \
-    python3-iscat \
-    python3-pyside6 \
+    python3-lw8 \
 "
 
 IMAGE_INSTALL_OPENCV              = ""
