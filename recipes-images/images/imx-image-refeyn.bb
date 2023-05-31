@@ -15,6 +15,7 @@ IMAGE_INSTALL += " \
     ${IMAGE_INSTALL_PARSEC} \
     python3-lw8 \
     i2c-tools \
+    lmsensors \
 "
 
 IMAGE_INSTALL_OPENCV              = ""
