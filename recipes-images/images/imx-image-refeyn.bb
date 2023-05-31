@@ -14,6 +14,7 @@ IMAGE_INSTALL += " \
     ${IMAGE_INSTALL_OPENCV} \
     ${IMAGE_INSTALL_PARSEC} \
     python3-lw8 \
+    i2c-tools \
 "
 
 IMAGE_INSTALL_OPENCV              = ""
