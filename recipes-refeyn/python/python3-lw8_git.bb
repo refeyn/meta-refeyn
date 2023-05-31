@@ -32,4 +32,4 @@ addtask do_compile_ui before do_compile after do_configure
 
 DEPENDS += "python3-dev-utils-native"
 
-RDEPENDS:${PN} += "python3-iscat python3-iscat-utils python3-more-itertools python3-pint python3-tabulate python3-aiohttp"
+RDEPENDS:${PN} += "python3-iscat python3-iscat-utils python3-more-itertools python3-pint python3-tabulate python3-aiohttp ximea-xiapi"

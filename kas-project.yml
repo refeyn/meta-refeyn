@@ -25,7 +25,7 @@ repos:
       meta-parsec:
       meta-tpm:
 
-  meta-virtualization: #
+  meta-virtualization:
     url: "https://git.yoctoproject.org/meta-virtualization"
     refspec: 8857b36ebfec3d548755755b009adc491ef320ab
     # refspec: langdale
@@ -50,22 +50,22 @@ repos:
       meta-networking:
       meta-filesystems:
 
-  meta-clang: #
+  meta-clang:
     url: "https://github.com/kraj/meta-clang"
     refspec: 22f1cc330d3501923d2dc27cd3fc424c69c3a73a
     # refspec: master
 
-  meta-freescale: #
+  meta-freescale:
     url: "https://github.com/Freescale/meta-freescale"
     refspec: 09c47379218167dda9fb0098129909a667fea2ec
     # refspec: master
 
-  meta-freescale-3rdparty: #
+  meta-freescale-3rdparty:
     url: "https://github.com/Freescale/meta-freescale-3rdparty"
     refspec: 96c1f6a6c2cad246687cd695e0873fcc6cdde935
     # refspec: master
 
-  meta-freescale-distro: #
+  meta-freescale-distro:
     url: "https://github.com/Freescale/meta-freescale-distro"
     refspec: 1069c2f210b18cd707a4d8a82140a684a42a4ff6
     # refspec: master
@@ -76,7 +76,7 @@ repos:
     layers:
       meta-chromium:
 
-  meta-qt6: #
+  meta-qt6:
     url: "https://code.qt.io/yocto/meta-qt6"
     refspec: 4f7d02004cd78f0fca77489deb7487bfb301ea36
     # refspec: "6.4"
@@ -96,7 +96,7 @@ repos:
       meta-ml:
       meta-v2x:
 
-  meta-nxp-demo-experience: #
+  meta-nxp-demo-experience:
     url: "https://github.com/nxp-imx-support/meta-nxp-demo-experience"
     refspec: c057a681cf11923b22e16b9cdb0ad2b9187eced2
     # refspec: langdale-6.1.1-1.0.0
