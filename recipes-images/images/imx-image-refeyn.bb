@@ -15,6 +15,8 @@ IMAGE_INSTALL += " \
     ${IMAGE_INSTALL_PARSEC} \
     python3-lw8 \
     i2c-tools \
+    libgpiod-tools \
+    spidev-test \
     lmsensors \
 "
 

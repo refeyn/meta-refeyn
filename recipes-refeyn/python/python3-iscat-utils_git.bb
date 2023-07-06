@@ -7,7 +7,7 @@ SRC_URI = "gitsm://git@github.com/refeyn/iscat_utils.git;protocol=ssh;branch=fea
 
 # Modify these as desired
 PV = "1.44.0+git${SRCPV}"
-SRCREV = "6a4837743a991aae0375da0c87ec0c0d7748dc77"
+SRCREV = "36c1ee08478caaf47eead5dd73c61804e898ea15"
 
 S = "${WORKDIR}/git"
 

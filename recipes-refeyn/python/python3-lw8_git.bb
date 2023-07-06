@@ -9,7 +9,7 @@ SRC_URI = "gitsm://git@github.com/refeyn/lw8.git;protocol=ssh;branch=feature/pos
 
 # Modify these as desired
 PV = "v2023.2.0dev2+git${SRCPV}"
-SRCREV = "68570bee8174579fcabe1d9d867dadde397cf0a7"
+SRCREV = "6b29702615524957e9858e0e401bfe6cd39b162e"
 
 S = "${WORKDIR}/git"
 
@@ -32,4 +32,4 @@ addtask do_compile_ui before do_compile after do_configure
 
 DEPENDS += "python3-dev-utils-native"
 
-RDEPENDS:${PN} += "python3-iscat python3-iscat-utils python3-more-itertools python3-pint python3-tabulate python3-aiohttp ximea-xiapi python3-spinnaker python3-fluigent"
+RDEPENDS:${PN} += "python3-iscat python3-iscat-utils python3-more-itertools python3-pint python3-tabulate python3-aiohttp ximea-xiapi python3-spinnaker python3-fluigent python-periphery"
