@@ -3,7 +3,7 @@ HOMEPAGE = "https://github.com/refeyn/iscat"
 
 LICENSE = "CLOSED"
 
-SRC_URI = "gitsm://git@github.com/refeyn/iscat.git;protocol=ssh;branch=feature/gotta-go-fast-sbc \
+SRC_URI = "gitsm://git@github.com/refeyn/iscat.git;protocol=ssh;branch=feature/gotta-go-even-faster \
            crate://crates.io/anyhow/1.0.70 \
            crate://crates.io/approx/0.5.1 \
            crate://crates.io/argmin/0.8.1 \
@@ -11,6 +11,7 @@ SRC_URI = "gitsm://git@github.com/refeyn/iscat.git;protocol=ssh;branch=feature/g
            crate://crates.io/atty/0.2.14 \
            crate://crates.io/autocfg/1.1.0 \
            crate://crates.io/bitflags/1.3.2 \
+           crate://crates.io/cc/1.0.79 \
            crate://crates.io/cfg-if/1.0.0 \
            crate://crates.io/crossbeam-channel/0.5.7 \
            crate://crates.io/crossbeam-deque/0.8.3 \
@@ -32,10 +33,12 @@ SRC_URI = "gitsm://git@github.com/refeyn/iscat.git;protocol=ssh;branch=feature/g
            crate://crates.io/itoa/1.0.6 \
            crate://crates.io/libc/0.2.140 \
            crate://crates.io/libm/0.2.6 \
+           crate://crates.io/libmimalloc-sys/0.1.33 \
            crate://crates.io/lock_api/0.4.9 \
            crate://crates.io/matrixmultiply/0.3.2 \
            crate://crates.io/medians/2.2.2 \
            crate://crates.io/memoffset/0.8.0 \
+           crate://crates.io/mimalloc/0.1.37 \
            crate://crates.io/ndarray/0.15.6 \
            crate://crates.io/ndarray-conv/0.1.3 \
            crate://crates.io/ndarray-ndimage/0.3.0 \
@@ -97,6 +100,7 @@ SRC_URI = "gitsm://git@github.com/refeyn/iscat.git;protocol=ssh;branch=feature/g
            crate://crates.io/thiserror/1.0.40 \
            crate://crates.io/thiserror-impl/1.0.40 \
            crate://crates.io/thread_local/1.1.7 \
+           crate://crates.io/threadpool/1.8.1 \
            crate://crates.io/time/0.3.20 \
            crate://crates.io/time-core/0.1.0 \
            crate://crates.io/time-macros/0.2.8 \
@@ -112,7 +116,7 @@ SRC_URI = "gitsm://git@github.com/refeyn/iscat.git;protocol=ssh;branch=feature/g
 
 # Modify these as desired
 PV = "1.0+git${SRCPV}"
-SRCREV = "26cc4fe044499b7328a2a9c42ed1509e22516046"
+SRCREV = "5b78e3968f3c24d93797274d56799271438a85cb"
 
 S = "${WORKDIR}/git"
 

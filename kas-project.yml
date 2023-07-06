@@ -142,3 +142,6 @@ local_conf_header:
     FORTRAN:forcevariable = ",fortran"
     RUNTIMETARGET:append:pn-gcc-runtime = " libquadmath"
     HOSTTOOLS += "gfortran"
+
+  cputune: |
+    DEFAULTTUNE:mx8qm-nxp-bsp = "cortexa72-cortexa53-crypto"
