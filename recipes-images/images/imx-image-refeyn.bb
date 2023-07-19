@@ -18,6 +18,7 @@ IMAGE_INSTALL += " \
     libgpiod-tools \
     spidev-test \
     lmsensors \
+    devmem2 \
 "
 
 IMAGE_INSTALL_OPENCV              = ""
