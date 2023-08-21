@@ -3,11 +3,11 @@ HOMEPAGE = "https://github.com/refeyn/iscat_utils"
 
 LICENSE = "CLOSED"
 
-SRC_URI = "gitsm://git@github.com/refeyn/iscat_utils.git;protocol=ssh;branch=feature/posix-compatability"
+SRC_URI = "gitsm://git@github.com/refeyn/iscat_utils.git;protocol=ssh;branch=master"
 
 # Modify these as desired
 PV = "1.44.0+git${SRCPV}"
-SRCREV = "36c1ee08478caaf47eead5dd73c61804e898ea15"
+SRCREV = "5e4ca2a88c22ee7a0208ebcaa30afa9f79b81d13"
 
 S = "${WORKDIR}/git"
 

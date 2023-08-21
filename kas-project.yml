@@ -145,3 +145,9 @@ local_conf_header:
 
   cputune: |
     DEFAULTTUNE:mx8qm-nxp-bsp = "cortexa72-cortexa53-crypto"
+
+  rust: |
+    RUSTVERSION = "1.70.0"
+
+  ignore_dts: |
+    KERNEL_DEVICETREE:remove = "freescale/imx8qm-mek-enet2-tja1100.dtb"
