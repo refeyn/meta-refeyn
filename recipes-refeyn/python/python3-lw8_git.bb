@@ -3,13 +3,13 @@ HOMEPAGE = "https://github.com/refeyn/lw8"
 
 LICENSE = "CLOSED"
 
-SRC_URI = "gitsm://git@github.com/refeyn/lw8.git;protocol=ssh;branch=feature/posix-compatability;lfs=0 \
+SRC_URI = "gitsm://git@github.com/refeyn/lw8.git;protocol=ssh;branch=master;lfs=0 \
            file://0001-Remove-internal-dependencies-and-C-extension-from-se.patch \
            "
 
 # Modify these as desired
 PV = "v2023.2.0dev2+git${SRCPV}"
-SRCREV = "6b29702615524957e9858e0e401bfe6cd39b162e"
+SRCREV = "6641d6030add460d53ff02b5995f065826469957"
 
 S = "${WORKDIR}/git"
 

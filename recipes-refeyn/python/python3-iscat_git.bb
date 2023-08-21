@@ -4,6 +4,7 @@ HOMEPAGE = "https://github.com/refeyn/iscat"
 LICENSE = "CLOSED"
 
 SRC_URI = "gitsm://git@github.com/refeyn/iscat.git;protocol=ssh;branch=feature/gotta-go-even-faster \
+           crate://crates.io/aho-corasick/1.0.4 \
            crate://crates.io/anyhow/1.0.70 \
            crate://crates.io/approx/0.5.1 \
            crate://crates.io/argmin/0.8.1 \
@@ -13,6 +14,7 @@ SRC_URI = "gitsm://git@github.com/refeyn/iscat.git;protocol=ssh;branch=feature/g
            crate://crates.io/bitflags/1.3.2 \
            crate://crates.io/cc/1.0.79 \
            crate://crates.io/cfg-if/1.0.0 \
+           crate://crates.io/concurrent-queue/2.2.0 \
            crate://crates.io/crossbeam-channel/0.5.7 \
            crate://crates.io/crossbeam-deque/0.8.3 \
            crate://crates.io/crossbeam-epoch/0.9.14 \
@@ -21,6 +23,7 @@ SRC_URI = "gitsm://git@github.com/refeyn/iscat.git;protocol=ssh;branch=feature/g
            crate://crates.io/dirs-sys-next/0.1.2 \
            crate://crates.io/either/1.8.1 \
            crate://crates.io/finitediff/0.1.4 \
+           crate://crates.io/generator/0.7.5 \
            crate://crates.io/getrandom/0.2.8 \
            crate://crates.io/hashbrown/0.12.3 \
            crate://crates.io/hermit-abi/0.1.19 \
@@ -31,12 +34,17 @@ SRC_URI = "gitsm://git@github.com/refeyn/iscat.git;protocol=ssh;branch=feature/g
            crate://crates.io/instant/0.1.12 \
            crate://crates.io/itertools/0.10.5 \
            crate://crates.io/itoa/1.0.6 \
+           crate://crates.io/lazy_static/1.4.0 \
            crate://crates.io/libc/0.2.140 \
            crate://crates.io/libm/0.2.6 \
            crate://crates.io/libmimalloc-sys/0.1.33 \
            crate://crates.io/lock_api/0.4.9 \
+           crate://crates.io/log/0.4.20 \
+           crate://crates.io/loom/0.6.1 \
+           crate://crates.io/matchers/0.1.0 \
            crate://crates.io/matrixmultiply/0.3.2 \
            crate://crates.io/medians/2.2.2 \
+           crate://crates.io/memchr/2.5.0 \
            crate://crates.io/memoffset/0.8.0 \
            crate://crates.io/mimalloc/0.1.37 \
            crate://crates.io/ndarray/0.15.6 \
@@ -46,6 +54,7 @@ SRC_URI = "gitsm://git@github.com/refeyn/iscat.git;protocol=ssh;branch=feature/g
            crate://crates.io/ndarray-stats/0.5.1 \
            crate://crates.io/ndrustfft/0.3.0 \
            crate://crates.io/noisy_float/0.2.0 \
+           crate://crates.io/nu-ansi-term/0.46.0 \
            crate://crates.io/num/0.4.0 \
            crate://crates.io/num-bigint/0.4.3 \
            crate://crates.io/num-complex/0.4.3 \
@@ -57,9 +66,11 @@ SRC_URI = "gitsm://git@github.com/refeyn/iscat.git;protocol=ssh;branch=feature/g
            crate://crates.io/num_threads/0.1.6 \
            crate://crates.io/numpy/0.18.0 \
            crate://crates.io/once_cell/1.17.1 \
+           crate://crates.io/overload/0.1.1 \
            crate://crates.io/parking_lot/0.11.2 \
            crate://crates.io/parking_lot_core/0.8.6 \
            crate://crates.io/paste/1.0.12 \
+           crate://crates.io/pin-project-lite/0.2.12 \
            crate://crates.io/ppv-lite86/0.2.17 \
            crate://crates.io/primal-check/0.3.3 \
            crate://crates.io/proc-macro2/1.0.54 \
@@ -81,12 +92,19 @@ SRC_URI = "gitsm://git@github.com/refeyn/iscat.git;protocol=ssh;branch=feature/g
            crate://crates.io/realfft/3.2.0 \
            crate://crates.io/redox_syscall/0.2.16 \
            crate://crates.io/redox_users/0.4.3 \
+           crate://crates.io/regex/1.9.3 \
+           crate://crates.io/regex-automata/0.1.10 \
+           crate://crates.io/regex-automata/0.3.6 \
+           crate://crates.io/regex-syntax/0.6.29 \
+           crate://crates.io/regex-syntax/0.7.4 \
            crate://crates.io/rustc-hash/1.1.0 \
            crate://crates.io/rustdct/0.7.1 \
            crate://crates.io/rustfft/6.1.0 \
            crate://crates.io/rustversion/1.0.12 \
+           crate://crates.io/scoped-tls/1.0.1 \
            crate://crates.io/scopeguard/1.1.0 \
            crate://crates.io/serde/1.0.160 \
+           crate://crates.io/sharded-slab/0.1.4 \
            crate://crates.io/slog/2.7.0 \
            crate://crates.io/slog-async/2.7.0 \
            crate://crates.io/slog-term/2.9.0 \
@@ -104,19 +122,35 @@ SRC_URI = "gitsm://git@github.com/refeyn/iscat.git;protocol=ssh;branch=feature/g
            crate://crates.io/time/0.3.20 \
            crate://crates.io/time-core/0.1.0 \
            crate://crates.io/time-macros/0.2.8 \
+           crate://crates.io/tracing/0.1.37 \
+           crate://crates.io/tracing-attributes/0.1.26 \
+           crate://crates.io/tracing-core/0.1.31 \
+           crate://crates.io/tracing-log/0.1.3 \
+           crate://crates.io/tracing-subscriber/0.3.17 \
            crate://crates.io/transpose/0.2.2 \
            crate://crates.io/unicode-ident/1.0.8 \
            crate://crates.io/unindent/0.1.11 \
+           crate://crates.io/valuable/0.1.0 \
            crate://crates.io/version_check/0.9.4 \
            crate://crates.io/wasi/0.11.0+wasi-snapshot-preview1 \
            crate://crates.io/winapi/0.3.9 \
            crate://crates.io/winapi-i686-pc-windows-gnu/0.4.0 \
            crate://crates.io/winapi-x86_64-pc-windows-gnu/0.4.0 \
+           crate://crates.io/windows/0.48.0 \
+           crate://crates.io/windows-targets/0.48.3 \
+           crate://crates.io/windows_aarch64_gnullvm/0.48.3 \
+           crate://crates.io/windows_aarch64_msvc/0.48.3 \
+           crate://crates.io/windows_i686_gnu/0.48.3 \
+           crate://crates.io/windows_i686_msvc/0.48.3 \
+           crate://crates.io/windows_x86_64_gnu/0.48.3 \
+           crate://crates.io/windows_x86_64_gnullvm/0.48.3 \
+           crate://crates.io/windows_x86_64_msvc/0.48.3 \
+           crate://crates.io/work-queue/0.1.4 \
            "
 
 # Modify these as desired
 PV = "1.0+git${SRCPV}"
-SRCREV = "5b78e3968f3c24d93797274d56799271438a85cb"
+SRCREV = "18d263adb544b874ae400698e9e176a80d7ad8b0"
 
 S = "${WORKDIR}/git"
 
