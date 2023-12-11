@@ -9,14 +9,15 @@ SRC_URI = "gitsm://git@github.com/refeyn/lw8.git;protocol=ssh;branch=master;lfs=
 
 # Modify these as desired
 PV = "v2023.2.0dev2+git${SRCPV}"
-SRCREV = "6641d6030add460d53ff02b5995f065826469957"
+SRCREV = "2ead813badd87a5bf0f5a75bf5a84f11153828f4"
 
 S = "${WORKDIR}/git"
 
 inherit setuptools3
 
 do_write_version() {
-    echo "VERSION_SHA = '${SRCREV}'" > ${S}/lw8/_versionSha.py
+    cd ${S}
+    echo "VERSION_SHA = '$(git rev-parse HEAD)'" > lw8/_versionSha.py
 }
 addtask do_write_version before do_compile after do_configure
 

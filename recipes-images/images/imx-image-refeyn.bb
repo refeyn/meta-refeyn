@@ -19,6 +19,7 @@ IMAGE_INSTALL += " \
     spidev-test \
     lmsensors \
     devmem2 \
+    python3-liteproto \
 "
 
 IMAGE_INSTALL_OPENCV              = ""

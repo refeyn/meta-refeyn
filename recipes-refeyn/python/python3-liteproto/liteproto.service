@@ -1,0 +1,9 @@
+[Unit]
+Description=Lite prototype
+
+[Service]
+ExecStart=/bin/bash -c "QT_QPA_EGLFS_KMS_CONFIG=eglfs.json QT_QPA_PLATFORM=eglfs QT_SCALE_FACTOR=2.5 python3 doit.py"
+WorkingDirectory=/usr/bin/liteproto
+
+[Install]
+WantedBy=multi-user.target
