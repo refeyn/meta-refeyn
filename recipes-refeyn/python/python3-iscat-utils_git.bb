@@ -7,14 +7,15 @@ SRC_URI = "gitsm://git@github.com/refeyn/iscat_utils.git;protocol=ssh;branch=mas
 
 # Modify these as desired
 PV = "1.44.0+git${SRCPV}"
-SRCREV = "5e4ca2a88c22ee7a0208ebcaa30afa9f79b81d13"
+SRCREV = "df7eba3e0179abfa4376b2a88877c35fc44662ab"
 
 S = "${WORKDIR}/git"
 
 inherit setuptools3
 
 do_write_version() {
-    echo "VERSION_SHA = '${SRCREV}'" > ${S}/iscat_utils/_versionSha.py
+    cd ${S}
+    echo "VERSION_SHA = '$(git rev-parse HEAD)'" > iscat_utils/_versionSha.py
 }
 addtask do_write_version before do_compile after do_configure
 
