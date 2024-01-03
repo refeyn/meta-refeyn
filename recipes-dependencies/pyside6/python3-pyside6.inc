@@ -25,6 +25,7 @@ PYSIDE_QTMODULES = "\
     qtsvg \
     qtdeclarative \
     qtcharts \
+    qtmultimedia \
 "
 
 DEPENDS += "\

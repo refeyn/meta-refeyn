@@ -1,0 +1,129 @@
+{
+    "version": 17,
+    "deviceSerials": {
+        "AcqCam": "#1234-5678",
+        "Stages": "Stub stages",
+        "DigilentAD2": "Stub DigilentAD2"
+    },
+    "photometer": {
+        "instrumentType": 2,
+        "instrumentNumber": null,
+        "currentMeasurementMode": 0,
+        "currentImageSize": "Medium",
+        "imageSizes": {
+            "Medium": {
+                "camera": {
+                    "width": 500,
+                    "height": 400,
+                    "offsetX": 710,
+                    "offsetY": 400,
+                    "exposureTime": 0.1,
+                    "frameRate": 350.0,
+                    "frameBinning": 4,
+                    "pixelBinning": 6
+                },
+                "illumination": null
+            },
+            "Custom": {
+                "camera": {
+                    "width": 500,
+                    "height": 400,
+                    "offsetX": 710,
+                    "offsetY": 400,
+                    "exposureTime": 0.1,
+                    "frameRate": 350.0,
+                    "frameBinning": 4,
+                    "pixelBinning": 6
+                },
+                "illumination": null
+            },
+            "Full": {
+                "camera": {
+                    "width": 1920,
+                    "height": 1200,
+                    "offsetX": 0,
+                    "offsetY": 0,
+                    "exposureTime": 0.1,
+                    "frameRate": 1000.0,
+                    "frameBinning": 10,
+                    "pixelBinning": 6
+                },
+                "illumination": null
+            }
+        },
+        "stages": {
+            "z": {
+                "channel": 2,
+                "defaultPosition": 0.0,
+                "softwareLimits": [
+                    -2.5e-05,
+                    2.5e-05
+                ],
+                "scanIncrement": 0.15,
+                "stepAmp": 0.0,
+                "stepFreq": 0,
+                "stepsPerMove": 1,
+                "positionerType": null,
+                "reversed": false
+            }
+        },
+        "illumination": {
+            "laserVoltage": 2.0,
+            "laserModulationAmplitude": 0.5
+        },
+        "robot": null,
+        "gasket": {
+            "gasketType": 3,
+            "calibration": {
+                "translation": [
+                    0.0,
+                    0.0
+                ],
+                "linearMap": [
+                    [
+                        1.0,
+                        0.0
+                    ],
+                    [
+                        0.0,
+                        1.0
+                    ]
+                ]
+            }
+        },
+        "stabiliseFocus": {
+            "afCamera": {
+                "width": 399,
+                "height": 399,
+                "offsetX": 420,
+                "offsetY": 302,
+                "exposureTime": 0.1,
+                "frameRate": 50.0,
+                "frameBinning": 1,
+                "pixelBinning": 3
+            },
+            "afEngine": {
+                "maskRadius": 20.0,
+                "noiseThreshold": 2.0,
+                "radiusThreshold": 50.0,
+                "temperatureCorrectionEnabled": false,
+                "temperatureCorrectionSlope": 0.005
+            },
+            "focusStabiliser": {
+                "controlLoopGain": 0.15,
+                "scanPixelGradient": -0.0479,
+                "ringFreeStabilisationAmp": 5e-09,
+                "ringFreeStabilisationKp": 9.0
+            }
+        },
+        "routineSettings": {
+            "savedFocusPosition": null,
+            "findFocusAlgorithm": 1,
+            "brightnessSearchFindFocusThreshold": null,
+            "bufferFreeStabiliseFocusMethod": 0,
+            "peakInversionMitigation": false,
+            "wellFindingAODAmplifierVoltage": 2.5,
+            "cleanlinessAlgorithm": 1
+        }
+    }
+}
