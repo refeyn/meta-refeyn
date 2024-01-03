@@ -6,7 +6,6 @@ SRC_URI = " \
     file://99-fluigent.rules \
 "
 
-# Modify these as desired
 PV = "1.0+git${SRCPV}"
 SRCREV = "e158ea873f0ed7ac7bbbcc607496cfe19f8448aa"
 RDEPENDS:${PN} = "python3-core libudev"

@@ -1,4 +1,4 @@
-From 5b85473c19e098e41cd76f9506a7a86a47222df5 Mon Sep 17 00:00:00 2001
+From e14f9f385120f97c24dded2db30f73137f352615 Mon Sep 17 00:00:00 2001
 From: Matthew Joyce <matthew.joyce@refeyn.com>
 Date: Mon, 22 May 2023 15:43:35 +0100
 Subject: [PATCH] Remove internal dependencies and C extension from setup
@@ -8,7 +8,7 @@ Subject: [PATCH] Remove internal dependencies and C extension from setup
  1 file changed, 2 insertions(+), 26 deletions(-)
 
 diff --git a/setup.py b/setup.py
-index 8e116b235..cc5e7a33d 100644
+index 42b5f1eee..54be1ca4c 100644
 --- a/setup.py
 +++ b/setup.py
 @@ -11,7 +11,6 @@ import sys
@@ -19,7 +19,7 @@ index 8e116b235..cc5e7a33d 100644
  
  sys.path.insert(0, str(Path(__file__).parent / "internal_dependencies" / "dev_utils"))
  from dev_utils.deploy.makeUtils import (
-@@ -67,40 +66,17 @@ SETUP_KWARGS = {
+@@ -67,39 +66,16 @@ SETUP_KWARGS = {
      "author": "Refeyn Ltd",
      "author_email": "max.hantke@refeyn.com",
      "license": "Proprietary and confidential",
@@ -33,7 +33,6 @@ index 8e116b235..cc5e7a33d 100644
 +        PACKAGE_NAME: str(PATH_PACKAGE)
      },
      "include_package_data": True,
-     "entry_points": {"console_scripts": ["lw8 = lw8.lw8:main"]},
 -    "ext_modules": [
 -        setuptools.Extension(
 -            name="lw8.devices.stage.mcs2_c",
