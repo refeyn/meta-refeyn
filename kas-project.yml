@@ -1,7 +1,7 @@
 header:
   version: 13
 
-machine: imx8qmmek
+machine: imx8qm-ec-asm-00014-01
 distro: fsl-imx-wayland
 target:
  - imx-image-refeyn
@@ -132,6 +132,8 @@ local_conf_header:
     PACKAGECONFIG:append:pn-qemu-system-native = " sdl"
     CONF_VERSION = "2"
     ACCEPT_FSL_EULA = "1"
+
+  prevent_running_out_of_memory: |
     PARALLEL_MAKE = "-j 5"
     BB_NUMBER_THREADS = "4"
 
@@ -153,3 +155,6 @@ local_conf_header:
     KERNEL_DEVICETREE:remove = "freescale/imx8qm-mek-enet2-tja1100.dtb"
     KERNEL_DEVICETREE:remove = "freescale/imx8qm-mek-dsi-rm67191.dtb"
     KERNEL_DEVICETREE:remove = "freescale/imx8qm-mek-dsi-rm67199.dtb"
+
+  persistent_log: |
+    VOLATILE_LOG_DIR = "no"
