@@ -1,7 +1,3 @@
-FILESEXTRAPATHS:prepend := "${THISDIR}/${PN}:"
-
-SRC_URI += "file://0001-Add-SPI-bus-3-with-the-8-CS-pins-two-LEDs-and-remain.patch \
-            file://0002-VERY-UGLY-touchscreen-driver-hacks.patch \
-            file://0003-Add-touch-via-I2C.patch \
-            "
-
+SRCBRANCH = "refeyn-lf-6.1.y"
+KERNEL_SRC = "git://git@github.com/refeyn/linux-imx.git;protocol=ssh;branch=${SRCBRANCH}"
+SRCREV = "1e8ea3ab35816e702e049a40dde355bb29443a0f"

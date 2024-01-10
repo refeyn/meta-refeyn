@@ -1,5 +1,5 @@
 {
-    "version": 17,
+    "version": 25,
     "deviceSerials": {
         "AcqCam": "#1234-5678",
         "Stages": "Stub stages",
@@ -69,7 +69,9 @@
         },
         "illumination": {
             "laserVoltage": 2.0,
-            "laserModulationAmplitude": 0.5
+            "laserModulationFrequency": 90000.0,
+            "laserModulationAmplitude": 0.5,
+            "laserModulationSymmetry": 50.0
         },
         "robot": null,
         "gasket": {
@@ -91,6 +93,7 @@
                 ]
             }
         },
+        "environmental": null,
         "stabiliseFocus": {
             "afCamera": {
                 "width": 399,
@@ -122,8 +125,10 @@
             "brightnessSearchFindFocusThreshold": null,
             "bufferFreeStabiliseFocusMethod": 0,
             "peakInversionMitigation": false,
-            "wellFindingAODAmplifierVoltage": 2.5,
-            "cleanlinessAlgorithm": 1
+            "wellFindingAODAmplifierVoltage": 2.5
+        },
+        "opticsSettings": {
+            "contrastInverted": false
         }
     }
 }
