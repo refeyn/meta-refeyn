@@ -3,10 +3,10 @@ HOMEPAGE = "https://github.com/refeyn/iscat_utils"
 
 LICENSE = "CLOSED"
 
-SRC_URI = "gitsm://git@github.com/refeyn/iscat_utils.git;protocol=ssh;branch=feature/CM-522-embedded-compatibility"
+SRC_URI = "gitsm://git@github.com/refeyn/iscat_utils.git;protocol=ssh;branch=master"
 
 PV = "1.44.0+git${SRCPV}"
-SRCREV = "23c9b007c028213a2956314b4766d02ec05fd01c"
+SRCREV = "a95f6cd2745466d0e337ce37333f4418026efe7c"
 
 S = "${WORKDIR}/git"
 

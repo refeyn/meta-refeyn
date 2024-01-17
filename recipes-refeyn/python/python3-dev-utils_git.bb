@@ -7,7 +7,7 @@ LIC_FILES_CHKSUM = ""
 SRC_URI = "git://git@github.com/refeyn/dev_utils.git;protocol=ssh;branch=master"
 
 PV = "1.41.0+git${SRCPV}"
-SRCREV = "9540d1ff7b0017ae0bed8874ef51de32564b907e"
+SRCREV = "bb499ded78168b002fc206cc068d92755d50a62d"
 
 S = "${WORKDIR}/git"
 

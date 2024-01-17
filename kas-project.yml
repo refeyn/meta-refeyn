@@ -151,10 +151,5 @@ local_conf_header:
   rust: |
     RUSTVERSION = "1.70.0"
 
-  ignore_dts: |
-    KERNEL_DEVICETREE:remove = "freescale/imx8qm-mek-enet2-tja1100.dtb"
-    KERNEL_DEVICETREE:remove = "freescale/imx8qm-mek-dsi-rm67191.dtb"
-    KERNEL_DEVICETREE:remove = "freescale/imx8qm-mek-dsi-rm67199.dtb"
-
   persistent_log: |
     VOLATILE_LOG_DIR = "no"

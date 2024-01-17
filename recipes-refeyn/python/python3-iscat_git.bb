@@ -4,7 +4,7 @@ HOMEPAGE = "https://github.com/refeyn/iscat"
 LICENSE = "CLOSED"
 
 
-SRC_URI = "gitsm://git@github.com/refeyn/iscat.git;protocol=ssh;branch=feature/CM-522-embedded-compatibility \
+SRC_URI = "gitsm://git@github.com/refeyn/iscat.git;protocol=ssh;branch=master \
            crate://crates.io/affinity/0.1.2 \
            crate://crates.io/anyhow/1.0.75 \
            crate://crates.io/approx/0.5.1 \
@@ -94,7 +94,7 @@ SRC_URI = "gitsm://git@github.com/refeyn/iscat.git;protocol=ssh;branch=feature/C
            "
 
 PV = "1.0+git${SRCPV}"
-SRCREV = "ab39b45abd0045080c1757d5207b7ffa3d9bb9e0"
+SRCREV = "9b2f3698f4fcff2799f98b57b931f48285bdbdf9"
 
 S = "${WORKDIR}/git"
 

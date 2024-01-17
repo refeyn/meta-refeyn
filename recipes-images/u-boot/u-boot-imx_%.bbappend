@@ -1,3 +1,3 @@
 UBOOT_SRC = "git://git@github.com/refeyn/uboot-imx.git;protocol=ssh"
 SRCBRANCH = "refeyn-lf_v2022.04"
-SRCREV = "7376547b9e424b2d0f42dfe96394168c781ca297"
+SRCREV = "fff82013cd8d816bf405dd89f9980a08ecbb48d9"
