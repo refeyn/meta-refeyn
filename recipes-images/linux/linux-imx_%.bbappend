@@ -1,3 +1,3 @@
 SRCBRANCH = "refeyn-lf-6.1.y"
 KERNEL_SRC = "git://git@github.com/refeyn/linux-imx.git;protocol=ssh;branch=${SRCBRANCH}"
-SRCREV = "1e8ea3ab35816e702e049a40dde355bb29443a0f"
+SRCREV = "5bb9a7aefed75a4e54344d08c44f03167fd1ae26"

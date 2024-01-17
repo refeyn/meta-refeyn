@@ -3,7 +3,7 @@ HOMEPAGE = "https://github.com/refeyn/lw8"
 
 LICENSE = "CLOSED"
 
-SRC_URI = "gitsm://git@github.com/refeyn/lw8.git;protocol=ssh;branch=feature/CM-522-systemd-stop-intergration;lfs=0 \
+SRC_URI = "gitsm://git@github.com/refeyn/lw8.git;protocol=ssh;branch=master;lfs=0 \
            file://0001-Remove-internal-dependencies-and-C-extension-from-se.patch \
            file://eglfs.json \
            file://lw8.service \
@@ -11,7 +11,7 @@ SRC_URI = "gitsm://git@github.com/refeyn/lw8.git;protocol=ssh;branch=feature/CM-
            "
 
 PV = "v2023.2.0dev2+git${SRCPV}"
-SRCREV = "8968a62b3ccf145cc1fe3f91735546347a6aecb1"
+SRCREV = "632c03f5ffdb5c57739de13aa6bf3b0db3580cb7"
 
 S = "${WORKDIR}/git"
 
