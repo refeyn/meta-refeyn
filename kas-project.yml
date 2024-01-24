@@ -153,3 +153,7 @@ local_conf_header:
 
   persistent_log: |
     VOLATILE_LOG_DIR = "no"
+
+  buildhistory: |
+    INHERIT += "buildhistory"
+    BUILDHISTORY_COMMIT = "0"

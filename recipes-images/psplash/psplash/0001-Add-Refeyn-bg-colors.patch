@@ -1,0 +1,33 @@
+From 4255a2d72a47bbbee9b5f112041006399375224f Mon Sep 17 00:00:00 2001
+From: Matthew Joyce <matthew.joyce@refeyn.com>
+Date: Mon, 22 Jan 2024 13:16:28 +0000
+Subject: [PATCH] Add Refeyn bg colors
+
+---
+ psplash-colors.h | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
+
+diff --git a/psplash-colors.h b/psplash-colors.h
+index 82a9893..2644c13 100644
+--- a/psplash-colors.h
++++ b/psplash-colors.h
+@@ -12,15 +12,15 @@
+ #define _HAVE_PSPLASH_COLORS_H
+ 
+ /* This is the overall background color */
+-#define PSPLASH_BACKGROUND_COLOR 0xec,0xec,0xe1
++#define PSPLASH_BACKGROUND_COLOR 14,26,39
+ 
+ /* This is the color of any text output */
+-#define PSPLASH_TEXT_COLOR 0x6d,0x6d,0x70
++#define PSPLASH_TEXT_COLOR 63,76,89
+ 
+ /* This is the color of the progress bar indicator */
+-#define PSPLASH_BAR_COLOR 0x6d,0x6d,0x70
++#define PSPLASH_BAR_COLOR 63,76,89
+ 
+ /* This is the color of the progress bar background */
+-#define PSPLASH_BAR_BACKGROUND_COLOR 0xec,0xec,0xe1
++#define PSPLASH_BAR_BACKGROUND_COLOR 14,26,39
+ 
+ #endif
