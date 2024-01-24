@@ -19,6 +19,7 @@ IMAGE_INSTALL += " \
     spidev-test \
     lmsensors \
     devmem2 \
+    psplash \
 "
 
 IMAGE_INSTALL_OPENCV              = ""
@@ -49,6 +50,7 @@ IMAGE_FEATURES += " \
     ssh-server-dropbear \
     hwcodecs \
     weston \
+    splash \
 "
 
 V2X_PKGS = ""
