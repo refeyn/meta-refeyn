@@ -78,8 +78,8 @@ repos:
 
   meta-qt6:
     url: "https://code.qt.io/yocto/meta-qt6"
-    refspec: 4f7d02004cd78f0fca77489deb7487bfb301ea36
-    # refspec: "6.4"
+    refspec: 2e751503e1c37d864b87afee211347d60a055766
+    # refspec: "6.5"
 
   # meta-timesys:
     # url: "https://github.com/TimesysGit/meta-timesys"
@@ -149,7 +149,7 @@ local_conf_header:
     DEFAULTTUNE:mx8qm-nxp-bsp = "cortexa72-cortexa53-crypto"
 
   rust: |
-    RUSTVERSION = "1.70.0"
+    RUSTVERSION = "1.74.1"
 
   persistent_log: |
     VOLATILE_LOG_DIR = "no"
@@ -157,3 +157,4 @@ local_conf_header:
   buildhistory: |
     INHERIT += "buildhistory"
     BUILDHISTORY_COMMIT = "0"
+    ERROR_QA:remove = "version-going-backwards"

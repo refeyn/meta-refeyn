@@ -3,25 +3,18 @@ HOMEPAGE = "https://github.com/refeyn/lw8"
 
 LICENSE = "CLOSED"
 
-SRC_URI = "gitsm://git@github.com/refeyn/lw8.git;protocol=ssh;branch=master;lfs=0 \
-           file://0001-Remove-internal-dependencies-and-C-extension-from-se.patch \
+SRC_URI = "git://git@github.com/refeyn/lw8.git;protocol=ssh;branch=feature/CMS-20-do-not-build-mcs2-on-non-windows \
            file://eglfs.json \
            file://lw8.service \
            file://factory_settings.json \
            "
 
 PV = "v2023.2.0dev2+git${SRCPV}"
-SRCREV = "632c03f5ffdb5c57739de13aa6bf3b0db3580cb7"
+SRCREV = "5e67439b065b5c794584ec0de098ef06df204fed"
 
 S = "${WORKDIR}/git"
 
 inherit setuptools3
-
-do_write_version() {
-    cd ${S}
-    echo "VERSION_SHA = '$(git rev-parse HEAD)'" > lw8/_versionSha.py
-}
-addtask do_write_version before do_compile after do_configure
 
 do_compile_ui() {
     cd ${S}
@@ -29,7 +22,7 @@ do_compile_ui() {
     echo '#!/usr/bin/env bash
 ${STAGING_DIR_NATIVE}/usr/libexec/uic -g python "$@"' > ${STAGING_BINDIR_NATIVE}/pyside6-uic
     chmod +x ${STAGING_BINDIR_NATIVE}/pyside6-uic
-    compile_ui lw8
+    dev_utils compile-ui lw8
 }
 addtask do_compile_ui before do_compile after do_configure
 

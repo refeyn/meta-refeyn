@@ -3,20 +3,14 @@ HOMEPAGE = "https://github.com/refeyn/iscat_utils"
 
 LICENSE = "CLOSED"
 
-SRC_URI = "gitsm://git@github.com/refeyn/iscat_utils.git;protocol=ssh;branch=master"
+SRC_URI = "git://git@github.com/refeyn/iscat_utils.git;protocol=ssh;branch=master"
 
 PV = "1.44.0+git${SRCPV}"
-SRCREV = "a95f6cd2745466d0e337ce37333f4418026efe7c"
+SRCREV = "39f7f30711f707974f55afdb91956476e4e756ea"
 
 S = "${WORKDIR}/git"
 
 inherit setuptools3
-
-do_write_version() {
-    cd ${S}
-    echo "VERSION_SHA = '$(git rev-parse HEAD)'" > iscat_utils/_versionSha.py
-}
-addtask do_write_version before do_compile after do_configure
 
 do_compile_ui() {
     cd ${S}
@@ -24,7 +18,7 @@ do_compile_ui() {
     echo '#!/usr/bin/env bash
 ${STAGING_DIR_NATIVE}/usr/libexec/uic -g python "$@"' > ${STAGING_BINDIR_NATIVE}/pyside6-uic
     chmod +x ${STAGING_BINDIR_NATIVE}/pyside6-uic
-    compile_ui iscat_utils
+    dev_utils compile-ui iscat_utils
 }
 addtask do_compile_ui before do_compile after do_configure
 

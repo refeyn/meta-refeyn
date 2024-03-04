@@ -16,9 +16,9 @@ require recipes-qt/qt6/qt6-git.inc
 
 QT_GIT_PROJECT = "pyside"
 QT_MODULE = "pyside-setup"
-QT_MODULE_BRANCH = "6.4"
+QT_MODULE_BRANCH = "6.5.3"
 
-SRCREV = "392559ed8c4d6a733a72af9c1311b8cb2ff3e633"
+SRCREV = "2f27264a7a07e3d175afadbe9cb1a543df40cd2f"
 
 PYSIDE_QTMODULES = "\
     qtbase \

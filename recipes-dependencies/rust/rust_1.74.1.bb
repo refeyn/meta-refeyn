@@ -72,10 +72,7 @@ do_rust_setup_snapshot[vardepsexclude] += "UNINATIVE_LOADER"
 
 python do_configure() {
     import json
-    try:
-        import configparser
-    except ImportError:
-        import ConfigParser as configparser
+    import configparser
 
     # toml is rather similar to standard ini like format except it likes values
     # that look more JSON like. So for our purposes simply escaping all values
@@ -130,6 +127,7 @@ python do_configure() {
     # [rust]
     config.add_section("rust")
     config.set("rust", "rpath", e(True))
+    config.set("rust", "remap-debuginfo", e(True))
     config.set("rust", "channel", e(d.expand("${RUST_CHANNEL}")))
 
     # Whether or not to optimize the compiler and standard library
@@ -143,26 +141,23 @@ python do_configure() {
     config.add_section("build")
     config.set("build", "submodules", e(False))
     config.set("build", "docs", e(False))
+    config.set("build", "tools", ["rust-demangler",])
 
     rustc = d.expand("${WORKDIR}/rust-snapshot/bin/rustc")
     config.set("build", "rustc", e(rustc))
 
     # Support for the profiler runtime to generate e.g. coverage report,
     # PGO etc.
-    config.set("build", "profiler", e(True))
+    config.set("build", "profiler", e(False))
 
     cargo = d.expand("${WORKDIR}/rust-snapshot/bin/cargo")
     config.set("build", "cargo", e(cargo))
 
     config.set("build", "vendor", e(True))
 
-    if not "targets" in locals():
-        targets = [d.getVar("RUST_TARGET_SYS")]
-    config.set("build", "target", e(targets))
+    config.set("build", "target", e([d.getVar("RUST_TARGET_SYS")]))
 
-    if not "hosts" in locals():
-        hosts = [d.getVar("RUST_HOST_SYS")]
-    config.set("build", "host", e(hosts))
+    config.set("build", "host", e([d.getVar("RUST_HOST_SYS")]))
 
     # We can't use BUILD_SYS since that is something the rust snapshot knows
     # nothing about when trying to build some stage0 tools (like fabricate)
@@ -177,6 +172,7 @@ python do_configure() {
     config.set("install", "libdir",  e(d.getVar("D") + d.getVar("libdir")))
     config.set("install", "datadir", e(d.getVar("D") + d.getVar("datadir")))
     config.set("install", "mandir",  e(d.getVar("D") + d.getVar("mandir")))
+    config.set("install", "sysconfdir",  e(d.getVar("D") + d.getVar("sysconfdir")))
 
     with open("config.toml", "w") as f:
         f.write('changelog-seen = 2\n\n')
@@ -204,7 +200,11 @@ rust_runx () {
     if [ ${RUST_ALTERNATE_EXE_PATH_NATIVE} != ${RUST_ALTERNATE_EXE_PATH} -a ! -f ${RUST_ALTERNATE_EXE_PATH} ]; then
         mkdir -p `dirname ${RUST_ALTERNATE_EXE_PATH}`
         cp ${RUST_ALTERNATE_EXE_PATH_NATIVE} ${RUST_ALTERNATE_EXE_PATH}
-        chrpath -d ${RUST_ALTERNATE_EXE_PATH}
+        if [ -e ${STAGING_LIBDIR_NATIVE}/libc++.so.1 ]; then
+            chrpath -r \$ORIGIN/../../../../../`basename ${STAGING_DIR_NATIVE}`${libdir_native} ${RUST_ALTERNATE_EXE_PATH}
+        else
+            chrpath -d ${RUST_ALTERNATE_EXE_PATH}
+        fi
     fi
 
     oe_cargo_fix_env
@@ -231,9 +231,11 @@ do_test_compile () {
 
 ALLOW_EMPTY:${PN} = "1"
 
-PACKAGES =+ "${PN}-tools-clippy ${PN}-tools-rustfmt"
+PACKAGES =+ "${PN}-rustdoc ${PN}-tools-clippy ${PN}-tools-rustfmt"
+FILES:${PN}-rustdoc = "${bindir}/rustdoc"
 FILES:${PN}-tools-clippy = "${bindir}/cargo-clippy ${bindir}/clippy-driver"
 FILES:${PN}-tools-rustfmt = "${bindir}/rustfmt"
+RDEPENDS:${PN}-rustdoc = "${PN}"
 RDEPENDS:${PN}-tools-clippy = "${PN}"
 RDEPENDS:${PN}-tools-rustfmt = "${PN}"
 
