@@ -3,7 +3,7 @@ HOMEPAGE = "https://github.com/refeyn/iscat"
 
 LICENSE = "CLOSED"
 
-SRC_URI = "git://git@github.com/refeyn/iscat.git;protocol=ssh;branch=master \
+SRC_URI = "git://git@github.com/refeyn/iscat.git;protocol=ssh;branch=master;destsuffix=iscat \
            crate://crates.io/affinity/0.1.2 \
            crate://crates.io/anyhow/1.0.75 \
            crate://crates.io/approx/0.5.1 \
@@ -93,18 +93,17 @@ SRC_URI = "git://git@github.com/refeyn/iscat.git;protocol=ssh;branch=master \
            "
 
 PV = "1.0+git${SRCPV}"
-SRCREV = "e0e92adc1d7c42163d72155552078d42c85757eb"
+SRCREV = "744aa7df3ecb02693ab2d54185968cf05a14b0ac"
 
-S = "${WORKDIR}/git"
+S = "${WORKDIR}/iscat"
 
 inherit python_setuptools3_rust
+require python3-dev-utils-build.inc
 
 # HACK until ndarray_ndimage has a new release
 do_configure[network] = "1"
 do_unpack[network] = "1"
 do_compile[network] = "1"
-
-DEPENDS += "python3-dev-utils-native"
 
 RDEPENDS:${PN} += "hdf5plugin-zstandard python3-asyncio python3-core python3-datetime python3-distutils python3-h5py python3-io python3-json python3-logging python3-more-itertools python3-multiprocessing python3-numpy python3-pickle python3-profile python3-psutil python3-pydantic python3-pytest python3-scikit-learn python3-scipy python3-threading python3-typing-extensions python3-unittest"
 PREFERRED_VERSION_python3-pydantic = "2.6.3"
