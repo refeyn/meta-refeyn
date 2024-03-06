@@ -158,3 +158,6 @@ local_conf_header:
     INHERIT += "buildhistory"
     BUILDHISTORY_COMMIT = "0"
     ERROR_QA:remove = "version-going-backwards"
+
+  refeynvars: |
+    REFEYN_NO_CYTHONIZE = "1"
