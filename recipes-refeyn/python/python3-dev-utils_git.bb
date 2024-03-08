@@ -4,10 +4,10 @@ HOMEPAGE = "https://github.com/refeyn/dev_utils"
 LICENSE = "CLOSED"
 LIC_FILES_CHKSUM = ""
 
-SRC_URI = "git://git@github.com/refeyn/dev_utils.git;protocol=ssh;branch=feature/CMS-28-option-to-ignore-cache-compile-ui"
+SRC_URI = "git://git@github.com/refeyn/dev_utils.git;protocol=ssh;branch=master"
 
 PV = "1.41.0+git${SRCPV}"
-SRCREV = "dc3401b85622743c19d2f612a9b703f834f7f319"
+SRCREV = "${AUTOREV}"
 
 S = "${WORKDIR}/git"
 

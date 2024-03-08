@@ -159,5 +159,8 @@ local_conf_header:
     BUILDHISTORY_COMMIT = "0"
     ERROR_QA:remove = "version-going-backwards"
 
+  licences: |
+    INCOMPATIBLE_LICENSE:imx-image-refeyn = "GPL-3.0* LGPL-3.0*"
+
   refeynvars: |
     REFEYN_NO_CYTHONIZE = "1"
