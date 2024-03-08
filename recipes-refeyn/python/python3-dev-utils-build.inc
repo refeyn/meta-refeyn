@@ -2,7 +2,7 @@ inherit setuptools3
 
 do_compile:prepend() {
     export NO_CYTHONIZE=${REFEYN_NO_CYTHONIZE}
-    rm -r ${S}/build
+    rm -rf ${S}/build
 }
 
 do_compile_ui() {

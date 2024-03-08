@@ -6,11 +6,10 @@ LICENSE = "CLOSED"
 SRC_URI = "git://git@github.com/refeyn/lw8.git;protocol=ssh;branch=master;destsuffix=lw8 \
            file://eglfs.json \
            file://lw8.service \
-           file://factory_settings.json \
            "
 
 PV = "v2023.2.0dev2+git${SRCPV}"
-SRCREV = "e94a2fb48f7af56bc142240ffe6c06cb2c742368"
+SRCREV = "${AUTOREV}"
 
 S = "${WORKDIR}/lw8"
 
@@ -25,7 +24,6 @@ SYSTEMD_SERVICE:${PN} = "lw8.service"
 do_install:append() {
     install -d ${D}${sysconfdir}/Refeyn/AcquireMP/
     cp ${WORKDIR}/eglfs.json ${D}${sysconfdir}/Refeyn/AcquireMP/
-    cp ${WORKDIR}/factory_settings.json ${D}${sysconfdir}/Refeyn/AcquireMP/
 
     install -d ${D}/${systemd_unitdir}/system
     install -m 0644 ${WORKDIR}/lw8.service ${D}/${systemd_unitdir}/system
