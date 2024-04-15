@@ -10,7 +10,7 @@ inherit deploy
 
 SRC_URI = "git://git@github.com/refeyn/i.MX-System-Controller-Firmware.git;branch=master;protocol=ssh;fsl-eula=true"
 
-SRCREV = "67e4d012edba02857911c01351c105f8db928ddb"
+SRCREV = "${AUTOREV}"
 
 S = "${WORKDIR}/git"
 
