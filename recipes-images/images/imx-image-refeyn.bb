@@ -8,19 +8,24 @@ CONFLICT_DISTRO_FEATURES = "directfb"
 
 IMAGE_INSTALL += " \
     curl \
-    packagegroup-imx-ml \
-    packagegroup-qt6-imx \
     tzdata \
-    ${IMAGE_INSTALL_OPENCV} \
-    ${IMAGE_INSTALL_PARSEC} \
-    python3-lw8 \
     i2c-tools \
     libgpiod-tools \
     spidev-test \
+    can-utils \
     lmsensors \
     devmem2 \
     psplash \
+    python3-refeyn-scripts \
 "
+
+# IMAGE_INSTALL += " \
+#     python3-lw8 \
+#     packagegroup-imx-ml \
+#     packagegroup-qt6-imx \
+#     ${IMAGE_INSTALL_OPENCV} \
+#     ${IMAGE_INSTALL_PARSEC} \
+# "
 
 IMAGE_INSTALL_OPENCV              = ""
 IMAGE_INSTALL_OPENCV:imxgpu       = "${IMAGE_INSTALL_OPENCV_PKGS}"
@@ -41,17 +46,19 @@ IMAGE_INSTALL_PARSEC:aarch64 = " \
 ## Select Image Features
 IMAGE_FEATURES += " \
     debug-tweaks \
-    tools-profile \
-    tools-sdk \
     package-management \
     splash \
-    nfs-server \
-    tools-debug \
-    ssh-server-dropbear \
     hwcodecs \
     weston \
     splash \
 "
+# IMAGE_FEATURES += " \
+#     tools-profile \
+#     tools-sdk \
+#     tools-debug \
+#     nfs-server \
+#     ssh-server-dropbear \
+# "
 
 V2X_PKGS = ""
 V2X_PKGS:mx8dxl-nxp-bsp = "packagegroup-imx-v2x"
@@ -65,19 +72,23 @@ G2D_SAMPLES:mx93-nxp-bsp = "imx-g2d-samples"
 
 CORE_IMAGE_EXTRA_INSTALL += " \
     packagegroup-core-full-cmdline \
-    packagegroup-fsl-tools-audio \
-    packagegroup-fsl-tools-gpu \
-    packagegroup-fsl-tools-gpu-external \
-    packagegroup-imx-isp \
-    packagegroup-imx-security \
-    packagegroup-fsl-gstreamer1.0 \
-    packagegroup-fsl-gstreamer1.0-full \
     firmwared \
     nano \
     lrzsz \
     htop \
-    ${DOCKER} \
 "
+
+
+# CORE_IMAGE_EXTRA_INSTALL += " \
+#     packagegroup-fsl-tools-audio \
+#     packagegroup-fsl-tools-gpu \
+#     packagegroup-fsl-tools-gpu-external \
+#     packagegroup-imx-isp \
+#     packagegroup-imx-security \
+#     packagegroup-fsl-gstreamer1.0 \
+#     packagegroup-fsl-gstreamer1.0-full \
+#     ${DOCKER} \
+# "
 
 FORTRAN:forcevariable = ",fortran"
 RUNTIMETARGET:append:pn-gcc-runtime = " libquadmath"
