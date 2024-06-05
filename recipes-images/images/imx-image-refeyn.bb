@@ -51,13 +51,13 @@ IMAGE_FEATURES += " \
     hwcodecs \
     weston \
     splash \
+    ssh-server-dropbear \
 "
 # IMAGE_FEATURES += " \
 #     tools-profile \
 #     tools-sdk \
 #     tools-debug \
 #     nfs-server \
-#     ssh-server-dropbear \
 # "
 
 V2X_PKGS = ""
