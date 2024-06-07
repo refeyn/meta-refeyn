@@ -13,6 +13,10 @@ SRCREV = "${AUTOREV}"
 
 S = "${WORKDIR}/lw8"
 
+# HACK lfs aint working
+
+do_unpack[network] = "1"
+
 require python3-dev-utils-build.inc
 
 FILES:${PN} += "${systemd_unitdir}/system/lw8.service"

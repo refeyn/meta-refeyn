@@ -1,10 +1,10 @@
 LICENSE = "Ximea-Licence"
-LIC_FILES_CHKSUM = "file://License.txt;md5=b9215a55b9de0276a924742b3cc99060"
+LIC_FILES_CHKSUM = "file://License.txt;md5=5c5ee3c662eb48159d834b005f362839"
 
 NO_GENERIC_LICENSE[Ximea-Licence] = "License.txt"
 
-SRC_URI = "https://www.ximea.com/downloads/recent/XIMEA_Linux_SP.tgz;subdir=src"
-SRC_URI[sha256sum] = "f1ac31de6beacfbae5eb1e29b8f32554ec52ed9e410346032813f1b9214c9686"
+SRC_URI = "https://www.ximea.com/downloads/recent/XIMEA_Linux_ARM_SP.tgz;subdir=src"
+SRC_URI[sha256sum] = "50fdb4b317a4309bc350f2e78c761b62ba5ec3b5702e25e4522cf1c21532f627"
 
 S = "${WORKDIR}/src/package"
 
