@@ -1,7 +1,7 @@
 DESCRIPTION = "A scientific graphing library for QtQuick"
 HOMEPAGE = "https://github.com/refeyn/QuickGraphLib"
 LICENSE = "MIT"
-LIC_FILES_CHKSUM = "file://LICENCE;md5=e11366a13e25becfe74b77f68f0178f2"
+LIC_FILES_CHKSUM = "file://LICENCE;md5=292bbc415362ce0cd996cedf5dcf7235"
 
 inherit qt6-cmake python_setuptools_build_meta
 
