@@ -1,0 +1,31 @@
+name: Image build
+
+on:
+ workflow_dispatch:
+ push:
+  tags:
+    - '*'
+ schedule:
+    - cron: '0 0 * * *'
+
+jobs:
+  deploy:
+    name: Test and Deploy
+    runs-on: yocto
+    timeout-minutes: 500
+
+    steps:
+      - name: Make dir
+        run: |
+          rm -rf imx-refeyn
+          mkdir imx-refeyn
+
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          path: imx-refeyn/meta-refeyn
+
+      - name: Build
+        run: |
+          cd imx-refeyn
+          kas build meta-refeyn/kas-project.yml
