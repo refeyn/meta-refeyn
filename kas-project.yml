@@ -7,6 +7,9 @@ target:
  - imx-image-refeyn
  - imx-image-refeyn-lite
 
+env:
+  REFEYN_NO_CYTHONIZE: "1"
+
 repos:
   meta-refeyn:
 
@@ -158,6 +161,3 @@ local_conf_header:
 
   licences: |
     INCOMPATIBLE_LICENSE:imx-image-refeyn = "GPL-3.0* LGPL-3.0*"
-
-  refeynvars: |
-    REFEYN_NO_CYTHONIZE = "1"
