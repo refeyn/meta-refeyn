@@ -17,6 +17,7 @@ jobs:
     steps:
       - name: Clean build directory
         run: |
+          ls
           rm -rf imx-refeyn
           mkdir imx-refeyn
 
@@ -36,6 +37,23 @@ jobs:
 
           export GITCONFIG_FILE=".gitconfig"
           kas build meta-refeyn/kas-project.yml
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: full-image-imx-image-refeyn-imx8qm-ec-asm-00014-01
+          path: imx-refeyn/build/tmp/deploy/images/imx8qm-ec-asm-00014-01/imx-image-refeyn-imx8qm-ec-asm-00014-01.wic.*
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lite-image-imx-image-refeyn-imx8qm-ec-asm-00014-01
+          path: imx-refeyn/build/tmp/deploy/images/imx8qm-ec-asm-00014-01/imx-image-refeyn-lite-imx8qm-ec-asm-00014-01.wic.*
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: boot-files-imx-image-refeyn-imx8qm-ec-asm-00014-01
+          path: |
+            imx-refeyn/build/tmp/deploy/images/imx8qm-ec-asm-00014-01/imx-boot-imx8qm-ec-asm-00014-01-sd.bin-flash_spl
+            imx-refeyn/build/tmp/deploy/images/imx8qm-ec-asm-00014-01/imx8qm-ec-asm-00014-01-with-ec-asm-{00025-02,00027-01}.dtb
 
       - name: Cleanup
         if: always()
