@@ -17,7 +17,6 @@ jobs:
     steps:
       - name: Clean build directory
         run: |
-          ls
           rm -rf imx-refeyn
           mkdir imx-refeyn
 
@@ -57,4 +56,4 @@ jobs:
 
       - name: Cleanup
         if: always()
-        run: rm .gitconfig
+        run: rm imx-refeyn/.gitconfig
