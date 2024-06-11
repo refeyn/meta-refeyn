@@ -36,3 +36,7 @@ jobs:
 
           export GITCONFIG_FILE=".gitconfig"
           kas build meta-refeyn/kas-project.yml
+
+      - name: Cleanup
+        if: always()
+        run: rm .gitconfig
