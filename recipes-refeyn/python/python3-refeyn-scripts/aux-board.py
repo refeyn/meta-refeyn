@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 """
 Usage:
-    aux-board.py eeprom-dump
-    aux-board.py eeprom-write --hw-rev=<rev> --pcb-id=<id> --pcb-name=<name> --board-serial=<id>
+    aux-board.py eeprom-dump [--sbc]
+    aux-board.py eeprom-write --hw-rev=<rev> --pcb-id=<id> --pcb-name=<name> --board-serial=<id> [--sbc]
 """
 
 import dataclasses
@@ -11,7 +11,8 @@ import docopt
 import struct
 
 __version__ = (0, 1)
-EEPROM_ADDR = "/sys/class/i2c-dev/i2c-6/device/6-0050/eeprom"
+EEPROM_AUX_ADDR = "/sys/bus/i2c/devices/6-0050/eeprom"
+EEPROM_SBC_ADDR = "/sys/bus/i2c/devices/4-0050/eeprom"
 EEPROM_DATA_FORMAT = struct.Struct(">BB14x8s8s16s64s64sBBQ")
 EEPROM_MMAP_VERSION = 0xab
 
@@ -45,13 +46,13 @@ class EEPROMData:
         return EEPROM_DATA_FORMAT.pack(self.mmap_version, self.hw_rev, self.pcb_id[0].encode("ascii"), self.pcb_id[1].encode("ascii"), self.board_serial.encode("ascii"), self.pcb_name.encode("ascii"), self.sw_name.encode("ascii"), self.sw_version[0], self.sw_version[1], round(self.write_date.timestamp()))
 
 
-def eeprom_dump():
-    with open(EEPROM_ADDR, "rb") as f:
+def eeprom_dump(addr: str) -> None:
+    with open(addr, "rb") as f:
         data = EEPROMData.from_bytes(f.read(EEPROM_DATA_FORMAT.size))
 
     print(data)
 
-def eeprom_write(hw_rev: int, pcb_id: str, pcb_name: str, board_serial: str):
+def eeprom_write(hw_rev: int, pcb_id: str, pcb_name: str, board_serial: str, addr: str) -> None:
     pcb_prefix, pcb_id = pcb_id.rsplit("-", 1)
     data = EEPROMData(
         mmap_version=EEPROM_MMAP_VERSION,
@@ -63,13 +64,17 @@ def eeprom_write(hw_rev: int, pcb_id: str, pcb_name: str, board_serial: str):
         sw_version=__version__,
         write_date=datetime.datetime.now()
     )
-    with open(EEPROM_ADDR, "wb") as f:
+    with open(addr, "wb") as f:
         f.write(data.to_bytes())
 
 if __name__ == "__main__":
     args = docopt.docopt(__doc__)
+    if args["--sbc"]:
+        addr = EEPROM_SBC_ADDR
+    else:
+        addr = EEPROM_AUX_ADDR
 
     if args["eeprom-dump"]:
-        eeprom_dump()
+        eeprom_dump(addr)
     elif args["eeprom-write"]:
-        eeprom_write(int(args["--hw-rev"]), args["--pcb-id"], args["--pcb-name"], args["--board-serial"])
+        eeprom_write(int(args["--hw-rev"]), args["--pcb-id"], args["--pcb-name"], args["--board-serial"], addr)
