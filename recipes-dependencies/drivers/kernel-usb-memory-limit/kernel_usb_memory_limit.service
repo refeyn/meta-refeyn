@@ -1,8 +1,8 @@
 [Unit]
-Description=Remove USB memory limit
+Description=Increase USB memory limit
 
 [Service]
-ExecStart=/bin/bash -c "echo 0 > /sys/module/usbcore/parameters/usbfs_memory_mb"
+ExecStart=/bin/bash -c "echo 1000 > /sys/module/usbcore/parameters/usbfs_memory_mb"
 
 [Install]
 WantedBy=multi-user.target

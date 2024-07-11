@@ -37,7 +37,7 @@ do_install() {
 
     install -d ${D}${libdir}
     install api/X${XIMEA_ARCH}/libm3api.so.2 ${D}${libdir}/libm3api.so.2.0.0
-    ln -s -r ${D}${libdir}/libm3api.so.2.0.0 ${D}${libdir}/libm3api.so
+    ln -s -r ${D}${libdir}/libm3api.so.2.0.0 ${D}${libdir}/libm3api.so.2
 
     cp -R include $optpath/
 
