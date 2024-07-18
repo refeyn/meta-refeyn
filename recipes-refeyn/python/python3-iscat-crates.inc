@@ -53,7 +53,7 @@ SRC_URI += " \
     crate://crates.io/noisy_float/0.2.0 \
     crate://crates.io/num-complex/0.4.5 \
     crate://crates.io/num-integer/0.1.46 \
-    crate://crates.io/num-traits/0.2.18 \
+    crate://crates.io/num-traits/0.2.19 \
     crate://crates.io/num_cpus/1.16.0 \
     crate://crates.io/numpy/0.20.0 \
     crate://crates.io/once_cell/1.19.0 \
