@@ -7,10 +7,10 @@ inherit qt6-cmake python_setuptools_build_meta
 
 S = "${WORKDIR}/git"
 
-SRC_URI = "git://git@github.com/refeyn/QuickGraphLib.git;protocol=ssh;branch=master"
+SRC_URI = "git://git@github.com/refeyn/QuickGraphLib.git;protocol=ssh;tag=v0.1.0a5;branch=master"
 
 PV = "v0.1.0+git${SRCPV}"
-SRCREV = "${AUTOREV}"
+# SRCREV = "${AUTOREV}"
 DEPENDS += "qtbase qtbase-native qtdeclarative qtsvg qtdeclarative-native cmake python3-setuptools-git-versioning-native"
 RDEPENDS:${PN} += "qtbase qtdeclarative qtsvg"
 
