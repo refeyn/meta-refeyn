@@ -2,10 +2,11 @@ header:
   version: 13
 
 machine: imx8qm-ec-asm-00014-01
-distro: fsl-imx-wayland
+distro: refeyn-imx-wayland
 target:
  - imx-image-refeyn
  - imx-image-refeyn-lite
+ - imx-image-refeyn-fat
 
 env:
   REFEYN_NO_CYTHONIZE: "1"

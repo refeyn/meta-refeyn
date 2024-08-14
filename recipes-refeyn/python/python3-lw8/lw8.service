@@ -5,8 +5,7 @@ Description=AcquireMP - Mass photometer control software
 Environment=QT_QPA_EGLFS_KMS_CONFIG=/etc/Refeyn/AcquireMP/eglfs.json
 Environment=QT_QPA_PLATFORM=eglfs
 Environment=QT_SCALE_FACTOR=2.5
-Environment=LW8_IGNORE_CAMERA_NO_USB3=1
-ExecStart=python3 -m lw8 --embedded --instrument-type LITE_MP --develop
+ExecStart=python3 -m lw8 --embedded
 Restart=on-failure
 RestartSec=5
 

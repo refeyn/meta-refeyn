@@ -33,4 +33,4 @@ do_install:append() {
     install -m 0644 ${WORKDIR}/lw8.service ${D}/${systemd_unitdir}/system
 }
 
-RDEPENDS:${PN} += "python3-iscat python3-iscat-utils python3-more-itertools python3-pint python3-tabulate python3-aiohttp ximea-xiapi python3-spinnaker python3-fluigent python3-periphery python3-pyserial python3-prctl python3-quickgraphlib python3-statistics"
+RDEPENDS:${PN} += "python3-iscat python3-iscat-utils python3-more-itertools python3-pint python3-tabulate python3-aiohttp ximea-xiapi python3-spinnaker python3-fluigent python3-periphery python3-pyserial python3-prctl python3-quickgraphlib python3-statistics python3-betterproto python3-pyudev"

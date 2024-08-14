@@ -40,12 +40,23 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: full-image-imx-image-refeyn-imx8qm-ec-asm-00014-01
-          path: imx-refeyn/build/tmp/deploy/images/imx8qm-ec-asm-00014-01/imx-image-refeyn-imx8qm-ec-asm-00014-01.wic.*
+          path: |
+            imx-refeyn/build/tmp/deploy/images/imx8qm-ec-asm-00014-01/imx-boot-imx8qm-ec-asm-00014-01-sd.bin-flash_spl
+            imx-refeyn/build/tmp/deploy/images/imx8qm-ec-asm-00014-01/imx-image-refeyn-imx8qm-ec-asm-00014-01.wic.*
 
       - uses: actions/upload-artifact@v4
         with:
           name: lite-image-imx-image-refeyn-imx8qm-ec-asm-00014-01
-          path: imx-refeyn/build/tmp/deploy/images/imx8qm-ec-asm-00014-01/imx-image-refeyn-lite-imx8qm-ec-asm-00014-01.wic.*
+          path: |
+            imx-refeyn/build/tmp/deploy/images/imx8qm-ec-asm-00014-01/imx-boot-imx8qm-ec-asm-00014-01-sd.bin-flash_spl
+            imx-refeyn/build/tmp/deploy/images/imx8qm-ec-asm-00014-01/imx-image-refeyn-lite-imx8qm-ec-asm-00014-01.wic.*
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: fat-image-imx-image-refeyn-imx8qm-ec-asm-00014-01
+          path: |
+            imx-refeyn/build/tmp/deploy/images/imx8qm-ec-asm-00014-01/imx-boot-imx8qm-ec-asm-00014-01-sd.bin-flash_spl
+            imx-refeyn/build/tmp/deploy/images/imx8qm-ec-asm-00014-01/imx-image-refeyn-fat-imx8qm-ec-asm-00014-01.wic.*
 
       - uses: actions/upload-artifact@v4
         with:
