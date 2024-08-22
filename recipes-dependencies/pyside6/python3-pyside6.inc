@@ -26,6 +26,7 @@ PYSIDE_QTMODULES = "\
     qtdeclarative \
     qtcharts \
     qtmultimedia \
+    qtserialport \
 "
 
 DEPENDS += "\
