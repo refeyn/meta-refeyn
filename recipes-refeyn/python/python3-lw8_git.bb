@@ -3,21 +3,35 @@ HOMEPAGE = "https://github.com/refeyn/lw8"
 
 LICENSE = "CLOSED"
 
-SRC_URI = "git://git@github.com/refeyn/lw8.git;protocol=ssh;branch=master;destsuffix=lw8 \
+SRC_URI = "git://git@github.com/refeyn/lw8.git;protocol=ssh;branch=master;destsuffix=lw8;name=lw8 \
+           git://git@github.com/refeyn/iscat.git;protocol=ssh;branch=master;destsuffix=lw8/internal_dependencies/iscat;name=iscat \
            file://eglfs.json \
            file://lw8.service \
            "
+require python3-lw8-crates.inc
 
 PV = "v2023.2.0dev2+git${SRCPV}"
-SRCREV = "${AUTOREV}"
+SRCREV_lw8 = "${AUTOREV}"
+SRCREV_iscat = "${AUTOREV}"
+SRCREV_FORMAT = "lw8_iscat"
 
 S = "${WORKDIR}/lw8"
 
 # HACK lfs aint working
-
+# Also using git xiapi path
+do_configure[network] = "1"
 do_unpack[network] = "1"
+do_compile[network] = "1"
 
+DEPENDS += "ximea-xiapi"
+
+inherit python_setuptools3_rust
 require python3-dev-utils-build.inc
+
+do_compile:prepend() {
+    export BINDGEN_EXTRA_CLANG_ARGS="-I ${STAGING_DIR_TARGET}/usr/include"
+    export LW8_RUST_LIBRARY_PATH="${STAGING_DIR_TARGET}/usr/lib"
+}
 
 FILES:${PN} += "${systemd_unitdir}/system/lw8.service"
 
