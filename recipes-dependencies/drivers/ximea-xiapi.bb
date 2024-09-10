@@ -14,6 +14,7 @@ DEBIAN_NOAUTONAME:${PN} = "1"
 DEBIAN_NOAUTONAME:${PN}-dev = "1"
 DEBIAN_NOAUTONAME:${PN}-dbg = "1"
 
+DEPENDS += "libusb1 tiff"
 RDEPENDS:${PN} += "lshw libusb1 libcurl bash tiff zlib kernel-usb-memory-limit"
 
 COMPATIBLE_HOST = "(aarch64|armv7a).*-linux"
@@ -23,6 +24,7 @@ XIMEA_ARCH:aarch64 = "arm64"
 
 FILES:${PN} += "/opt/XIMEA ${PYTHON_SITEPACKAGES_DIR}/ximea"
 INSANE_SKIP:${PN} += "already-stripped ldflags"
+SYSROOT_DIRS += "/opt"
 
 do_install() {
     optpath=${D}/opt/XIMEA
@@ -38,6 +40,7 @@ do_install() {
     install -d ${D}${libdir}
     install api/X${XIMEA_ARCH}/libm3api.so.2 ${D}${libdir}/libm3api.so.2.0.0
     ln -s -r ${D}${libdir}/libm3api.so.2.0.0 ${D}${libdir}/libm3api.so.2
+    ln -s -r ${D}${libdir}/libm3api.so.2.0.0 ${D}${libdir}/libm3api.so
 
     cp -R include $optpath/
 

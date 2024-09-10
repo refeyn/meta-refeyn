@@ -7,4 +7,5 @@ IMAGE_FEATURES += " \
     tools-profile \
     tools-sdk \
     tools-debug \
+    dbg-pkgs \
 "
