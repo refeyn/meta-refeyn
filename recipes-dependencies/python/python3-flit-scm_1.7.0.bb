@@ -1,0 +1,13 @@
+DESCRIPTION = "A PEP 518 build backend that uses setuptools_scm to generate a version file from your version control system, then flit to build the package."
+HOMEPAGE = "https://gitlab.com/WillDaSilva/flit_scm"
+LICENSE = "MIT"
+LIC_FILES_CHKSUM = "file://LICENSE;md5=80f451d0892e64764fe22dbd241b5f02"
+
+SRC_URI[sha256sum] = "961bd6fb24f31bba75333c234145fff88e6de0a90fc0f7e5e7c79deca69f6bb2"
+
+inherit pypi python_pep517
+
+DEPENDS += "python3-flit-core-native python3-setuptools-scm-native python3-pip-native"
+
+BBCLASSEXTEND = "native nativesdk"
+PYPI_PACKAGE = "flit_scm"
