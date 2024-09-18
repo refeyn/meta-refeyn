@@ -17,8 +17,8 @@ jobs:
     steps:
       - name: Clean build directory
         run: |
-          rm -rf imx-refeyn
-          mkdir imx-refeyn
+          mkdir -p imx-refeyn
+          rm -rf imx-refeyn/build
 
       - name: Checkout
         uses: actions/checkout@v4
