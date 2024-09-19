@@ -41,7 +41,6 @@ EXTRA_OECMAKE += " \
 do_compile:prepend() {
     export CMAKE_ARGS=" \
         ${OECMAKE_GENERATOR_ARGS} \
-        $oecmake_sitefile \
         ${OECMAKE_SOURCEPATH} \
         -DCMAKE_INSTALL_PREFIX:PATH=${prefix} \
         -DCMAKE_INSTALL_BINDIR:PATH=${@os.path.relpath(d.getVar('bindir'), d.getVar('prefix') + '/')} \
@@ -66,6 +65,7 @@ do_compile:prepend() {
         -Wno-dev \
     "
     export SKBUILD_INSTALL_STRIP="false"
+    export SKBUILD_BUILD_DIR="${WORKDIR}/build"
 }
 
 do_install:prepend() {

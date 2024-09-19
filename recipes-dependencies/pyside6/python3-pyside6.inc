@@ -32,5 +32,6 @@ PYSIDE_QTMODULES = "\
 DEPENDS += "\
     python3-packaging \
     python3-wheel \
+    python3-numpy \
     ${PYSIDE_QTMODULES} \
 "
