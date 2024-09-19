@@ -7,10 +7,10 @@ inherit qt6-cmake python_pep517
 
 S = "${WORKDIR}/git"
 
-SRC_URI = " \
-    git://git@github.com/refeyn/QuickGraphLib.git;protocol=ssh;branch=master \
-    file://0001-Fix-cross-comilation.patch \
-"
+SRC_URI = "git://git@github.com/refeyn/QuickGraphLib.git;protocol=ssh;branch=master \
+           file://0001-Fix-cross-comilation.patch \
+           file://0002-Disable-cachegen-to-fix-lines-not-showing-up.patch \
+           "
 
 PV = "v0.1.0+git${SRCPV}"
 SRCREV = "${AUTOREV}"
