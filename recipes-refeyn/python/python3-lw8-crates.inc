@@ -13,6 +13,9 @@ SRC_URI += " \
     crate://crates.io/cfg-if/1.0.0 \
     crate://crates.io/clang-sys/1.8.1 \
     crate://crates.io/color_quant/1.1.0 \
+    crate://crates.io/core-foundation-sys/0.8.7 \
+    crate://crates.io/crc/3.2.1 \
+    crate://crates.io/crc-catalog/2.4.0 \
     crate://crates.io/crc32fast/1.4.0 \
     crate://crates.io/crossbeam-deque/0.8.5 \
     crate://crates.io/crossbeam-epoch/0.9.18 \
@@ -43,6 +46,7 @@ SRC_URI += " \
     crate://crates.io/indexmap/1.9.3 \
     crate://crates.io/indoc/2.0.4 \
     crate://crates.io/indxvec/1.8.9 \
+    crate://crates.io/io-kit-sys/0.4.1 \
     crate://crates.io/itertools/0.10.5 \
     crate://crates.io/itertools/0.12.1 \
     crate://crates.io/jpeg-decoder/0.3.1 \
@@ -51,9 +55,12 @@ SRC_URI += " \
     crate://crates.io/lebe/0.5.2 \
     crate://crates.io/libc/0.2.153 \
     crate://crates.io/libloading/0.8.5 \
+    crate://crates.io/libudev/0.3.0 \
+    crate://crates.io/libudev-sys/0.1.4 \
     crate://crates.io/linux-raw-sys/0.4.14 \
     crate://crates.io/lock_api/0.4.11 \
     crate://crates.io/log/0.4.22 \
+    crate://crates.io/mach2/0.4.2 \
     crate://crates.io/matrixmultiply/0.3.8 \
     crate://crates.io/medians/3.0.6 \
     crate://crates.io/memchr/2.7.1 \
@@ -62,6 +69,7 @@ SRC_URI += " \
     crate://crates.io/miniz_oxide/0.7.2 \
     crate://crates.io/ndarray/0.15.6 \
     crate://crates.io/ndarray-stats/0.5.1 \
+    crate://crates.io/nix/0.26.4 \
     crate://crates.io/noisy_float/0.2.0 \
     crate://crates.io/nom/7.1.3 \
     crate://crates.io/num-complex/0.4.5 \
@@ -74,6 +82,7 @@ SRC_URI += " \
     crate://crates.io/paste/1.0.14 \
     crate://crates.io/pin-project-lite/0.2.14 \
     crate://crates.io/pin-utils/0.1.0 \
+    crate://crates.io/pkg-config/0.3.30 \
     crate://crates.io/png/0.17.13 \
     crate://crates.io/ppv-lite86/0.2.17 \
     crate://crates.io/prettyplease/0.2.17 \
@@ -102,6 +111,7 @@ SRC_URI += " \
     crate://crates.io/sdd/3.0.2 \
     crate://crates.io/serial_test/3.1.1 \
     crate://crates.io/serial_test_derive/3.1.1 \
+    crate://crates.io/serialport/4.5.0 \
     crate://crates.io/shlex/1.3.0 \
     crate://crates.io/simd-adler32/0.3.7 \
     crate://crates.io/slab/0.4.9 \
@@ -109,12 +119,18 @@ SRC_URI += " \
     crate://crates.io/spin/0.9.8 \
     crate://crates.io/syn/2.0.49 \
     crate://crates.io/target-lexicon/0.12.13 \
+    crate://crates.io/thiserror/1.0.63 \
+    crate://crates.io/thiserror-impl/1.0.63 \
     crate://crates.io/tiff/0.9.1 \
+    crate://crates.io/unescaper/0.1.5 \
     crate://crates.io/unicode-ident/1.0.12 \
     crate://crates.io/unindent/0.2.3 \
     crate://crates.io/wasi/0.11.0+wasi-snapshot-preview1 \
     crate://crates.io/weezl/0.1.8 \
     crate://crates.io/which/4.4.2 \
+    crate://crates.io/winapi/0.3.9 \
+    crate://crates.io/winapi-i686-pc-windows-gnu/0.4.0 \
+    crate://crates.io/winapi-x86_64-pc-windows-gnu/0.4.0 \
     crate://crates.io/windows-sys/0.52.0 \
     crate://crates.io/windows-targets/0.48.5 \
     crate://crates.io/windows-targets/0.52.0 \

@@ -23,7 +23,7 @@ do_configure[network] = "1"
 do_unpack[network] = "1"
 do_compile[network] = "1"
 
-DEPENDS += "ximea-xiapi"
+DEPENDS += "ximea-xiapi pkgconfig-native"
 
 inherit python_setuptools3_rust
 require python3-dev-utils-build.inc
@@ -45,6 +45,18 @@ do_install:append() {
 
     install -d ${D}/${systemd_unitdir}/system
     install -m 0644 ${WORKDIR}/lw8.service ${D}/${systemd_unitdir}/system
+
+    find ${D}/${PYTHON_SITEPACKAGES_DIR}/lw8 -name "*.dll" -type f -delete
+    find ${D}/${PYTHON_SITEPACKAGES_DIR}/lw8 -name "*.lib" -type f -delete
 }
 
-RDEPENDS:${PN} += "python3-iscat python3-iscat-utils python3-more-itertools python3-pint python3-tabulate python3-aiohttp ximea-xiapi python3-spinnaker python3-fluigent python3-periphery python3-pyserial python3-prctl python3-quickgraphlib python3-statistics python3-betterproto python3-pyudev"
+RDEPENDS:${PN} += " \
+    python3-iscat python3-iscat-utils python3-more-itertools python3-pint \
+    python3-tabulate python3-aiohttp ximea-xiapi python3-spinnaker \
+    python3-fluigent python3-periphery python3-pyserial python3-prctl \
+    python3-quickgraphlib python3-statistics python3-betterproto \
+    python3-pyudev ${PN}-data \
+"
+
+PACKAGES =+ "${PN}-data"
+FILES:${PN}-data = "${PYTHON_SITEPACKAGES_DIR}/lw8/data"

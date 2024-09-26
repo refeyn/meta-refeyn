@@ -27,6 +27,7 @@ PYSIDE_QTMODULES = "\
     qtcharts \
     qtmultimedia \
     qtserialport \
+    qtvirtualkeyboard \
 "
 
 DEPENDS += "\
