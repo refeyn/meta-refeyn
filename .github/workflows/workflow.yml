@@ -65,6 +65,18 @@ jobs:
             imx-refeyn/build/tmp/deploy/images/imx8qm-ec-asm-00014-01/imx-boot-imx8qm-ec-asm-00014-01-sd.bin-flash_spl
             imx-refeyn/build/tmp/deploy/images/imx8qm-ec-asm-00014-01/imx8qm-ec-asm-00014-01-with-ec-asm-{00025-02,00027-01}.dtb
 
+      - uses: actions/upload-artifact@v4
+        with:
+          name: refeyn-packages-imx-image-refeyn-imx8qm-ec-asm-00014-01
+          path: |
+            imx-refeyn/build/tmp/deploy/deb/cortexa72-cortexa53-crypto/python3-lw8_*.deb
+            imx-refeyn/build/tmp/deploy/deb/cortexa72-cortexa53-crypto/python3-lw8-data_*.deb
+            imx-refeyn/build/tmp/deploy/deb/cortexa72-cortexa53-crypto/python3-lw8-dbg_*.deb
+            imx-refeyn/build/tmp/deploy/deb/cortexa72-cortexa53-crypto/python3-iscat_*.deb
+            imx-refeyn/build/tmp/deploy/deb/cortexa72-cortexa53-crypto/python3-iscat-dbg_*.deb
+            imx-refeyn/build/tmp/deploy/deb/cortexa72-cortexa53-crypto/python3-iscat_utils_*.deb
+            imx-refeyn/build/tmp/deploy/deb/cortexa72-cortexa53-crypto/python3-iscat_utils-dbg_*.deb
+
       - name: Cleanup
         if: always()
         run: rm imx-refeyn/.gitconfig

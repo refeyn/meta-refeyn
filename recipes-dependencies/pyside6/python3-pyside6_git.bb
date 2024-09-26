@@ -18,3 +18,4 @@ INSANE_SKIP:${PN} += "already-stripped"
 FILES:${PN} += "${datadir}/PySide6/*"
 
 BBCLASSEXTEND = "native nativesdk"
+RDEPENDS:${PN} += "python3-numpy ${PYSIDE_QTMODULES}"
