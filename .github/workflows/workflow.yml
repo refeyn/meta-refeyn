@@ -74,8 +74,8 @@ jobs:
             imx-refeyn/build/tmp/deploy/deb/cortexa72-cortexa53-crypto/python3-lw8-dbg_*.deb
             imx-refeyn/build/tmp/deploy/deb/cortexa72-cortexa53-crypto/python3-iscat_*.deb
             imx-refeyn/build/tmp/deploy/deb/cortexa72-cortexa53-crypto/python3-iscat-dbg_*.deb
-            imx-refeyn/build/tmp/deploy/deb/cortexa72-cortexa53-crypto/python3-iscat_utils_*.deb
-            imx-refeyn/build/tmp/deploy/deb/cortexa72-cortexa53-crypto/python3-iscat_utils-dbg_*.deb
+            imx-refeyn/build/tmp/deploy/deb/cortexa72-cortexa53-crypto/python3-iscat-utils_*.deb
+            imx-refeyn/build/tmp/deploy/deb/cortexa72-cortexa53-crypto/python3-iscat-utils-dbg_*.deb
 
       - name: Cleanup
         if: always()
