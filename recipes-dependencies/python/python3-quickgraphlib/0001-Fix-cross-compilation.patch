@@ -1,0 +1,80 @@
+From 4021042e51494aa16d0eb313159cffff71e2cf0b Mon Sep 17 00:00:00 2001
+From: Matthew Joyce <matthew.joyce@refeyn.com>
+Date: Wed, 18 Sep 2024 11:30:49 +0100
+Subject: [PATCH] Fix cross-compilation
+
+---
+ QuickGraphLib/bindings/CMakeLists.txt | 32 +++++++++++++--------------
+ pyproject.toml                        |  2 +-
+ 2 files changed, 17 insertions(+), 17 deletions(-)
+
+diff --git a/QuickGraphLib/bindings/CMakeLists.txt b/QuickGraphLib/bindings/CMakeLists.txt
+index a6f060d..724162a 100644
+--- a/QuickGraphLib/bindings/CMakeLists.txt
++++ b/QuickGraphLib/bindings/CMakeLists.txt
+@@ -3,7 +3,7 @@
+ # SPDX-License-Identifier: BSD-3-Clause
+ 
+ set(CMAKE_PROGRAM_PATH "${CMAKE_PROGRAM_PATH};${CMAKE_SOURCE_DIR}/venv/Scripts")
+-find_package(Python COMPONENTS Interpreter Development.SABIModule REQUIRED)
++find_package(Python COMPONENTS Interpreter Development.Module REQUIRED)
+ 
+ # Query for the shiboken generator path, Python path, include paths and linker flags.
+ set(CMAKE_FIND_DEBUG_MODE TRUE)
+@@ -144,8 +144,8 @@ python_add_library(
+     ShibokenHelpers.hpp
+     ShibokenHelpers.cpp
+     WITH_SOABI
+-    USE_SABI
+-    3.7
++    # USE_SABI
++    # 3.7
+ )
+ 
+ # Apply relevant include and link flags.
+@@ -171,19 +171,19 @@ target_link_libraries(
+ )
+ 
+ # Generate .pyi stub file
+-set(pyi_path ${CMAKE_BINARY_DIR}/QuickGraphLib/_QuickGraphLib.pyi)
+-add_custom_command(
+-    OUTPUT ${pyi_path}
+-    COMMAND
+-        "${Python_EXECUTABLE}" ${CMAKE_CURRENT_SOURCE_DIR}/pyigen.py
+-        $<TARGET_FILE:_QuickGraphLib> --outpath
+-        ${CMAKE_BINARY_DIR}/QuickGraphLib
+-    DEPENDS $<TARGET_FILE:_QuickGraphLib>
+-    WORKING_DIRECTORY ${CMAKE_BINARY_DIR}
+-    COMMENT "Running stub generation for for _QuickGraphLib."
+-)
+-
+-add_custom_target(QuickGraphLibPythonStubs ALL DEPENDS ${pyi_path})
++# set(pyi_path ${CMAKE_BINARY_DIR}/QuickGraphLib/_QuickGraphLib.pyi)
++# add_custom_command(
++#     OUTPUT ${pyi_path}
++#     COMMAND
++#         "${Python_EXECUTABLE}" ${CMAKE_CURRENT_SOURCE_DIR}/pyigen.py
++#         $<TARGET_FILE:_QuickGraphLib> --outpath
++#         ${CMAKE_BINARY_DIR}/QuickGraphLib
++#     DEPENDS $<TARGET_FILE:_QuickGraphLib>
++#     WORKING_DIRECTORY ${CMAKE_BINARY_DIR}
++#     COMMENT "Running stub generation for for _QuickGraphLib."
++# )
++#
++# add_custom_target(QuickGraphLibPythonStubs ALL DEPENDS ${pyi_path})
+ 
+ # Install files
+ install(TARGETS _QuickGraphLib DESTINATION ${INSTALL_SUBPATH}/QuickGraphLib)
+diff --git a/pyproject.toml b/pyproject.toml
+index 672dfe6..628e61d 100644
+--- a/pyproject.toml
++++ b/pyproject.toml
+@@ -44,7 +44,7 @@ analyse = [
+ ]
+ 
+ [build-system]
+-requires = ["scikit-build-core", "shiboken6_generator==6.5.3", "PySide6==6.5.3"]
++#requires = ["scikit-build-core"]
+ build-backend = "scikit_build_core.build"
+ 
+ [tool.scikit-build]
