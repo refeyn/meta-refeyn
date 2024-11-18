@@ -4,7 +4,7 @@ LIC_FILES_CHKSUM = "file://License.txt;md5=5c5ee3c662eb48159d834b005f362839"
 NO_GENERIC_LICENSE[Ximea-Licence] = "License.txt"
 
 SRC_URI = "https://www.ximea.com/downloads/recent/XIMEA_Linux_ARM_SP.tgz;subdir=src"
-SRC_URI[sha256sum] = "50fdb4b317a4309bc350f2e78c761b62ba5ec3b5702e25e4522cf1c21532f627"
+SRC_URI[sha256sum] = "8230435dafdaae1f3e6929a9f8d12393547702d57bd713909da8221955a7a08e"
 
 S = "${WORKDIR}/src/package"
 
@@ -16,6 +16,7 @@ DEBIAN_NOAUTONAME:${PN}-dbg = "1"
 
 DEPENDS += "libusb1 tiff"
 RDEPENDS:${PN} += "lshw libusb1 libcurl bash tiff zlib kernel-usb-memory-limit"
+PREFERRED_VERSION_tiff = "4.4.0"
 
 COMPATIBLE_HOST = "(aarch64|armv7a).*-linux"
 XIMEA_ARCH ?= "${TARGET_ARCH}"

@@ -1,4 +1,4 @@
 #!/bin/bash
 set -e
-devtool build-image imx-image-refeyn
+devtool build-image refeyn-image-lite
 ../meta-refeyn/copyimgs.sh

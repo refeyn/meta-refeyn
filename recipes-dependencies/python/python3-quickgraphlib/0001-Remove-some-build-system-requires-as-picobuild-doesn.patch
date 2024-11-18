@@ -1,0 +1,23 @@
+From 8c66f015531503e65acb6abc8a85227b0ede1474 Mon Sep 17 00:00:00 2001
+From: Matthew Joyce <matthew.joyce@refeyn.com>
+Date: Tue, 5 Nov 2024 14:58:52 +0000
+Subject: [PATCH] Remove some build system requires as picobuild doesn't
+ recognize them as being present
+
+---
+ pyproject.toml | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/pyproject.toml b/pyproject.toml
+index e59748e..e7ed87d 100644
+--- a/pyproject.toml
++++ b/pyproject.toml
+@@ -43,7 +43,7 @@ analyse = [
+ ]
+ 
+ [build-system]
+-requires = ["scikit-build-core", "shiboken6_generator==6.8.0.2", "PySide6==6.8.0.2"]
++requires = ["scikit-build-core"]
+ build-backend = "scikit_build_core.build"
+ 
+ [tool.scikit-build]
