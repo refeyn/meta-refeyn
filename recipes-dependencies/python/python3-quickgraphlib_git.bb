@@ -8,8 +8,7 @@ inherit qt6-cmake python_pep517
 S = "${WORKDIR}/git"
 
 SRC_URI = "git://git@github.com/refeyn/QuickGraphLib.git;protocol=ssh;branch=master \
-           file://0001-Fix-cross-compilation.patch \
-           file://0002-Disable-cachegen-to-fix-lines-not-showing-up.patch \
+           file://0001-Remove-some-build-system-requires-as-picobuild-doesn.patch \
            "
 
 PV = "v0.1.0+git${SRCPV}"
@@ -36,6 +35,7 @@ EXTRA_OECMAKE += " \
     -DCMAKE_TOOLCHAIN_FILE=${WORKDIR}/toolchain.cmake \
     -DQFP_SHIBOKEN_HOST_PATH=${STAGING_BINDIR_NATIVE}/shiboken6 \
     -DQFP_PYTHON_HOST_PATH=${PYTHON} \
+    -DENABLE_STUB_GENERATION=OFF \
 "
 
 do_compile:prepend() {
@@ -70,4 +70,6 @@ do_compile:prepend() {
 
 do_install:prepend() {
     export _PYTHON_SYSCONFIGDATA_NAME="_sysconfigdata"
+    export PYTHONPATH=${STAGING_LIBDIR}/python-sysconfigdata:$PYTHONPATH
+    export PATH=${STAGING_EXECPREFIXDIR}/python-target-config/:$PATH
 }
