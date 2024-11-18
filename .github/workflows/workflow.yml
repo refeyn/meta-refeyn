@@ -17,17 +17,17 @@ jobs:
     steps:
       - name: Clean build directory
         run: |
-          mkdir -p imx-refeyn
-          rm -rf imx-refeyn/build
+          mkdir -p toradex-refeyn
+          rm -rf toradex-refeyn/build
 
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          path: imx-refeyn/meta-refeyn
+          path: toradex-refeyn/meta-refeyn
 
       - name: Build
         run: |
-          cd imx-refeyn
+          cd toradex-refeyn
 
           # https://stackoverflow.com/a/57229018
           echo -e "[url \"https://api:${{secrets.REFEYN_CI_TOKEN}}@github.com/\"]\n\tinsteadOf = https://github.com/" >> .gitconfig
@@ -39,43 +39,33 @@ jobs:
 
       - uses: actions/upload-artifact@v4
         with:
-          name: full-image-imx-image-refeyn-imx8qm-ec-asm-00014-01
+          name: Apalis-iMX8-Refeyn-Lite-Image
           path: |
-            imx-refeyn/build/tmp/deploy/images/imx8qm-ec-asm-00014-01/imx-boot-imx8qm-ec-asm-00014-01-sd.bin-flash_spl
-            imx-refeyn/build/tmp/deploy/images/imx8qm-ec-asm-00014-01/imx-image-refeyn-imx8qm-ec-asm-00014-01.wic.*
+            imx-refeyn/build/tmp/deploy/images/apalis-imx8-refeyn/Apalis-iMX8-refeyn_Refeyn-Lite-Image-Tezi.tar
 
       - uses: actions/upload-artifact@v4
         with:
-          name: lite-image-imx-image-refeyn-imx8qm-ec-asm-00014-01
+          name: Apalis-iMX8-Refeyn-Image
           path: |
-            imx-refeyn/build/tmp/deploy/images/imx8qm-ec-asm-00014-01/imx-boot-imx8qm-ec-asm-00014-01-sd.bin-flash_spl
-            imx-refeyn/build/tmp/deploy/images/imx8qm-ec-asm-00014-01/imx-image-refeyn-lite-imx8qm-ec-asm-00014-01.wic.*
+            imx-refeyn/build/tmp/deploy/images/apalis-imx8-refeyn/Apalis-iMX8-refeyn_Refeyn-Image-Tezi.tar
+
+      # - uses: actions/upload-artifact@v4
+      #   with:
+      #     name: Apalis-iMX8-Refeyn-Fat-Image
+      #     path: |
+      #       imx-refeyn/build/tmp/deploy/images/apalis-imx8-refeyn/Apalis-iMX8-refeyn_Refeyn-Fat-Image-Tezi.tar
 
       - uses: actions/upload-artifact@v4
         with:
-          name: fat-image-imx-image-refeyn-imx8qm-ec-asm-00014-01
+          name: Apalis-iMX8-Refeyn-Packages
           path: |
-            imx-refeyn/build/tmp/deploy/images/imx8qm-ec-asm-00014-01/imx-boot-imx8qm-ec-asm-00014-01-sd.bin-flash_spl
-            imx-refeyn/build/tmp/deploy/images/imx8qm-ec-asm-00014-01/imx-image-refeyn-fat-imx8qm-ec-asm-00014-01.wic.*
-
-      - uses: actions/upload-artifact@v4
-        with:
-          name: boot-files-imx-image-refeyn-imx8qm-ec-asm-00014-01
-          path: |
-            imx-refeyn/build/tmp/deploy/images/imx8qm-ec-asm-00014-01/imx-boot-imx8qm-ec-asm-00014-01-sd.bin-flash_spl
-            imx-refeyn/build/tmp/deploy/images/imx8qm-ec-asm-00014-01/imx8qm-ec-asm-00014-01-with-ec-asm-{00025-02,00027-01}.dtb
-
-      - uses: actions/upload-artifact@v4
-        with:
-          name: refeyn-packages-imx-image-refeyn-imx8qm-ec-asm-00014-01
-          path: |
-            imx-refeyn/build/tmp/deploy/deb/cortexa72-cortexa53-crypto/python3-lw8_*.deb
-            imx-refeyn/build/tmp/deploy/deb/cortexa72-cortexa53-crypto/python3-lw8-data_*.deb
-            imx-refeyn/build/tmp/deploy/deb/cortexa72-cortexa53-crypto/python3-lw8-dbg_*.deb
-            imx-refeyn/build/tmp/deploy/deb/cortexa72-cortexa53-crypto/python3-iscat_*.deb
-            imx-refeyn/build/tmp/deploy/deb/cortexa72-cortexa53-crypto/python3-iscat-dbg_*.deb
-            imx-refeyn/build/tmp/deploy/deb/cortexa72-cortexa53-crypto/python3-iscat-utils_*.deb
-            imx-refeyn/build/tmp/deploy/deb/cortexa72-cortexa53-crypto/python3-iscat-utils-dbg_*.deb
+            imx-refeyn/build/tmp/deploy/rpm/armv8a/python3-lw8_*.rpm
+            imx-refeyn/build/tmp/deploy/rpm/armv8a/python3-lw8-data_*.rpm
+            imx-refeyn/build/tmp/deploy/rpm/armv8a/python3-lw8-dbg_*.rpm
+            imx-refeyn/build/tmp/deploy/rpm/armv8a/python3-iscat_*.rpm
+            imx-refeyn/build/tmp/deploy/rpm/armv8a/python3-iscat-dbg_*.rpm
+            imx-refeyn/build/tmp/deploy/rpm/armv8a/python3-iscat-utils_*.rpm
+            imx-refeyn/build/tmp/deploy/rpm/armv8a/python3-iscat-utils-dbg_*.rpm
 
       - name: Cleanup
         if: always()

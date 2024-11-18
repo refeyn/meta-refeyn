@@ -1,5 +1,3 @@
-inherit setuptools3
-
 do_compile:prepend() {
     export NO_CYTHONIZE=${REFEYN_NO_CYTHONIZE}
     rm -rf ${S}/build
