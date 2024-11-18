@@ -28,6 +28,8 @@ DEPENDS += "ximea-xiapi pkgconfig-native"
 inherit python_setuptools3_rust
 require python3-dev-utils-build.inc
 
+unset do_configure[postfuncs]
+
 do_compile:prepend() {
     export BINDGEN_EXTRA_CLANG_ARGS="-I ${STAGING_DIR_TARGET}/usr/include"
     export LW8_RUST_LIBRARY_PATH="${STAGING_DIR_TARGET}/usr/lib"
@@ -54,8 +56,7 @@ RDEPENDS:${PN} += " \
     python3-iscat python3-iscat-utils python3-more-itertools python3-pint \
     python3-tabulate python3-aiohttp ximea-xiapi python3-spinnaker \
     python3-fluigent python3-periphery python3-pyserial python3-prctl \
-    python3-quickgraphlib python3-statistics python3-betterproto \
-    python3-pyudev ${PN}-data \
+    python3-quickgraphlib python3-statistics python3-pyudev ${PN}-data \
 "
 
 PACKAGES =+ "${PN}-data"
