@@ -6,6 +6,7 @@ distro: refeyn-wayland
 target:
  - refeyn-image-lite
  - refeyn-image
+ - refeyn-image-fat
 
 env:
   REFEYN_NO_CYTHONIZE: "1"
