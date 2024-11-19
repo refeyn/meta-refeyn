@@ -59,13 +59,13 @@ jobs:
         with:
           name: Apalis-iMX8-Refeyn-Packages
           path: |
-            toradex-refeyn/build/tmp/deploy/rpm/armv8a/python3-lw8_*.rpm
-            toradex-refeyn/build/tmp/deploy/rpm/armv8a/python3-lw8-data_*.rpm
-            toradex-refeyn/build/tmp/deploy/rpm/armv8a/python3-lw8-dbg_*.rpm
-            toradex-refeyn/build/tmp/deploy/rpm/armv8a/python3-iscat_*.rpm
-            toradex-refeyn/build/tmp/deploy/rpm/armv8a/python3-iscat-dbg_*.rpm
-            toradex-refeyn/build/tmp/deploy/rpm/armv8a/python3-iscat-utils_*.rpm
-            toradex-refeyn/build/tmp/deploy/rpm/armv8a/python3-iscat-utils-dbg_*.rpm
+            toradex-refeyn/build/tmp/deploy/rpm/armv8a/python3-lw8-v*.rpm
+            toradex-refeyn/build/tmp/deploy/rpm/armv8a/python3-lw8-data*.rpm
+            toradex-refeyn/build/tmp/deploy/rpm/armv8a/python3-lw8-dbg*.rpm
+            toradex-refeyn/build/tmp/deploy/rpm/armv8a/python3-iscat-1*.rpm
+            toradex-refeyn/build/tmp/deploy/rpm/armv8a/python3-iscat-dbg*.rpm
+            toradex-refeyn/build/tmp/deploy/rpm/armv8a/python3-iscat-utils-1*.rpm
+            toradex-refeyn/build/tmp/deploy/rpm/armv8a/python3-iscat-utils-dbg*.rpm
 
       - name: Cleanup
         if: always()
