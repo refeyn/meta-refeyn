@@ -41,32 +41,32 @@ jobs:
         with:
           name: Apalis-iMX8-Refeyn-Lite-Image
           path: |
-            imx-refeyn/build/tmp/deploy/images/apalis-imx8-refeyn/Apalis-iMX8-refeyn_Refeyn-Lite-Image-Tezi.tar
+            toradex-refeyn/build/tmp/deploy/images/apalis-imx8-refeyn/Apalis-iMX8-refeyn_Refeyn-Lite-Image-Tezi.tar
 
       - uses: actions/upload-artifact@v4
         with:
           name: Apalis-iMX8-Refeyn-Image
           path: |
-            imx-refeyn/build/tmp/deploy/images/apalis-imx8-refeyn/Apalis-iMX8-refeyn_Refeyn-Image-Tezi.tar
+            toradex-refeyn/build/tmp/deploy/images/apalis-imx8-refeyn/Apalis-iMX8-refeyn_Refeyn-Image-Tezi.tar
 
       # - uses: actions/upload-artifact@v4
       #   with:
       #     name: Apalis-iMX8-Refeyn-Fat-Image
       #     path: |
-      #       imx-refeyn/build/tmp/deploy/images/apalis-imx8-refeyn/Apalis-iMX8-refeyn_Refeyn-Fat-Image-Tezi.tar
+      #       toradex-refeyn/build/tmp/deploy/images/apalis-imx8-refeyn/Apalis-iMX8-refeyn_Refeyn-Fat-Image-Tezi.tar
 
       - uses: actions/upload-artifact@v4
         with:
           name: Apalis-iMX8-Refeyn-Packages
           path: |
-            imx-refeyn/build/tmp/deploy/rpm/armv8a/python3-lw8_*.rpm
-            imx-refeyn/build/tmp/deploy/rpm/armv8a/python3-lw8-data_*.rpm
-            imx-refeyn/build/tmp/deploy/rpm/armv8a/python3-lw8-dbg_*.rpm
-            imx-refeyn/build/tmp/deploy/rpm/armv8a/python3-iscat_*.rpm
-            imx-refeyn/build/tmp/deploy/rpm/armv8a/python3-iscat-dbg_*.rpm
-            imx-refeyn/build/tmp/deploy/rpm/armv8a/python3-iscat-utils_*.rpm
-            imx-refeyn/build/tmp/deploy/rpm/armv8a/python3-iscat-utils-dbg_*.rpm
+            toradex-refeyn/build/tmp/deploy/rpm/armv8a/python3-lw8_*.rpm
+            toradex-refeyn/build/tmp/deploy/rpm/armv8a/python3-lw8-data_*.rpm
+            toradex-refeyn/build/tmp/deploy/rpm/armv8a/python3-lw8-dbg_*.rpm
+            toradex-refeyn/build/tmp/deploy/rpm/armv8a/python3-iscat_*.rpm
+            toradex-refeyn/build/tmp/deploy/rpm/armv8a/python3-iscat-dbg_*.rpm
+            toradex-refeyn/build/tmp/deploy/rpm/armv8a/python3-iscat-utils_*.rpm
+            toradex-refeyn/build/tmp/deploy/rpm/armv8a/python3-iscat-utils-dbg_*.rpm
 
       - name: Cleanup
         if: always()
-        run: rm imx-refeyn/.gitconfig
+        run: rm toradex-refeyn/.gitconfig
