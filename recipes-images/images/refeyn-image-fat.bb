@@ -11,4 +11,9 @@ IMAGE_FEATURES += " \
     tools-sdk \
     tools-debug \
     dbg-pkgs \
+    dev-pkgs \
+"
+
+IMAGE_INSTALL += " \
+    cmake git cargo rust \
 "

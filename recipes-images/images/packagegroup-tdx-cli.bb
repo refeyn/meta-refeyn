@@ -115,7 +115,6 @@ RRECOMMENDS:packagegroup-networking-tdx-cli = "\
     avahi-autoipd \
     curl \
     linuxptp \
-    nfs-utils-client \
     ppp \
     ptpd \
     tcpdump \

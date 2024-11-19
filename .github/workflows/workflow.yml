@@ -37,25 +37,29 @@ jobs:
           export GITCONFIG_FILE=".gitconfig"
           kas build meta-refeyn/kas-project.yml
 
-      - uses: actions/upload-artifact@v4
+      - name: Upload Apalis-iMX8-Refeyn-Lite-Image
+        uses: actions/upload-artifact@v4
         with:
           name: Apalis-iMX8-Refeyn-Lite-Image
           path: |
             toradex-refeyn/build/tmp/deploy/images/apalis-imx8-refeyn/Apalis-iMX8-refeyn_Refeyn-Lite-Image-Tezi.tar
 
-      - uses: actions/upload-artifact@v4
+      - name: Upload Apalis-iMX8-Refeyn-Image
+        uses: actions/upload-artifact@v4
         with:
           name: Apalis-iMX8-Refeyn-Image
           path: |
             toradex-refeyn/build/tmp/deploy/images/apalis-imx8-refeyn/Apalis-iMX8-refeyn_Refeyn-Image-Tezi.tar
 
-      # - uses: actions/upload-artifact@v4
-      #   with:
-      #     name: Apalis-iMX8-Refeyn-Fat-Image
-      #     path: |
-      #       toradex-refeyn/build/tmp/deploy/images/apalis-imx8-refeyn/Apalis-iMX8-refeyn_Refeyn-Fat-Image-Tezi.tar
+      - name: Upload Apalis-iMX8-Refeyn-Fat-Image
+        uses: actions/upload-artifact@v4
+        with:
+          name: Apalis-iMX8-Refeyn-Fat-Image
+          path: |
+            toradex-refeyn/build/tmp/deploy/images/apalis-imx8-refeyn/Apalis-iMX8-refeyn_Refeyn-Fat-Image-Tezi.tar
 
-      - uses: actions/upload-artifact@v4
+      - name: Upload Apalis-iMX8-Refeyn-Packages
+        uses: actions/upload-artifact@v4
         with:
           name: Apalis-iMX8-Refeyn-Packages
           path: |
