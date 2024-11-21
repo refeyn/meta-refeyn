@@ -3,7 +3,7 @@ HOMEPAGE = "https://github.com/refeyn/lw8"
 
 LICENSE = "CLOSED"
 
-SRC_URI = "git://git@github.com/refeyn/lw8.git;protocol=ssh;branch=feature/CMS-385-amp-som-compat;destsuffix=lw8;name=lw8 \
+SRC_URI = "git://git@github.com/refeyn/lw8.git;protocol=ssh;branch=master;destsuffix=lw8;name=lw8 \
            git://git@github.com/refeyn/iscat.git;protocol=ssh;branch=master;destsuffix=lw8/internal_dependencies/iscat;name=iscat \
            file://eglfs.json \
            file://lw8.service \
