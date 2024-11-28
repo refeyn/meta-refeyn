@@ -5,3 +5,4 @@ PYSIDE_QT_MODULES:class-native = "\
     qtdeclarative \
     qtdeclarative-native \
 "
+DEPENDS += "python3-numpy"
