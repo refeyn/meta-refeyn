@@ -88,17 +88,17 @@ repos:
 
   meta-toradex-bsp-common:
     url: "https://git.toradex.com/meta-toradex-bsp-common.git"
-    commit: 6cdf564762805ec382409a2ba23d33bcde5bec9f
+    commit: d447bc9c3a19e263bae5c00de4bc4709b209593e
     branch: scarthgap-7.x.y
 
   meta-toradex-nxp:
     url: "https://git.toradex.com/meta-toradex-nxp.git"
-    commit: c6c49e30fb8660768830b8fab9e48e4f5b2bc5d3
+    commit: 1abd4f5c97132617bbc23f17d6bafd164359308d
     branch: scarthgap-7.x.y
 
   meta-toradex-ti:
     url: "https://git.toradex.com/meta-toradex-ti.git"
-    commit: 05ce7d7f931fb8398bdf9f535410ccc8a11dc00e
+    commit: a4cf6851767a9a8eb5f79ee3e27e257b33b9d4b5
     branch: scarthgap-7.x.y
 
   # meta-toradex-demos:
@@ -108,7 +108,7 @@ repos:
 
   meta-toradex-distro:
     url: "https://git.toradex.com/meta-toradex-distro.git"
-    commit: f37f10e2eb0f0793915b583078f70c30c3135f19
+    commit: 0d1bb8968f8748d3d28a7ab5ee19fa74f9a67b72
     branch: scarthgap-7.x.y
 
   meta-qt6:
