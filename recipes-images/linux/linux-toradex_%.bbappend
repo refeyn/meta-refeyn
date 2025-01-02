@@ -5,9 +5,9 @@ SRC_URI += " \
     ${KCONFIG_REPO};protocol=ssh;type=kmeta;name=meta-toradex-bsp;branch=master;destsuffix=${KMETA} \
 "
 
-SRCBRANCH = "refeyn_6.6-2.0.x-imx"
+SRCBRANCH = "refeyn_6.6-2.1.x-imx"
 KERNEL_SRC = "git://git@github.com/refeyn/linux.git"
 KCONFIG_REPO = "git://git@github.com/refeyn/linux-toradex-kconfig.git"
 
 SRCREV_meta-toradex-bsp = "96cf3fa393b30b16adac4fd6be06f6d48d248d4b"
-SRCREV_machine = "542556cfbf8200139f4b9a9194dc8d87edb7644c"
+SRCREV_machine = "3fc7678a1283915033ee188053d19b0e896512ef"
