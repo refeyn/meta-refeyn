@@ -56,6 +56,7 @@ IMAGE_INSTALL += " \
     udev-extraconf \
     ${CONMANPKGS} \
     systemd-analyze \
+    edid-override \
 "
 
 ## Select Image Features
@@ -65,7 +66,6 @@ IMAGE_FEATURES += " \
     splash \
     hwcodecs \
     weston \
-    splash \
     ssh-server-dropbear \
 "
 
