@@ -11,8 +11,9 @@ import docopt
 import pathlib
 import struct
 
-__version__ = (0, 2)
+__version__ = (0, 3)
 EEPROM_AUX_NAME = "aux-eeprom"
+EEPROM_AUX_ALT_NAME = "aux_eeprom_alt"
 EEPROM_CARRIER_NAME = "carrier-eeprom"
 EEPROM_DATA_FORMAT = struct.Struct(">BB14x8s8s16s64s64sBBQ")
 EEPROM_MMAP_VERSION = 0xAB
@@ -132,11 +133,15 @@ def find_i2c_addr(name: str) -> None:
 if __name__ == "__main__":
     args = docopt.docopt(__doc__)
     if args["carrier"]:
-        name = EEPROM_CARRIER_NAME
+        addr = find_i2c_addr(EEPROM_CARRIER_NAME)
     else:
-        name = EEPROM_AUX_NAME
+        try:
+            addr = find_i2c_addr(EEPROM_AUX_NAME)
+        except RuntimeError:
+            print("Warning: EEPROM not found on normal interface, trying alternative interface")
+            addr = find_i2c_addr(EEPROM_AUX_ALT_NAME)
 
-    addr = find_i2c_addr(name)
+    print("Using EEPROM interface at", addr)
 
     if args["eeprom-dump"]:
         eeprom_dump(addr)

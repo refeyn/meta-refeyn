@@ -23,7 +23,7 @@ do_configure[network] = "1"
 do_unpack[network] = "1"
 do_compile[network] = "1"
 
-DEPENDS += "ximea-xiapi pkgconfig-native"
+DEPENDS += "ximea-xiapi spinnaker pkgconfig-native"
 
 inherit python_setuptools3_rust
 require python3-dev-utils-build.inc
@@ -33,6 +33,7 @@ unset do_configure[postfuncs]
 do_compile:prepend() {
     export BINDGEN_EXTRA_CLANG_ARGS="-I ${STAGING_DIR_TARGET}/usr/include"
     export LW8_RUST_LIBRARY_PATH="${STAGING_DIR_TARGET}/usr/lib"
+    export LW8_SPINNAKER_RUST_LIBRARY_PATH="${STAGING_DIR_TARGET}/opt/spinnaker/lib"
 }
 
 FILES:${PN} += "${systemd_unitdir}/system/lw8.service"

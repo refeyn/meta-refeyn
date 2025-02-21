@@ -21,6 +21,7 @@ RDEPENDS:${PN} += "libusb1 zlib bash kernel-usb-memory-limit"
 DEPENDS = "tar-native zstd-native opkg-utils-native"
 FILES:${PN} += "/opt/spinnaker"
 INSANE_SKIP:${PN} += "already-stripped dev-so"
+SYSROOT_DIRS += "/opt"
 
 do_install() {
     cd spinnaker-3.1.0.79-arm64
