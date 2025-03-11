@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 """
 Usage:
-    aux-board.py eeprom-dump (carrier | aux)
-    aux-board.py eeprom-write (carrier | aux) --hw-rev=<rev> --pcb-id=<id> --pcb-name=<name> --board-serial=<id>
+    aux-board.py eeprom-dump (carrier | aux | <name>) [--offset=<offset>]
+    aux-board.py eeprom-write (carrier | aux | <name>) --hw-rev=<rev> --pcb-id=<id> --pcb-name=<name> --board-serial=<id> [--offset=<offset>]
 """
 
 import dataclasses
@@ -11,7 +11,7 @@ import docopt
 import pathlib
 import struct
 
-__version__ = (0, 3)
+__version__ = (0, 4)
 EEPROM_AUX_NAME = "aux-eeprom"
 EEPROM_AUX_ALT_NAME = "aux_eeprom_alt"
 EEPROM_CARRIER_NAME = "carrier-eeprom"
@@ -84,8 +84,9 @@ class EEPROMData:
         )
 
 
-def eeprom_dump(addr: pathlib.Path) -> None:
+def eeprom_dump(addr: pathlib.Path, offset: int) -> None:
     with open(addr, "rb") as f:
+        f.seek(offset)
         data = EEPROMData.from_bytes(f.read(EEPROM_DATA_FORMAT.size))
 
     print(
@@ -102,7 +103,7 @@ Programmed at: {data.write_date}
 
 
 def eeprom_write(
-    hw_rev: int, pcb_id: str, pcb_name: str, board_serial: str, addr: pathlib.Path
+    hw_rev: int, pcb_id: str, pcb_name: str, board_serial: str, addr: pathlib.Path, offset: int
 ) -> None:
     pcb_prefix, pcb_id = pcb_id.rsplit("-", 1)
     data = EEPROMData(
@@ -116,6 +117,7 @@ def eeprom_write(
         write_date=datetime.datetime.now(),
     )
     with open(addr, "wb") as f:
+        f.seek(offset)
         f.write(data.to_bytes())
 
 
@@ -134,17 +136,19 @@ if __name__ == "__main__":
     args = docopt.docopt(__doc__)
     if args["carrier"]:
         addr = find_i2c_addr(EEPROM_CARRIER_NAME)
-    else:
+    elif args["aux"]:
         try:
             addr = find_i2c_addr(EEPROM_AUX_NAME)
         except RuntimeError:
             print("Warning: EEPROM not found on normal interface, trying alternative interface")
             addr = find_i2c_addr(EEPROM_AUX_ALT_NAME)
+    else:
+        addr = find_i2c_addr(args["<name>"])
 
     print("Using EEPROM interface at", addr)
 
     if args["eeprom-dump"]:
-        eeprom_dump(addr)
+        eeprom_dump(addr, offset=int(args["--offset"] or 0))
     elif args["eeprom-write"]:
         eeprom_write(
             int(args["--hw-rev"]),
@@ -152,4 +156,5 @@ if __name__ == "__main__":
             args["--pcb-name"],
             args["--board-serial"],
             addr,
+            offset=int(args["--offset"] or 0)
         )
