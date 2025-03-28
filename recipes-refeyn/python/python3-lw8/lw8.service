@@ -8,6 +8,7 @@ Environment=QT_SCALE_FACTOR=2.5
 ExecStart=python3 -m lw8 --embedded
 Restart=on-failure
 RestartSec=5
+ExecStopPost=bash /usr/bin/lw8-stop.sh
 
 [Install]
 WantedBy=multi-user.target
