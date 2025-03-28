@@ -49,6 +49,9 @@ do_install:append() {
     install -d ${D}/${systemd_unitdir}/system
     install -m 0644 ${WORKDIR}/lw8.service ${D}/${systemd_unitdir}/system
 
+    install -d ${D}/${bindir}
+    install -m 0644 ${WORKDIR}/lw8-stop.sh ${D}/${bindir}/lw8-stop.sh
+
     find ${D}/${PYTHON_SITEPACKAGES_DIR}/lw8 -name "*.dll" -type f -delete
     find ${D}/${PYTHON_SITEPACKAGES_DIR}/lw8 -name "*.lib" -type f -delete
 }
