@@ -2,6 +2,32 @@ name: Image build
 
 on:
  workflow_dispatch:
+  inputs:
+    no_cythonize:
+      description: "Skip cythonization"
+      type: boolean
+      default: false
+      required: false
+    lw8_branch:
+      description: "lw8 branch"
+      type: string
+      default: "master"
+      required: false
+    iscat_utils_branch:
+      description: "iscat_utils branch"
+      type: string
+      default: "master"
+      required: false
+    iscat_branch:
+      description: "iscat branch"
+      type: string
+      default: "master"
+      required: false
+    dev_utils_branch:
+      description: "dev_utils branch"
+      type: string
+      default: "master"
+      required: false
  push:
   tags:
     - '*'
@@ -13,6 +39,13 @@ jobs:
     name: Test and Deploy
     runs-on: yocto
     timeout-minutes: 500
+
+    env:
+      REFEYN_NO_CYTHONIZE: ${{ inputs.no_cythonize && '1' || '0' }}
+      REFEYN_LW8_BRANCH: ${{ inputs.lw8_branch || 'master' }}
+      REFEYN_ISCAT_UTILS_BRANCH: ${{ inputs.iscat_utils_branch || 'master' }}
+      REFEYN_ISCAT_BRANCH: ${{ inputs.iscat_branch || 'master' }}
+      REFEYN_DEV_UTILS_BRANCH: ${{ inputs.dev_utils_branch || 'master' }}
 
     steps:
       - name: Clean build directory
@@ -28,6 +61,7 @@ jobs:
       - name: Build
         run: |
           cd toradex-refeyn
+          env | grep REFEYN_
 
           # https://stackoverflow.com/a/57229018
           echo -e "[url \"https://api:${{secrets.REFEYN_CI_TOKEN}}@github.com/\"]\n\tinsteadOf = https://github.com/" >> .gitconfig

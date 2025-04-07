@@ -3,7 +3,7 @@ HOMEPAGE = "https://github.com/refeyn/iscat"
 
 LICENSE = "CLOSED"
 
-SRC_URI = "git://git@github.com/refeyn/iscat.git;protocol=ssh;branch=master;destsuffix=iscat"
+SRC_URI = "git://git@github.com/refeyn/iscat.git;protocol=ssh;branch=${REFEYN_ISCAT_BRANCH};destsuffix=iscat"
 require python3-iscat-crates.inc
 
 PV = "1.0+git${SRCPV}"
