@@ -4,7 +4,7 @@ HOMEPAGE = "https://github.com/refeyn/dev_utils"
 LICENSE = "CLOSED"
 LIC_FILES_CHKSUM = ""
 
-SRC_URI = "git://git@github.com/refeyn/dev_utils.git;protocol=ssh;branch=master"
+SRC_URI = "git://git@github.com/refeyn/dev_utils.git;protocol=ssh;branch=${REFEYN_DEV_UTILS_BRANCH}"
 
 PV = "1.41.0+git${SRCPV}"
 SRCREV = "${AUTOREV}"

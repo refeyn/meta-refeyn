@@ -10,6 +10,10 @@ target:
 
 env:
   REFEYN_NO_CYTHONIZE: "1"
+  REFEYN_LW8_BRANCH: "master"
+  REFEYN_ISCAT_UTILS_BRANCH: "master"
+  REFEYN_ISCAT_BRANCH: "master"
+  REFEYN_DEV_UTILS_BRANCH: "master"
 
 repos:
   meta-refeyn:

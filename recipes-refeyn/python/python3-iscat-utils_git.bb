@@ -3,7 +3,7 @@ HOMEPAGE = "https://github.com/refeyn/iscat_utils"
 
 LICENSE = "CLOSED"
 
-SRC_URI = "git://git@github.com/refeyn/iscat_utils.git;protocol=ssh;branch=master;destsuffix=iscat_utils"
+SRC_URI = "git://git@github.com/refeyn/iscat_utils.git;protocol=ssh;branch=${REFEYN_ISCAT_UTILS_BRANCH};destsuffix=iscat_utils"
 
 PV = "1.44.0+git${SRCPV}"
 SRCREV = "${AUTOREV}"
