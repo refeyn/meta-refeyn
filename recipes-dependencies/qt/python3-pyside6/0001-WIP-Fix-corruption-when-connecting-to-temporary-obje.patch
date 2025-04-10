@@ -1,0 +1,32 @@
+From 7e2dba988ab6a558df541bf5b6ba7a142d4470db Mon Sep 17 00:00:00 2001
+From: Friedemann Kleint <Friedemann.Kleint@qt.io>
+Date: Tue, 8 Apr 2025 21:12:21 +0200
+Subject: [PATCH] WIP: Fix corruption when connecting to temporary object
+
+Guard the deletion tracker using GIL.
+Amends 33bd61d13d8d9e3794b6049891be62f3351313d9.
+
+Fixes: PYSIDE-3072
+Task-number: PYSIDE-2810
+Task-number: PYSIDE-2221
+Pick-to: 6.9 6.8
+Change-Id: Ia085fa551903dd39c7a9624f6995d8720e9f7fb0
+---
+ sources/pyside6/libpyside/dynamicslot.cpp | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/sources/pyside6/libpyside/dynamicslot.cpp b/sources/pyside6/libpyside/dynamicslot.cpp
+index 1fbdba1ab..be2fa3e43 100644
+--- a/sources/pyside6/libpyside/dynamicslot.cpp
++++ b/sources/pyside6/libpyside/dynamicslot.cpp
+@@ -348,6 +348,7 @@ public Q_SLOTS:
+ 
+ void SenderSignalDeletionTracker::senderDestroyed(QObject *o)
+ {
++    Shiboken::GilState gil;
+     for (auto it = connectionHash.begin(); it != connectionHash.end(); ) {
+         if (it.key().sender == o)
+             it = connectionHash.erase(it);
+-- 
+2.43.0
+
