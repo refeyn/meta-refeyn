@@ -8,11 +8,11 @@ export IMAGE_BASENAME = "Refeyn-Fat-Image"
 
 IMAGE_FEATURES += " \
     tools-profile \
-    tools-sdk \
     tools-debug \
-    dbg-pkgs \
-    dev-pkgs \
 "
+#     tools-sdk \
+#     dbg-pkgs \
+#     dev-pkgs \
 
 IMAGE_INSTALL += " \
     cmake git cargo rust \
