@@ -5,6 +5,7 @@ DESCRIPTION = "Refeyn image for doing Refyened things (heavyweight version)"
 LICENSE = "CLOSED"
 
 export IMAGE_BASENAME = "Refeyn-Fat-Image"
+IMAGE_VARIANT = "Fat"
 
 IMAGE_FEATURES += " \
     tools-profile \

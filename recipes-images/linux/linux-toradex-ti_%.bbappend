@@ -11,3 +11,7 @@ KCONFIG_REPO = "git://git@github.com/refeyn/linux-toradex-kconfig.git"
 
 SRCREV_meta-toradex-bsp = "17deac27b9765b05bd12a75741d3c7e0080deebd"
 SRCREV_machine = "3fc7678a1283915033ee188053d19b0e896512ef"
+
+# Remove Torizon features
+KERNEL_FEATURES:remove = "bsp/${MACHINE}-${LINUX_KERNEL_TYPE}-torizon.scc"
+KERNEL_FEATURES += "bsp/aquila-am69-${LINUX_KERNEL_TYPE}-torizon.scc"

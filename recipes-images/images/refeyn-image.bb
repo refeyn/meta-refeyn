@@ -5,6 +5,7 @@ DESCRIPTION = "Refeyn image for doing Refyened things"
 LICENSE = "CLOSED"
 
 export IMAGE_BASENAME = "Refeyn-Image"
+IMAGE_VARIANT = "Normal"
 
 IMAGE_INSTALL += " \
     python3-lw8 \
