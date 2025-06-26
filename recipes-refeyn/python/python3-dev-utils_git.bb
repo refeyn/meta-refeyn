@@ -19,7 +19,7 @@ RDEPENDS:${PN} += " \
     python3-packaging python3-profile python3-setuptools python3-typing-extensions \
     python3-xml python3-pyside6 python3-click python3-jinja2 \
     python3-pydantic python3-tomlkit python3-colorama python3-requests \
-    python3-pyside6-qml-stubgen python3-pip-licenses \
+    python3-pyside6-qml-stubgen \
 "
 
 BBCLASSEXTEND = "native nativesdk"
