@@ -163,6 +163,9 @@ local_conf_header:
   packaging: |
     PACKAGE_CLASSES = "package_rpm"
 
+  rust: |
+    RUSTVERSION = "1.87.0"
+
   scipy: |
     FORTRAN:forcevariable = ",fortran"
     RUNTIMETARGET:append:pn-gcc-runtime = " libquadmath"
