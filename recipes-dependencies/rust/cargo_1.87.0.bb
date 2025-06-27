@@ -22,7 +22,7 @@ inherit cargo pkgconfig
 DEBUG_PREFIX_MAP += "-ffile-prefix-map=${RUSTSRC}/vendor=${TARGET_DBGSRC_DIR}"
 
 do_cargo_setup_snapshot () {
-	${UNPACKDIR}/rust-snapshot-components/${CARGO_SNAPSHOT}/install.sh --prefix="${WORKDIR}/${CARGO_SNAPSHOT}" --disable-ldconfig
+	${WORKDIR}/rust-snapshot-components/${CARGO_SNAPSHOT}/install.sh --prefix="${WORKDIR}/${CARGO_SNAPSHOT}" --disable-ldconfig
 	# Need to use uninative's loader if enabled/present since the library paths
 	# are used internally by rust and result in symbol mismatches if we don't
 	if [ ! -z "${UNINATIVE_LOADER}" -a -e "${UNINATIVE_LOADER}" ]; then
@@ -49,15 +49,15 @@ do_install:append:class-nativesdk() {
 	# sets to libdir but not base_libdir leading to symbol mismatches depending on the
 	# host OS. Fully set LD_LIBRARY_PATH to contain both to avoid this.
 	create_wrapper ${D}/${bindir}/cargo LD_LIBRARY_PATH=${libdir}:${base_libdir}
-	
+
 	ENV_SETUP_DIR=${D}${base_prefix}/environment-setup.d
 	mkdir "${ENV_SETUP_DIR}"
 	CARGO_ENV_SETUP_SH="${ENV_SETUP_DIR}/cargo.sh"
-	
+
 	cat <<- EOF > "${CARGO_ENV_SETUP_SH}"
 	# Keep the below off as long as HTTP/2 is disabled.
 	export CARGO_HTTP_MULTIPLEXING=false
-	
+
 	export CARGO_HTTP_CAINFO="\$OECORE_NATIVE_SYSROOT/etc/ssl/certs/ca-certificates.crt"
 	EOF
 }
