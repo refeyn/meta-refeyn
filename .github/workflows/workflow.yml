@@ -71,39 +71,39 @@ jobs:
           export GITCONFIG_FILE=".gitconfig"
           kas build meta-refeyn/kas-project.yml
 
-      - name: Upload Apalis-iMX8-Refeyn-Lite-Image
+      - name: Upload Aquila-AM69-Refeyn-Lite-Image
         uses: actions/upload-artifact@v4
         with:
-          name: Apalis-iMX8-Refeyn-Lite-Image
+          name: Aquila-AM69-Refeyn-Lite-Image
           path: |
-            toradex-refeyn/build/tmp/deploy/images/apalis-imx8-refeyn/Apalis-iMX8-refeyn_Refeyn-Lite-Image-Tezi.tar
+            toradex-refeyn/build/deploy-ti/images/aquila-am69-refeyn/Aquila-AM69-refeyn_Refeyn-Lite-Image-Tezi.tar
 
-      - name: Upload Apalis-iMX8-Refeyn-Image
+      - name: Upload Aquila-AM69-Refeyn-Image
         uses: actions/upload-artifact@v4
         with:
-          name: Apalis-iMX8-Refeyn-Image
+          name: Aquila-AM69-Refeyn-Image
           path: |
-            toradex-refeyn/build/tmp/deploy/images/apalis-imx8-refeyn/Apalis-iMX8-refeyn_Refeyn-Image-Tezi.tar
+            toradex-refeyn/build/deploy-ti/images/aquila-am69-refeyn/Aquila-AM69-refeyn_Refeyn-Image-Tezi.tar
 
-      - name: Upload Apalis-iMX8-Refeyn-Fat-Image
+      - name: Upload Aquila-AM69-Refeyn-Fat-Image
         uses: actions/upload-artifact@v4
         with:
-          name: Apalis-iMX8-Refeyn-Fat-Image
+          name: Aquila-AM69-Refeyn-Fat-Image
           path: |
-            toradex-refeyn/build/tmp/deploy/images/apalis-imx8-refeyn/Apalis-iMX8-refeyn_Refeyn-Fat-Image-Tezi.tar
+            toradex-refeyn/build/deploy-ti/images/aquila-am69-refeyn/Aquila-AM69-refeyn_Refeyn-Fat-Image-Tezi.tar
 
-      - name: Upload Apalis-iMX8-Refeyn-Packages
+      - name: Upload Aquila-AM69-Refeyn-Packages
         uses: actions/upload-artifact@v4
         with:
-          name: Apalis-iMX8-Refeyn-Packages
+          name: Aquila-AM69-Refeyn-Packages
           path: |
-            toradex-refeyn/build/tmp/deploy/rpm/armv8a/python3-lw8-v*.rpm
-            toradex-refeyn/build/tmp/deploy/rpm/armv8a/python3-lw8-data*.rpm
-            toradex-refeyn/build/tmp/deploy/rpm/armv8a/python3-lw8-dbg*.rpm
-            toradex-refeyn/build/tmp/deploy/rpm/armv8a/python3-iscat-1*.rpm
-            toradex-refeyn/build/tmp/deploy/rpm/armv8a/python3-iscat-dbg*.rpm
-            toradex-refeyn/build/tmp/deploy/rpm/armv8a/python3-iscat-utils-1*.rpm
-            toradex-refeyn/build/tmp/deploy/rpm/armv8a/python3-iscat-utils-dbg*.rpm
+            toradex-refeyn/build/tmp/deploy/rpm/aarch64/python3-lw8-v*.rpm
+            toradex-refeyn/build/tmp/deploy/rpm/aarch64/python3-lw8-data*.rpm
+            toradex-refeyn/build/tmp/deploy/rpm/aarch64/python3-lw8-dbg*.rpm
+            toradex-refeyn/build/tmp/deploy/rpm/aarch64/python3-iscat-1*.rpm
+            toradex-refeyn/build/tmp/deploy/rpm/aarch64/python3-iscat-dbg*.rpm
+            toradex-refeyn/build/tmp/deploy/rpm/aarch64/python3-iscat-utils-1*.rpm
+            toradex-refeyn/build/tmp/deploy/rpm/aarch64/python3-iscat-utils-dbg*.rpm
 
       - name: Cleanup
         if: always()

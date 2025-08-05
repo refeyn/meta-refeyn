@@ -1,1 +1,1 @@
-{ "device": "/dev/dri/card1", "hwcursor": false }
+{ "device": "/dev/dri/by-path/platform-4a00000.dss-card", "hwcursor": false }

@@ -4,6 +4,7 @@ Description=AcquireMP - Mass photometer control software
 [Service]
 Environment=QT_QPA_EGLFS_KMS_CONFIG=/etc/Refeyn/AcquireMP/eglfs.json
 Environment=QT_QPA_PLATFORM=eglfs
+Environment=QT_QPA_LIBINPUT_POINTER_ROTATION=90
 Environment=QT_SCALE_FACTOR=2.5
 Environment=LW8_DISABLE_RECORD_UNTRANSMITTABLE_EVENTS=1
 Environment=LW8_DISABLE_EVENT_DELETION=1
