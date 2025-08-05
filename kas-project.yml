@@ -1,7 +1,7 @@
 header:
   version: 17
 
-machine: apalis-imx8-refeyn
+machine: aquila-am69-refeyn
 distro: refeyn-wayland
 target:
  - refeyn-image-lite

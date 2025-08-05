@@ -1,0 +1,84 @@
+From 7385b9d2a44b5d343810b1b036b80dcc66ba0c06 Mon Sep 17 00:00:00 2001
+From: Matthew Joyce <matthew.joyce@refeyn.com>
+Date: Mon, 4 Aug 2025 16:52:17 +0100
+Subject: [PATCH] Add environment variable for rotating libinput mouse devices
+
+---
+ .../input/libinput/qlibinputhandler.cpp       |  1 +
+ .../input/libinput/qlibinputpointer.cpp       | 25 +++++++++++++++++++
+ .../input/libinput/qlibinputpointer_p.h       |  2 ++
+ 3 files changed, 28 insertions(+)
+
+diff --git a/src/platformsupport/input/libinput/qlibinputhandler.cpp b/src/platformsupport/input/libinput/qlibinputhandler.cpp
+index ef45533f1a9..7f34e6dbfc6 100644
+--- a/src/platformsupport/input/libinput/qlibinputhandler.cpp
++++ b/src/platformsupport/input/libinput/qlibinputhandler.cpp
+@@ -130,6 +130,7 @@ void QLibInputHandler::processEvent(libinput_event *ev)
+             inputManagerPriv->setDeviceCount(QInputDeviceManager::DeviceTypeTouch, count);
+         }
+         if (libinput_device_has_capability(dev, LIBINPUT_DEVICE_CAP_POINTER)) {
++            m_pointer->initDevice(dev);
+             int &count(m_devCount[QInputDeviceManager::DeviceTypePointer]);
+             ++count;
+             inputManagerPriv->setDeviceCount(QInputDeviceManager::DeviceTypePointer, count);
+diff --git a/src/platformsupport/input/libinput/qlibinputpointer.cpp b/src/platformsupport/input/libinput/qlibinputpointer.cpp
+index 03351397b5e..73c0b84cb68 100644
+--- a/src/platformsupport/input/libinput/qlibinputpointer.cpp
++++ b/src/platformsupport/input/libinput/qlibinputpointer.cpp
+@@ -13,11 +13,36 @@
+ 
+ QT_BEGIN_NAMESPACE
+ 
++Q_DECLARE_LOGGING_CATEGORY(qLcLibInput)
++
+ QLibInputPointer::QLibInputPointer()
+     : m_buttons(Qt::NoButton)
+ {
+ }
+ 
++static void setRotation(libinput_device *dev)
++{
++    if (libinput_device_config_rotation_is_available(dev)) {
++        QByteArray env = qgetenv("QT_QPA_LIBINPUT_POINTER_ROTATION");
++        env = env.simplified();
++        if (env.size()) {
++            bool ok = true;
++            unsigned int rotation = env.toUInt(&ok);
++            if (!ok || rotation > 360)
++                qCWarning(qLcLibInput, "Invalid pointer rotation %u", env.constData());
++            if (libinput_device_config_rotation_set_angle(dev, rotation) != LIBINPUT_CONFIG_STATUS_SUCCESS)
++                qCWarning(qLcLibInput, "Failed to set libinput pointer rotation");
++        }
++    } else {
++        qCWarning(qLcLibInput, "Pointer device doesn't support rotation");
++    }
++}
++
++void QLibInputPointer::initDevice(libinput_device *dev)
++{
++    setRotation(dev);
++}
++
+ void QLibInputPointer::processButton(libinput_event_pointer *e)
+ {
+     const uint32_t b = libinput_event_pointer_get_button(e);
+diff --git a/src/platformsupport/input/libinput/qlibinputpointer_p.h b/src/platformsupport/input/libinput/qlibinputpointer_p.h
+index f1709eaa341..d713c1b6f69 100644
+--- a/src/platformsupport/input/libinput/qlibinputpointer_p.h
++++ b/src/platformsupport/input/libinput/qlibinputpointer_p.h
+@@ -19,6 +19,7 @@
+ //
+ 
+ struct libinput_event_pointer;
++struct libinput_device;
+ 
+ QT_BEGIN_NAMESPACE
+ 
+@@ -27,6 +28,7 @@ class QLibInputPointer
+ public:
+     QLibInputPointer();
+ 
++    void initDevice(libinput_device *dev);
+     void processButton(libinput_event_pointer *e);
+     void processMotion(libinput_event_pointer *e);
+     void processAbsMotion(libinput_event_pointer *e);
