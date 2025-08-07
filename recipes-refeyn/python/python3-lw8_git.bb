@@ -62,7 +62,7 @@ RDEPENDS:${PN} += " \
     python3-fluigent python3-periphery python3-pyserial python3-pyprctl \
     python3-quickgraphlib python3-statistics python3-pyudev ${PN}-data \
     qtvirtualkeyboard qtimageformats gstreamer1.0-plugins-base gstreamer1.0-plugins-good \
-    gstreamer1.0-plugins-bad \
+    gstreamer1.0-plugins-bad python3-spsdk \
 "
 
 PACKAGES =+ "${PN}-data"
