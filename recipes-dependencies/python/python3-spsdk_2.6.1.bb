@@ -3,7 +3,9 @@ HOMEPAGE = "https://github.com/refeyn/spsdk"
 LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=863e3c0c79e2589ac9d16c3918e115d1"
 
-SRC_URI = "git://git@github.com/refeyn/spsdk.git;protocol=ssh;branch=master"
+SRC_URI = "git://git@github.com/refeyn/spsdk.git;protocol=ssh;branch=master \
+           file://0001-Relax-requirements-and-remove-custom-version-scheme.patch \
+           "
 
 PV = "2.6.1+git${SRCPV}"
 SRCREV = "145a0e202805def975ca183ac3653f19b09d2a66"
