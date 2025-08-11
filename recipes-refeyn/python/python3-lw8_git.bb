@@ -5,15 +5,20 @@ LICENSE = "CLOSED"
 
 SRC_URI = "git://git@github.com/refeyn/lw8.git;protocol=ssh;branch=${REFEYN_LW8_BRANCH};destsuffix=lw8;name=lw8 \
            git://git@github.com/refeyn/iscat.git;protocol=ssh;branch=${REFEYN_ISCAT_BRANCH};destsuffix=lw8/internal_dependencies/iscat;name=iscat \
+           git://git@github.com/refeyn/nxp_sdk_board_support.git;protocol=ssh;branch=master;destsuffix=lw8/firmware/serial_stage_driver/src/drivers/nxp/nxp_sdk;name=nxp-sdk \
+           https://developer.arm.com/-/media/Files/downloads/gnu/14.3.rel1/binrel/arm-gnu-toolchain-14.3.rel1-x86_64-arm-none-eabi.tar.xz;name=firmware-toolchain \
            file://eglfs.json \
            file://lw8.service \
            file://lw8-stop.sh \
            "
+SRC_URI[firmware-toolchain.sha256sum] = "8f6903f8ceb084d9227b9ef991490413014d991874a1e34074443c2a72b14dbd"
+
 require python3-lw8-crates.inc
 
 PV = "v2023.2.0dev2+git${SRCPV}"
 SRCREV_lw8 = "${AUTOREV}"
 SRCREV_iscat = "${AUTOREV}"
+SRCREV_nxp-sdk = "${AUTOREV}"
 SRCREV_FORMAT = "lw8_iscat"
 
 S = "${WORKDIR}/lw8"
@@ -28,6 +33,19 @@ DEPENDS += "ximea-xiapi spinnaker pkgconfig-native"
 
 inherit python_setuptools3_rust
 require python3-dev-utils-build.inc
+
+DEPENDS += "python3-pyyaml-native cmake-native ninja-native"
+
+do_compile_firmware() {
+    cd ${S}
+    python3 ./firmware/buildFirmware.py \
+        --build_config refeyn_ec-pcb-00044 \
+        --serial_driver UART \
+        --build_type Debug \
+        --build_target NXP.elf \
+        --toolchain_path ../arm-gnu-toolchain-14.3.rel1-x86_64-arm-none-eabi
+}
+addtask do_compile_firmware before do_compile after do_configure
 
 unset do_configure[postfuncs]
 

@@ -1,0 +1,42 @@
+From 0d5b0dacc162d2e7eb2e8d817f08664c9bc4ad45 Mon Sep 17 00:00:00 2001
+From: Matthew Joyce <matthew.joyce@refeyn.com>
+Date: Fri, 8 Aug 2025 09:12:52 +0100
+Subject: [PATCH] Relax requirements and remove custom version scheme
+
+---
+ pyproject.toml   | 3 +--
+ requirements.txt | 2 +-
+ 2 files changed, 2 insertions(+), 3 deletions(-)
+
+diff --git a/pyproject.toml b/pyproject.toml
+index ef04c16..1ff82dd 100644
+--- a/pyproject.toml
++++ b/pyproject.toml
+@@ -18,7 +18,7 @@ dependencies = { file = ["requirements.txt"] }
+ "Documentation" = "https://spsdk.readthedocs.io"
+ 
+ [build-system]
+-requires = ["setuptools_scm<8.2", "setuptools>=72.1,<74", "wheel"]
++requires = ["setuptools_scm<8.2", "setuptools", "wheel"]
+ 
+ [tool.black]
+ line-length = 100
+@@ -43,7 +43,6 @@ warn_unused_ignores = false
+ 
+ [tool.setuptools_scm]
+ version_file = "spsdk_refeyn/__version__.py"
+-version_scheme = "spsdk_refeyn.versioning:run"
+ 
+ [tool.checker_dependencies.spdx]
+ 
+diff --git a/requirements.txt b/requirements.txt
+index 7557801..038c031 100644
+--- a/requirements.txt
++++ b/requirements.txt
+@@ -6,5 +6,5 @@ packaging<26,>=23.0
+ platformdirs<5,>=3.9.1
+ pyserial<4,>=3.1
+ setuptools_scm<9
+-setuptools>75
++setuptools
+ typing-extensions<5
