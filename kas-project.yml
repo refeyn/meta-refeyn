@@ -117,8 +117,8 @@ repos:
 
   meta-qt6:
     url: "https://code.qt.io/yocto/meta-qt6"
-    commit: 3163a99c081709545630b832e46881e8bd4c45de
-    branch: "6.8"
+    commit: 5d62195736ee0cf0f538546a9a1e97332576dc82
+    branch: "6.9.2"
 
   meta-clang:
     url: "https://github.com/kraj/meta-clang"
