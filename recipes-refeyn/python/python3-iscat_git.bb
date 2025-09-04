@@ -25,5 +25,5 @@ RDEPENDS:${PN} += " \
     python3-more-itertools python3-multiprocessing python3-numpy python3-pickle \
     python3-profile python3-psutil python3-pydantic python3-pytest \
     python3-scikit-learn python3-scipy python3-threading python3-typing-extensions \
-    python3-unittest python3-pyyaml \
+    python3-unittest python3-pyyaml python3-refeyn-io \
 "
