@@ -23,6 +23,11 @@ on:
       type: string
       default: "master"
       required: false
+    refeyn_io_branch:
+      description: "refeyn_io branch"
+      type: string
+      default: "master"
+      required: false
     dev_utils_branch:
       description: "dev_utils branch"
       type: string
@@ -45,6 +50,7 @@ jobs:
       REFEYN_LW8_BRANCH: ${{ inputs.lw8_branch || 'master' }}
       REFEYN_ISCAT_UTILS_BRANCH: ${{ inputs.iscat_utils_branch || 'master' }}
       REFEYN_ISCAT_BRANCH: ${{ inputs.iscat_branch || 'master' }}
+      REFEYN_REFEYN_IO_BRANCH: ${{ inputs.refeyn_io_branch || 'master' }}
       REFEYN_DEV_UTILS_BRANCH: ${{ inputs.dev_utils_branch || 'master' }}
 
     steps:

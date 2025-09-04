@@ -13,6 +13,7 @@ env:
   REFEYN_LW8_BRANCH: "master"
   REFEYN_ISCAT_UTILS_BRANCH: "master"
   REFEYN_ISCAT_BRANCH: "master"
+  REFEYN_REFEYN_IO_BRANCH: "master"
   REFEYN_DEV_UTILS_BRANCH: "master"
 
 repos:
