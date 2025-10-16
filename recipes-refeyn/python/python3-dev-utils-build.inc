@@ -1,6 +1,8 @@
 do_compile:prepend() {
     export NO_CYTHONIZE=${REFEYN_NO_CYTHONIZE}
     rm -rf ${S}/build
+    sed -i '/license = ".*"/d' ${S}/pyproject.toml
+    sed -i '/license-files = \[.*\]/d' ${S}/pyproject.toml
 }
 
 do_compile_ui() {

@@ -11,7 +11,7 @@ SRCREV = "${AUTOREV}"
 
 S = "${WORKDIR}/iscat"
 
-inherit python_setuptools3_rust
+inherit python_setuptools3_rust cargo-update-recipe-crates
 require python3-dev-utils-build.inc
 
 # HACK until ndarray_ndimage has a new release

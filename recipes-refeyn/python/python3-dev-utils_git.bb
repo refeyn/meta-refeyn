@@ -23,3 +23,8 @@ RDEPENDS:${PN} += " \
 "
 
 BBCLASSEXTEND = "native nativesdk"
+
+do_compile:prepend() {
+    sed -i '/license = ".*"/d' ${S}/pyproject.toml
+    sed -i '/license-files = \[.*\]/d' ${S}/pyproject.toml
+}
