@@ -31,7 +31,7 @@ do_compile[network] = "1"
 
 DEPENDS += "ximea-xiapi spinnaker pkgconfig-native"
 
-inherit python_setuptools3_rust
+inherit python_setuptools3_rust cargo-update-recipe-crates
 require python3-dev-utils-build.inc
 
 DEPENDS += "python3-pyyaml-native cmake-native ninja-native"
