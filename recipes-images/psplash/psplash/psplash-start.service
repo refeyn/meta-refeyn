@@ -7,7 +7,7 @@ Before=basic.target
 RequiresMountsFor=/run
 
 [Service]
-ExecStart=/usr/bin/psplash -n -f 0
+ExecStart=/usr/bin/psplash -n -f 0 --angle 270
 
 [Install]
 WantedBy=sysinit.target
