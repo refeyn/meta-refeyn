@@ -185,3 +185,6 @@ local_conf_header:
 
   latest: |
     MACHINEOVERRIDES =. "use-head-next:"
+
+  workarounds: |
+    CONNECTIVITY_CHECK_URIS = "https://www.google.com"
