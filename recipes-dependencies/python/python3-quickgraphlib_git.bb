@@ -9,13 +9,13 @@ S = "${WORKDIR}/git"
 
 SRC_URI = "git://git@github.com/refeyn/QuickGraphLib.git;protocol=ssh;branch=master \
            file://0001-Remove-some-build-system-requires-as-picobuild-doesn.patch \
+           file://PySide6Config.abi3.cmake \
            "
 
 PV = "v0.1.0+git${SRCPV}"
 SRCREV = "758cc907d36a01c2062428d7983b04a5d107098c"
 DEPENDS += " \
     qtbase \
-    qtbase-native \
     qtdeclarative \
     qtdeclarative-native \
     qtsvg \
@@ -23,15 +23,14 @@ DEPENDS += " \
     python3-shiboken6 \
     python3-shiboken6-native \
     python3-pyside6 \
-    python3-pyside6-native \
     python3-scikit-build-core-native \
 "
 RDEPENDS:${PN} += "qtbase qtdeclarative qtsvg"
 FILES:${PN} += "${PYTHON_SITEPACKAGES_DIR}"
 EXTRA_OECMAKE += " \
     -DBUILD_TESTS=FALSE \
-    -DQFP_QT_HOST_PATH=${WORKDIR}/recipe-sysroot-native/usr \
-    -DQFP_QT_TARGET_PATH=${WORKDIR}/recipe-sysroot/usr \
+    -DQFP_QT_HOST_PATH=${RECIPE_SYSROOT_NATIVE}/usr \
+    -DQFP_QT_TARGET_PATH=${RECIPE_SYSROOT}/usr \
     -DCMAKE_TOOLCHAIN_FILE=${WORKDIR}/toolchain.cmake \
     -DQFP_SHIBOKEN_HOST_PATH=${STAGING_BINDIR_NATIVE}/shiboken6 \
     -DQFP_PYTHON_HOST_PATH=${PYTHON} \
@@ -39,6 +38,7 @@ EXTRA_OECMAKE += " \
 "
 
 do_compile:prepend() {
+    cp "${WORKDIR}/PySide6Config.abi3.cmake" "${RECIPE_SYSROOT}/usr/lib/cmake/PySide6/"
     export CMAKE_ARGS=" \
         ${OECMAKE_GENERATOR_ARGS} \
         ${OECMAKE_SOURCEPATH} \
