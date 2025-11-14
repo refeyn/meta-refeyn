@@ -12,7 +12,7 @@ SRC_URI = "git://git@github.com/refeyn/QuickGraphLib.git;protocol=ssh;branch=mas
            "
 
 PV = "v0.1.0+git${SRCPV}"
-SRCREV = "${AUTOREV}"
+SRCREV = "758cc907d36a01c2062428d7983b04a5d107098c"
 DEPENDS += " \
     qtbase \
     qtbase-native \
