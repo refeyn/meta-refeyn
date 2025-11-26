@@ -110,6 +110,8 @@ jobs:
             toradex-refeyn/build/tmp/deploy/rpm/aarch64/python3-iscat-dbg*.rpm
             toradex-refeyn/build/tmp/deploy/rpm/aarch64/python3-iscat-utils-1*.rpm
             toradex-refeyn/build/tmp/deploy/rpm/aarch64/python3-iscat-utils-dbg*.rpm
+            toradex-refeyn/build/tmp/deploy/rpm/aarch64/python3-refeyn-io-1*.rpm
+            toradex-refeyn/build/tmp/deploy/rpm/aarch64/python3-refeyn-io-dbg*.rpm
 
       - name: Cleanup
         if: always()
