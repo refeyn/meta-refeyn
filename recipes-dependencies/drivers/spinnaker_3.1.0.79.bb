@@ -12,7 +12,7 @@ SRC_URI = " \
     file://40-flir-spinnaker.rules \
     file://LICENCE.txt \
 "
-SRC_URI[sha256sum] = "5610de02e5409682191c40f4afd24b0812536abd24112c0228f5c26183e81476"
+SRC_URI[sha256sum] = "4e93dd163fa1808d322face8a5cbe041c10db02102b806e55d177bc7070766fd"
 
 S = "${WORKDIR}"
 
@@ -24,7 +24,7 @@ INSANE_SKIP:${PN} += "already-stripped dev-so"
 SYSROOT_DIRS += "/opt"
 
 do_unpack2() {
-    tar -xvf ${S}/spinnaker-3.1.0.79-arm64-pkg.tar.gz -C ${S}
+    tar -xvf ${S}/Spinnaker-3.1.0.79-Linux/spinnaker-3.1.0.79-arm64-20.04.pkg.tar.gz -C ${S}
 }
 
 addtask do_unpack2 after do_unpack before do_patch
