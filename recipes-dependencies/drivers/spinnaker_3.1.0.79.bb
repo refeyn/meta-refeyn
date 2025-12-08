@@ -8,11 +8,11 @@ LIC_FILES_CHKSUM = " \
 NO_GENERIC_LICENSE[FLIR-Licence] = "LICENCE.txt"
 
 SRC_URI = " \
-    https://flir.netx.net/file/asset/54399/original/attachment;downloadfilename=spinnaker-3.1.0.79-arm64-pkg.tar.gz \
+    https://flir.netx.net/file/asset/59631/original/attachment;downloadfilename=Spinnaker-3.1.0.79-Linux.zip \
     file://40-flir-spinnaker.rules \
     file://LICENCE.txt \
 "
-SRC_URI[sha256sum] = "9b215b3f1fdc895ace374cebd834b83369054073fd765e37d8a191f4e23642ba"
+SRC_URI[sha256sum] = "5610de02e5409682191c40f4afd24b0812536abd24112c0228f5c26183e81476"
 
 S = "${WORKDIR}"
 
@@ -22,6 +22,12 @@ DEPENDS = "tar-native zstd-native opkg-utils-native"
 FILES:${PN} += "/opt/spinnaker"
 INSANE_SKIP:${PN} += "already-stripped dev-so"
 SYSROOT_DIRS += "/opt"
+
+do_unpack2() {
+    tar -xvf ${S}/spinnaker-3.1.0.79-arm64-pkg.tar.gz -C ${S}
+}
+
+addtask do_unpack2 after do_unpack before do_patch
 
 do_install() {
     cd spinnaker-3.1.0.79-arm64
