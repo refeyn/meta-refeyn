@@ -10,7 +10,7 @@ SRC_URI = " \
     https://flir.netx.net/file/asset/59631/original/attachment;downloadfilename=Spinnaker-3.1.0.79-Linux.zip \
     file://LICENCE.txt \
 "
-SRC_URI[sha256sum] = "5610de02e5409682191c40f4afd24b0812536abd24112c0228f5c26183e81476"
+SRC_URI[sha256sum] = "4e93dd163fa1808d322face8a5cbe041c10db02102b806e55d177bc7070766fd"
 
 S = "${WORKDIR}"
 
@@ -23,7 +23,7 @@ PEP517_WHEEL_PATH = "${WORKDIR}"
 do_compile[noexec] = "1"
 
 do_unpack2() {
-    tar -xvf ${S}/spinnaker_python-3.1.0.79-cp310-cp310-linux_aarch64.tar.gz -C ${S}
+    tar -xvf ${S}/Spinnaker-3.1.0.79-Linux/spinnaker_python-3.1.0.79-cp310-cp310-linux_aarch64.tar.gz -C ${S}
 }
 
 addtask do_unpack2 after do_unpack before do_patch
