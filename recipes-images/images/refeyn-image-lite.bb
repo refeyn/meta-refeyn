@@ -57,6 +57,7 @@ IMAGE_INSTALL += " \
     ${CONMANPKGS} \
     systemd-analyze \
     edid-override \
+    gptfdisk \
 "
 
 ## Select Image Features
@@ -76,3 +77,18 @@ CORE_IMAGE_EXTRA_INSTALL += " \
     lrzsz \
     htop \
 "
+
+
+python rootfs_tezi_edit_json() {
+    import json, os
+    json_file = os.path.join(d.getVar('IMGDEPLOYDIR'), "image-%s.json" % d.getVar('IMAGE_BASENAME'))
+    with open(json_file) as outfile:
+        data = json.load(outfile)
+
+    data["blockdevs"][0]["table_type"] = "gpt"
+
+    with open(json_file, 'w') as outfile:
+        json.dump(data, outfile, indent=4)
+}
+
+TEZI_IMAGE_TEZIIMG_PREFUNCS:append = " rootfs_tezi_edit_json"
