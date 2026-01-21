@@ -1,0 +1,2 @@
+disable systemd-networkd-wait-online.service
+enable systemd-boot-check-no-failures.service

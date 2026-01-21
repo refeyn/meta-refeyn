@@ -32,7 +32,6 @@ IMAGE_LINGUAS = "en-us"
 
 CONFLICT_DISTRO_FEATURES = "directfb"
 
-CONMANPKGS ?= "connman connman-plugin-loopback connman-plugin-ethernet connman-plugin-wifi connman-client"
 IMAGE_INSTALL += " \
     curl \
     tzdata \
@@ -54,16 +53,15 @@ IMAGE_INSTALL += " \
     packagegroup-wifi-tdx-cli \
     packagegroup-wifi-fw-tdx-cli \
     udev-extraconf \
-    ${CONMANPKGS} \
     systemd-analyze \
     edid-override \
     gptfdisk \
+    systemd-boot-assessment \
 "
 
 ## Select Image Features
 IMAGE_FEATURES += " \
     debug-tweaks \
-    package-management \
     splash \
     hwcodecs \
     weston \
@@ -78,14 +76,23 @@ CORE_IMAGE_EXTRA_INSTALL += " \
     htop \
 "
 
+TEZI_DATA_ENABLED = "1"
+TEZI_ROOT_PART_SIZE = "4096"
+IMAGE_OVERHEAD_FACTOR = "1.0"
+IMAGE_ROOTFS_EXTRA_SPACE = "0"
 
 python rootfs_tezi_edit_json() {
-    import json, os
+    import json, os, copy
     json_file = os.path.join(d.getVar('IMGDEPLOYDIR'), "image-%s.json" % d.getVar('IMAGE_BASENAME'))
     with open(json_file) as outfile:
         data = json.load(outfile)
 
     data["blockdevs"][0]["table_type"] = "gpt"
+    data["blockdevs"][0]["partitions"][1]["want_maximised"] = False
+    data["blockdevs"][0]["partitions"].insert(2, copy.deepcopy(data["blockdevs"][0]["partitions"][1]))
+    del data["blockdevs"][0]["partitions"][2]["content"]["filename"]
+    del data["blockdevs"][0]["partitions"][2]["content"]["uncompressed_size"]
+    del data["blockdevs"][0]["partitions"][3]["partition_type"]
 
     with open(json_file, 'w') as outfile:
         json.dump(data, outfile, indent=4)
