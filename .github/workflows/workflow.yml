@@ -98,20 +98,19 @@ jobs:
           path: |
             toradex-refeyn/build/deploy-ti/images/aquila-am69-refeyn/Aquila-AM69-refeyn_Refeyn-Fat-Image-Tezi.tar
 
-      - name: Upload Aquila-AM69-Refeyn-Packages
+      - name: Upload Aquila-AM69-Refeyn-Lite-Update
         uses: actions/upload-artifact@v4
         with:
-          name: Aquila-AM69-Refeyn-Packages
+          name: Aquila-AM69-Refeyn-Lite-Update
           path: |
-            toradex-refeyn/build/tmp/deploy/rpm/aarch64/python3-lw8-v*.rpm
-            toradex-refeyn/build/tmp/deploy/rpm/aarch64/python3-lw8-data*.rpm
-            toradex-refeyn/build/tmp/deploy/rpm/aarch64/python3-lw8-dbg*.rpm
-            toradex-refeyn/build/tmp/deploy/rpm/aarch64/python3-iscat-1*.rpm
-            toradex-refeyn/build/tmp/deploy/rpm/aarch64/python3-iscat-dbg*.rpm
-            toradex-refeyn/build/tmp/deploy/rpm/aarch64/python3-iscat-utils-1*.rpm
-            toradex-refeyn/build/tmp/deploy/rpm/aarch64/python3-iscat-utils-dbg*.rpm
-            toradex-refeyn/build/tmp/deploy/rpm/aarch64/python3-refeyn-io-1*.rpm
-            toradex-refeyn/build/tmp/deploy/rpm/aarch64/python3-refeyn-io-dbg*.rpm
+            toradex-refeyn/build/deploy-ti/images/aquila-am69-refeyn/Aquila-AM69-refeyn_Refeyn-Lite-Image-sysupdate.tar
+
+      - name: Upload Aquila-AM69-Refeyn-Update
+        uses: actions/upload-artifact@v4
+        with:
+          name: Aquila-AM69-Refeyn-Update
+          path: |
+            toradex-refeyn/build/deploy-ti/images/aquila-am69-refeyn/Aquila-AM69-refeyn_Refeyn-Image-sysupdate.tar
 
       - name: Cleanup
         if: always()

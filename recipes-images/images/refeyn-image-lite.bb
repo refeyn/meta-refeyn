@@ -19,6 +19,7 @@ add_rootfs_version () {
     printf "${DISTRO_NAME} ${DISTRO_VERSION} (${DISTRO_CODENAME}) %%h\n" >> ${IMAGE_ROOTFS}/etc/issue.net
     printf "${IMAGE_NAME}\n\n" >> ${IMAGE_ROOTFS}/etc/issue
     printf "${IMAGE_NAME}\n\n" >> ${IMAGE_ROOTFS}/etc/issue.net
+    printf "IMAGE=\"${IMAGE_BASENAME}\"\n" >> ${IMAGE_ROOTFS}/etc/os-release
 }
 
 add_home_root_symlink () {
@@ -78,8 +79,6 @@ CORE_IMAGE_EXTRA_INSTALL += " \
 
 TEZI_DATA_ENABLED = "1"
 TEZI_ROOT_PART_SIZE = "4096"
-IMAGE_OVERHEAD_FACTOR = "1.0"
-IMAGE_ROOTFS_EXTRA_SPACE = "0"
 
 python rootfs_tezi_edit_json() {
     import json, os, copy

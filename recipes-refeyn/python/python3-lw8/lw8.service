@@ -8,6 +8,7 @@ Environment=QT_QPA_LIBINPUT_POINTER_ROTATION=90
 Environment=QT_SCALE_FACTOR=2.5
 Environment=LW8_DISABLE_RECORD_UNTRANSMITTABLE_EVENTS=1
 Environment=LW8_DISABLE_EVENT_DELETION=1
+Type=notify
 ExecStart=python3 -m lw8 --embedded
 Restart=on-failure
 RestartSec=5
@@ -15,3 +16,4 @@ ExecStopPost=bash /usr/bin/lw8-stop.sh
 
 [Install]
 WantedBy=multi-user.target
+RequiredBy=boot-complete.target
