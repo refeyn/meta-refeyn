@@ -24,4 +24,4 @@ RemainAfterExit=yes
 ExecStart=/usr/lib/systemd/systemd-bless-boot.py
 
 [Install]
-RequiredBy=basic.target
+WantedBy=basic.target
