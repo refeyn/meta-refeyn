@@ -22,21 +22,21 @@ repos:
   # https://git.toradex.com/cgit/toradex-manifest.git/tree/
   bitbake:
     url: "https://github.com/openembedded/bitbake"
-    commit: d251668d9a7a8dd25bd8767efb30d6d9ff8b1ad3
+    commit: 8dcf084522b9c66a6639b5f117f554fde9b6b45a
     branch: "2.8"
     layers:
       .: disabled
 
   meta-yocto:
     url: "https://git.yoctoproject.org/git/meta-yocto"
-    commit: 9a4b3f7d66c5546855805e284585a550b235c313
+    commit: bf6aea52c4009e08f26565c33ce432eec7cfb090
     branch: scarthgap
     layers:
       meta-poky:
 
   meta-openembedded:
     url: "https://github.com/openembedded/meta-openembedded"
-    commit: 1235dd4ed4a57e67683c045ad76b6a0f9e896b45
+    commit: 2b26d30fc7f478f5735d514f0c1bc28f6a4148b6
     branch: scarthgap
     layers:
       meta-oe:
@@ -48,19 +48,19 @@ repos:
 
   openembedded-core:
     url: "https://github.com/openembedded/openembedded-core"
-    commit: 343f40b0bc8ef65cc1e2abd6c9c33bb2e08bad3d
+    commit: 6988157ad983978ffd6b12bcefedd4deaffdbbd1
     branch: scarthgap
     layers:
       meta:
 
   meta-freescale:
     url: "https://github.com/Freescale/meta-freescale"
-    commit: a5213ff1f0d1c67e0155b41231d935da962eb79a
+    commit: 902dde8c5bd29bb507ac8d37772565a6c9ab77cd
     branch: scarthgap
 
   meta-freescale-3rdparty:
     url: "https://github.com/Freescale/meta-freescale-3rdparty"
-    commit: 6c063450d464eb2f380443c7d9af1b94ce9b9d75
+    commit: 70c83e96c7f75e73245cb77f1b0cada9ed4bbc6d
     branch: scarthgap
 
   meta-freescale-distro:
@@ -70,7 +70,7 @@ repos:
 
   meta-arm:
     url: "https://git.yoctoproject.org/git/meta-arm"
-    commit: 1947c000299c0330e8a866996505221a14c0e1ea
+    commit: a81c19915b5b9e71ed394032e9a50fd06919e1cd
     branch: scarthgap
     layers:
       meta-arm:
@@ -78,7 +78,7 @@ repos:
 
   meta-ti:
     url: "https://git.yoctoproject.org/git/meta-ti"
-    commit: 9a12c2b49b775fd76b8fc592847c1e5afe11442c
+    commit: ea8c0b1cf1ab8a0b327e3feb1144c1ccf05b8278
     branch: scarthgap
     layers:
       meta-ti-bsp:
@@ -86,34 +86,34 @@ repos:
 
   meta-security:
     url: "https://git.yoctoproject.org/git/meta-security"
-    commit: 459d837338ca230254baa2994f870bf6eb9d0139
+    commit: afbbe28cee4af2c6760aaead43a4a3ef29969809
     branch: scarthgap
     layers:
       meta-tpm:
 
   meta-toradex-bsp-common:
     url: "https://git.toradex.com/meta-toradex-bsp-common.git"
-    commit: d447bc9c3a19e263bae5c00de4bc4709b209593e
+    commit: 3fead3b1e2dcf83e086647b4f0e4185a94f12f11
     branch: scarthgap-7.x.y
 
   meta-toradex-nxp:
     url: "https://git.toradex.com/meta-toradex-nxp.git"
-    commit: 1abd4f5c97132617bbc23f17d6bafd164359308d
+    commit: e43ed4b34727f351a63232013de205b27f09180f
     branch: scarthgap-7.x.y
 
   meta-toradex-ti:
     url: "https://git.toradex.com/meta-toradex-ti.git"
-    commit: a4cf6851767a9a8eb5f79ee3e27e257b33b9d4b5
+    commit: d30db4b7b9b6b27af75427fbb59f089bc6ab9c1e
     branch: scarthgap-7.x.y
 
   # meta-toradex-demos:
   #   url: "https://git.toradex.com/meta-toradex-demos.git"
-  #   commit: 9471606777e3566864b19dc04025bdadd3ecad3a
+  #   commit: 4ba1cebc6909ee7a83d569e8cc748f69e6a0a24f
   #   branch: scarthgap-7.x.y
 
   meta-toradex-distro:
     url: "https://git.toradex.com/meta-toradex-distro.git"
-    commit: 0d1bb8968f8748d3d28a7ab5ee19fa74f9a67b72
+    commit: 65a1511acecc37d9e9252c588bc57ac7944c92f5
     branch: scarthgap-7.x.y
 
   meta-qt6:
@@ -128,12 +128,12 @@ repos:
 
   meta-clang-revival:
     url: "https://github.com/zboszor/meta-clang-revival"
-    commit: 1855a8e8be9e600d48fa354670f8d968ed1b1d02
+    commit: f34e150f6def4f7a9226bad517b6f6b4dcadb516
     branch: scarthgap
 
   meta-python-ai:
     url: "https://github.com/zboszor/meta-python-ai"
-    commit: 698c48b2d490fa58643dcbe93a95f62165884712
+    commit: 47e39d760ce2ecd99bbbc0fbefde4a96ed32a85a
     branch: scarthgap
 
 bblayers_conf_header:
