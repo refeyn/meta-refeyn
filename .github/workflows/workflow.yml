@@ -114,7 +114,7 @@ jobs:
 
       - name: Cleanup
         if: always()
-        run:
+        run: |
           rm toradex-refeyn/.gitconfig
           find $DL_DIR -type f -atime +60 -delete
           find $SSTATE_DIR -type f -atime +60 -delete
