@@ -116,5 +116,5 @@ jobs:
         if: always()
         run: |
           rm toradex-refeyn/.gitconfig
-          find $DL_DIR -type f -atime +60 -delete
-          find $SSTATE_DIR -type f -atime +60 -delete
+          find $DL_DIR -type f -atime +10 -delete
+          find $SSTATE_DIR -type f -atime +10 -delete

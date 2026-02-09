@@ -1,5 +1,5 @@
 BBCLASSEXTEND = "native nativesdk"
 DEPENDS += "python3-numpy"
-NUMPY_DIR = "${PYTHON_SITEPACKAGES_DIR}/numpy/core/include/"
-NUMPY_DIR:class-target = "${WORKDIR}/recipe-sysroot/${PYTHON_SITEPACKAGES_DIR}/numpy/core/include/"
+NUMPY_DIR = "${PYTHON_SITEPACKAGES_DIR}/numpy/_core/include/"
+NUMPY_DIR:class-target = "${WORKDIR}/recipe-sysroot/${PYTHON_SITEPACKAGES_DIR}/numpy/_core/include/"
 EXTRA_OECMAKE += "-DNUMPY_INCLUDE_DIR=${NUMPY_DIR}"
