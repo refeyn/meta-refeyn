@@ -2,8 +2,7 @@ SUMMARY = "Refeyn Embedded Linux Minimal Image"
 DESCRIPTION = "Refeyn image for doing Refyened things (lightweight version)"
 LICENSE = "CLOSED"
 
-inherit core-image
-inherit populate_sdk_qt6
+inherit core-image populate_sdk_qt6
 
 #Prefix to the resulting deployable tarball name
 export IMAGE_BASENAME = "Refeyn-Lite-Image"
@@ -58,6 +57,7 @@ IMAGE_INSTALL += " \
     edid-override \
     gptfdisk \
     systemd-boot-assessment \
+    refeyn-overlays \
 "
 
 ## Select Image Features
@@ -67,7 +67,13 @@ IMAGE_FEATURES += " \
     hwcodecs \
     weston \
     ssh-server-dropbear \
+    read-only-rootfs \
+    overlayfs-etc \
 "
+
+OVERLAYFS_ETC_MOUNT_POINT = "/data"
+OVERLAYFS_ETC_DEVICE = "/dev/mmcblk0p4"
+OVERLAYFS_ETC_FSTYPE = "ext4"
 
 CORE_IMAGE_EXTRA_INSTALL += " \
     packagegroup-core-full-cmdline \
