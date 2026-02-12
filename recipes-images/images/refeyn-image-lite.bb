@@ -23,6 +23,8 @@ add_rootfs_version () {
 
 add_home_root_symlink () {
     ln -sf ${ROOT_HOME} ${IMAGE_ROOTFS}/home/root
+    rmdir ${IMAGE_ROOTFS}/media
+    ln -sf /run/mount ${IMAGE_ROOTFS}/media
 }
 
 # add the rootfs version to the welcome banner
