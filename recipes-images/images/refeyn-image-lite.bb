@@ -2,7 +2,7 @@ SUMMARY = "Refeyn Embedded Linux Minimal Image"
 DESCRIPTION = "Refeyn image for doing Refyened things (lightweight version)"
 LICENSE = "CLOSED"
 
-inherit core-image populate_sdk_qt6
+inherit core-image
 
 #Prefix to the resulting deployable tarball name
 export IMAGE_BASENAME = "Refeyn-Lite-Image"
@@ -35,40 +35,18 @@ IMAGE_LINGUAS = "en-us"
 CONFLICT_DISTRO_FEATURES = "directfb"
 
 IMAGE_INSTALL += " \
-    curl \
     tzdata \
-    i2c-tools \
-    libgpiod-tools \
-    spidev-test \
-    can-utils \
-    lmsensors \
-    devmem2 \
     psplash \
     python3-refeyn-scripts \
-    packagegroup-tdx-cli \
-    packagegroup-tdx-graphical \
-    packagegroup-fsl-isp \
-    packagegroup-boot \
-    packagegroup-basic \
-    packagegroup-base-tdx-cli \
-    packagegroup-machine-tdx-cli \
-    packagegroup-wifi-tdx-cli \
-    packagegroup-wifi-fw-tdx-cli \
     udev-extraconf \
-    systemd-analyze \
-    edid-override \
     gptfdisk \
     systemd-boot-assessment \
     refeyn-overlays \
 "
 
-## Select Image Features
 IMAGE_FEATURES += " \
-    debug-tweaks \
     splash \
     hwcodecs \
-    weston \
-    ssh-server-dropbear \
     read-only-rootfs \
     overlayfs-etc \
 "
@@ -76,14 +54,6 @@ IMAGE_FEATURES += " \
 OVERLAYFS_ETC_MOUNT_POINT = "/data"
 OVERLAYFS_ETC_DEVICE = "/dev/mmcblk0p4"
 OVERLAYFS_ETC_FSTYPE = "ext4"
-
-CORE_IMAGE_EXTRA_INSTALL += " \
-    packagegroup-core-full-cmdline \
-    firmwared \
-    nano \
-    lrzsz \
-    htop \
-"
 
 TEZI_DATA_ENABLED = "1"
 TEZI_ROOT_PART_SIZE = "4096"
