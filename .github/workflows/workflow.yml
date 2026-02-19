@@ -11,27 +11,27 @@ on:
     lw8_branch:
       description: "lw8 branch"
       type: string
-      default: "master"
+      default: "release/2026.3.0"
       required: false
     iscat_utils_branch:
       description: "iscat_utils branch"
       type: string
-      default: "master"
+      default: "release/apps_2026.3.0"
       required: false
     iscat_branch:
       description: "iscat branch"
       type: string
-      default: "master"
+      default: "release/apps_2026.3.0"
       required: false
     refeyn_io_branch:
       description: "refeyn_io branch"
       type: string
-      default: "master"
+      default: "release/apps_2026.3.0"
       required: false
     dev_utils_branch:
       description: "dev_utils branch"
       type: string
-      default: "master"
+      default: "release/apps_2026.3.0"
       required: false
  push:
   tags:
