@@ -3,7 +3,7 @@ HOMEPAGE = "https://github.com/graphql-python/gql"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=f38bd223275f617b47d97eacc029647f"
 
-SRC_URI[sha256sum] = "11dc5d8715a827f2c2899593439a4f36449db4f0eafa5b1ea63948f8a2f8c545"
+SRC_URI[sha256sum] = "ccb9c5db543682b28f577069950488218ed65d4ac70bb03b6929aaadaf636de9"
 
 inherit pypi python_setuptools_build_meta
 
