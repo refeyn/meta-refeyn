@@ -173,7 +173,7 @@ local_conf_header:
     HOSTTOOLS += "gfortran"
 
   licences: |
-    INCOMPATIBLE_LICENSE:imx-image-refeyn = "GPL-3.0* LGPL-3.0*"
+    INCOMPATIBLE_LICENSE:refeyn-image = "AGPL-3.0* GPL-3.0* LGPL-3.0*"
 
   llvm: |
     PREFERRED_PROVIDER_llvm = "clang"
