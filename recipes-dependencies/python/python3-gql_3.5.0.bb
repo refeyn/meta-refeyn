@@ -10,6 +10,7 @@ inherit pypi python_setuptools_build_meta
 RDEPENDS:${PN}:class-target += " \
     ${PYTHON_PN}-graphql-core \
     ${PYTHON_PN}-yarl \
+    ${PYTHON_PN}-anyio \
     ${PYTHON_PN}-backoff \
     ${PYTHON_PN}-requests \
     ${PYTHON_PN}-requests-toolbelt \
