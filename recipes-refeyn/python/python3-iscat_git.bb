@@ -7,7 +7,7 @@ SRC_URI = "git://git@github.com/refeyn/iscat.git;protocol=ssh;branch=${REFEYN_IS
 require python3-iscat-crates.inc
 
 PV = "1.0+git${SRCPV}"
-SRCREV = "${AUTOREV}"
+SRCREV = "${REFEYN_ISCAT_COMMIT}"
 
 S = "${WORKDIR}/iscat"
 

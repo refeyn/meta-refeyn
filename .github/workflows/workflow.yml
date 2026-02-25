@@ -8,30 +8,40 @@ on:
       type: boolean
       default: false
       required: false
+    lw8_ref:
+      description: "lw8 branch, commit or tag (for resolving exact submodule commit)"
+      type: string
+      default: "release/26.1.0"
+      required: false
     lw8_branch:
       description: "lw8 branch"
       type: string
-      default: "release/2026.3.0"
+      default: "release/26.1.0"
       required: false
     iscat_utils_branch:
       description: "iscat_utils branch"
       type: string
-      default: "release/apps_2026.3.0"
+      default: "release/apps_26.1.0"
       required: false
     iscat_branch:
       description: "iscat branch"
       type: string
-      default: "release/apps_2026.3.0"
+      default: "release/apps_26.1.0"
       required: false
     refeyn_io_branch:
       description: "refeyn_io branch"
       type: string
-      default: "release/apps_2026.3.0"
+      default: "release/apps_26.1.0"
       required: false
     dev_utils_branch:
       description: "dev_utils branch"
       type: string
-      default: "release/apps_2026.3.0"
+      default: "release/apps_26.1.0"
+      required: false
+    nxp_sdk_branch:
+      description: "nxp sdk branch"
+      type: string
+      default: "master"
       required: false
  push:
   tags:
@@ -52,6 +62,7 @@ jobs:
       REFEYN_ISCAT_BRANCH: ${{ inputs.iscat_branch || 'master' }}
       REFEYN_REFEYN_IO_BRANCH: ${{ inputs.refeyn_io_branch || 'master' }}
       REFEYN_DEV_UTILS_BRANCH: ${{ inputs.dev_utils_branch || 'master' }}
+      REFEYN_NXP_SDK_BRANCH: ${{ inputs.nxp_sdk_branch || 'master' }}
 
     steps:
       - name: Clean build directory
@@ -67,6 +78,11 @@ jobs:
       - name: Build
         run: |
           cd toradex-refeyn
+
+          set -o allexport
+          source <(python meta-refeyn/resolve_commits.py ${{secrets.REFEYN_CI_TOKEN}} ${{ inputs.lw8_ref || 'master' }})
+          set +o allexport
+
           env | grep REFEYN_
 
           # https://stackoverflow.com/a/57229018

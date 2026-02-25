@@ -3,9 +3,9 @@ HOMEPAGE = "https://github.com/refeyn/lw8"
 
 LICENSE = "CLOSED"
 
-SRC_URI = "git://git@github.com/refeyn/lw8.git;protocol=ssh;branch=${REFEYN_LW8_BRANCH};destsuffix=lw8;name=lw8 \
-           git://git@github.com/refeyn/iscat.git;protocol=ssh;branch=${REFEYN_ISCAT_BRANCH};destsuffix=lw8/internal_dependencies/iscat;name=iscat \
-           git://git@github.com/refeyn/nxp_sdk_board_support.git;protocol=ssh;branch=master;destsuffix=lw8/firmware/photometer_controller/src/drivers/nxp/nxp_sdk;name=nxp-sdk \
+SRC_URI = "git://git@github.com/refeyn/lw8.git;protocol=ssh;destsuffix=lw8;branch=${REFEYN_LW8_BRANCH};name=lw8 \
+           git://git@github.com/refeyn/iscat.git;protocol=ssh;destsuffix=lw8/internal_dependencies/iscat;branch=${REFEYN_ISCAT_BRANCH};name=iscat \
+           git://git@github.com/refeyn/nxp_sdk_board_support.git;protocol=ssh;branch=${REFEYN_NXP_SDK_BRANCH};destsuffix=lw8/firmware/photometer_controller/src/drivers/nxp/nxp_sdk;name=nxp-sdk \
            https://developer.arm.com/-/media/Files/downloads/gnu/14.3.rel1/binrel/arm-gnu-toolchain-14.3.rel1-x86_64-arm-none-eabi.tar.xz;name=firmware-toolchain \
            file://eglfs.json \
            file://lw8.service \
@@ -16,9 +16,9 @@ SRC_URI[firmware-toolchain.sha256sum] = "8f6903f8ceb084d9227b9ef991490413014d991
 require python3-lw8-crates.inc
 
 PV = "v2023.2.0dev2+git${SRCPV}"
-SRCREV_lw8 = "${AUTOREV}"
-SRCREV_iscat = "${AUTOREV}"
-SRCREV_nxp-sdk = "${AUTOREV}"
+SRCREV_lw8 = "${REFEYN_LW8_COMMIT}"
+SRCREV_iscat = "${REFEYN_ISCAT_COMMIT}"
+SRCREV_nxp-sdk = "${REFEYN_NXP_SDK_COMMIT}"
 SRCREV_FORMAT = "lw8_iscat_nxp-sdk"
 
 S = "${WORKDIR}/lw8"
