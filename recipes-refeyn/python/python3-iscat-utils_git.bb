@@ -6,7 +6,7 @@ LICENSE = "CLOSED"
 SRC_URI = "git://git@github.com/refeyn/iscat_utils.git;protocol=ssh;branch=${REFEYN_ISCAT_UTILS_BRANCH};destsuffix=iscat_utils"
 
 PV = "1.44.0+git${SRCPV}"
-SRCREV = "${AUTOREV}"
+SRCREV = "${REFEYN_ISCAT_UTILS_COMMIT}"
 
 S = "${WORKDIR}/iscat_utils"
 

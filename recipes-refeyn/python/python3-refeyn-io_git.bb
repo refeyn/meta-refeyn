@@ -6,7 +6,7 @@ LICENSE = "CLOSED"
 SRC_URI = "git://git@github.com/refeyn/refeyn_io.git;protocol=ssh;branch=${REFEYN_REFEYN_IO_BRANCH};destsuffix=refeyn_io"
 
 PV = "1.44.0+git${SRCPV}"
-SRCREV = "${AUTOREV}"
+SRCREV = "${REFEYN_REFEYN_IO_COMMIT}"
 
 S = "${WORKDIR}/refeyn_io"
 
