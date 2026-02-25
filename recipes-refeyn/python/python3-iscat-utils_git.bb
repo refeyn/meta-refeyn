@@ -20,7 +20,7 @@ RDEPENDS:${PN} += " \
     python3-netclient python3-netserver python3-numpy python3-packaging \
     python3-pillow python3-profile python3-pyside6 python3-pytest \
     python3-shell python3-threading python3-typing-extensions python3-unittest \
-    python3-dev-utils python3-matplotlib python3-qasync python3-pyqtgraph \
+    python3-matplotlib python3-qasync python3-pyqtgraph \
     python3-licensing python3-gql python3-authlib python3-qdarkstyle \
     python3-defusedxml python3-systemd python3-sqlite3 python3-iscat \
 "
