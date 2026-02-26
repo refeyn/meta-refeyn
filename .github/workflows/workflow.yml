@@ -98,35 +98,35 @@ jobs:
         with:
           name: Aquila-AM69-Refeyn-Lite-Image
           path: |
-            toradex-refeyn/build/deploy-ti/images/aquila-am69-refeyn/Aquila-AM69-refeyn_Refeyn-Lite-Image-Tezi.tar
+            toradex-refeyn/build/deploy-ti/images/aquila-am69-refeyn/Aquila-AM69-refeyn_Refeyn-Lite-Image-Tezi_*.tar
 
       - name: Upload Aquila-AM69-Refeyn-Image
         uses: actions/upload-artifact@v4
         with:
           name: Aquila-AM69-Refeyn-Image
           path: |
-            toradex-refeyn/build/deploy-ti/images/aquila-am69-refeyn/Aquila-AM69-refeyn_Refeyn-Image-Tezi.tar
+            toradex-refeyn/build/deploy-ti/images/aquila-am69-refeyn/Aquila-AM69-refeyn_Refeyn-Image-Tezi_*.tar
 
       - name: Upload Aquila-AM69-Refeyn-Fat-Image
         uses: actions/upload-artifact@v4
         with:
           name: Aquila-AM69-Refeyn-Fat-Image
           path: |
-            toradex-refeyn/build/deploy-ti/images/aquila-am69-refeyn/Aquila-AM69-refeyn_Refeyn-Fat-Image-Tezi.tar
+            toradex-refeyn/build/deploy-ti/images/aquila-am69-refeyn/Aquila-AM69-refeyn_Refeyn-Fat-Image-Tezi_*.tar
 
       - name: Upload Aquila-AM69-Refeyn-Lite-Update
         uses: actions/upload-artifact@v4
         with:
           name: Aquila-AM69-Refeyn-Lite-Update
           path: |
-            toradex-refeyn/build/deploy-ti/images/aquila-am69-refeyn/Aquila-AM69-refeyn_Refeyn-Lite-Image-sysupdate.tar
+            toradex-refeyn/build/deploy-ti/images/aquila-am69-refeyn/Aquila-AM69-refeyn_Refeyn-Lite-Image-*-sysupdate.tar
 
       - name: Upload Aquila-AM69-Refeyn-Update
         uses: actions/upload-artifact@v4
         with:
           name: Aquila-AM69-Refeyn-Update
           path: |
-            toradex-refeyn/build/deploy-ti/images/aquila-am69-refeyn/Aquila-AM69-refeyn_Refeyn-Image-sysupdate.tar
+            toradex-refeyn/build/deploy-ti/images/aquila-am69-refeyn/Aquila-AM69-refeyn_Refeyn-Image-*-sysupdate.tar
 
       - name: Upload Aquila-AM69-Refeyn-Image-Licences
         uses: actions/upload-artifact@v4
