@@ -58,44 +58,44 @@ jobs:
           kas build meta-refeyn/kas-project.yml
 
       - name: Upload Aquila-AM69-Refeyn-Lite-Image
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
-          name: Aquila-AM69-Refeyn-Lite-Image
+          archive: false
           path: |
             toradex-refeyn/build/deploy-ti/images/aquila-am69-refeyn/Aquila-AM69-refeyn_Refeyn-Lite-Image-Tezi_*.tar
 
       - name: Upload Aquila-AM69-Refeyn-Image
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
-          name: Aquila-AM69-Refeyn-Image
+          archive: false
           path: |
             toradex-refeyn/build/deploy-ti/images/aquila-am69-refeyn/Aquila-AM69-refeyn_Refeyn-Image-Tezi_*.tar
 
       - name: Upload Aquila-AM69-Refeyn-Fat-Image
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
-          name: Aquila-AM69-Refeyn-Fat-Image
+          archive: false
           path: |
             toradex-refeyn/build/deploy-ti/images/aquila-am69-refeyn/Aquila-AM69-refeyn_Refeyn-Fat-Image-Tezi_*.tar
 
       - name: Upload Aquila-AM69-Refeyn-Lite-Update
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
-          name: Aquila-AM69-Refeyn-Lite-Update
+          archive: false
           path: |
             toradex-refeyn/build/deploy-ti/images/aquila-am69-refeyn/Aquila-AM69-refeyn_Refeyn-Lite-Image-*-sysupdate.tar
 
       - name: Upload Aquila-AM69-Refeyn-Update
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
-          name: Aquila-AM69-Refeyn-Update
+          archive: false
           path: |
             toradex-refeyn/build/deploy-ti/images/aquila-am69-refeyn/Aquila-AM69-refeyn_Refeyn-Image-*-sysupdate.tar
 
       - name: Upload Aquila-AM69-Refeyn-Image-Licences
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
-          name: Aquila-AM69-Refeyn-Image-Licences
+          archive: false
           path: |
             toradex-refeyn/build/tmp/deploy/licenses/aquila_am69_refeyn/Aquila-AM69-refeyn_Refeyn-Image/license.manifest
 
