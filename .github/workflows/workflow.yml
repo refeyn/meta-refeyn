@@ -9,39 +9,9 @@ on:
       default: false
       required: false
     lw8_ref:
-      description: "lw8 branch, commit or tag (for resolving exact submodule commit)"
+      description: "lw8 branch, commit or tag"
       type: string
       default: "release/26.1.0"
-      required: false
-    lw8_branch:
-      description: "lw8 branch"
-      type: string
-      default: "release/26.1.0"
-      required: false
-    iscat_utils_branch:
-      description: "iscat_utils branch"
-      type: string
-      default: "release/apps_26.1.0"
-      required: false
-    iscat_branch:
-      description: "iscat branch"
-      type: string
-      default: "release/apps_26.1.0"
-      required: false
-    refeyn_io_branch:
-      description: "refeyn_io branch"
-      type: string
-      default: "release/apps_26.1.0"
-      required: false
-    dev_utils_branch:
-      description: "dev_utils branch"
-      type: string
-      default: "release/apps_26.1.0"
-      required: false
-    nxp_sdk_branch:
-      description: "nxp sdk branch"
-      type: string
-      default: "master"
       required: false
  push:
   tags:
@@ -57,12 +27,6 @@ jobs:
 
     env:
       REFEYN_NO_CYTHONIZE: ${{ inputs.no_cythonize && '1' || '0' }}
-      REFEYN_LW8_BRANCH: ${{ inputs.lw8_branch || 'master' }}
-      REFEYN_ISCAT_UTILS_BRANCH: ${{ inputs.iscat_utils_branch || 'master' }}
-      REFEYN_ISCAT_BRANCH: ${{ inputs.iscat_branch || 'master' }}
-      REFEYN_REFEYN_IO_BRANCH: ${{ inputs.refeyn_io_branch || 'master' }}
-      REFEYN_DEV_UTILS_BRANCH: ${{ inputs.dev_utils_branch || 'master' }}
-      REFEYN_NXP_SDK_BRANCH: ${{ inputs.nxp_sdk_branch || 'master' }}
 
     steps:
       - name: Clean build directory
