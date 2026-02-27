@@ -3,7 +3,7 @@ HOMEPAGE = "https://github.com/refeyn/refeyn_io"
 
 LICENSE = "CLOSED"
 
-SRC_URI = "git://git@github.com/refeyn/refeyn_io.git;protocol=ssh;branch=${REFEYN_REFEYN_IO_BRANCH};destsuffix=refeyn_io"
+SRC_URI = "git://git@github.com/refeyn/refeyn_io.git;protocol=ssh;nobranch=1;destsuffix=refeyn_io"
 
 PV = "1.44.0+git${SRCPV}"
 SRCREV = "${REFEYN_REFEYN_IO_COMMIT}"

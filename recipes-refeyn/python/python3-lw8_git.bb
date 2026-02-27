@@ -3,9 +3,9 @@ HOMEPAGE = "https://github.com/refeyn/lw8"
 
 LICENSE = "CLOSED"
 
-SRC_URI = "git://git@github.com/refeyn/lw8.git;protocol=ssh;destsuffix=lw8;branch=${REFEYN_LW8_BRANCH};name=lw8 \
-           git://git@github.com/refeyn/iscat.git;protocol=ssh;destsuffix=lw8/internal_dependencies/iscat;branch=${REFEYN_ISCAT_BRANCH};name=iscat \
-           git://git@github.com/refeyn/nxp_sdk_board_support.git;protocol=ssh;branch=${REFEYN_NXP_SDK_BRANCH};destsuffix=lw8/firmware/photometer_controller/src/drivers/nxp/nxp_sdk;name=nxp-sdk \
+SRC_URI = "git://git@github.com/refeyn/lw8.git;protocol=ssh;destsuffix=lw8;nobranch=1;name=lw8 \
+           git://git@github.com/refeyn/iscat.git;protocol=ssh;destsuffix=lw8/internal_dependencies/iscat;nobranch=1;name=iscat \
+           git://git@github.com/refeyn/nxp_sdk_board_support.git;protocol=ssh;nobranch=1;destsuffix=lw8/firmware/photometer_controller/src/drivers/nxp/nxp_sdk;name=nxp-sdk \
            https://developer.arm.com/-/media/Files/downloads/gnu/14.3.rel1/binrel/arm-gnu-toolchain-14.3.rel1-x86_64-arm-none-eabi.tar.xz;name=firmware-toolchain \
            file://eglfs.json \
            file://lw8.service \
