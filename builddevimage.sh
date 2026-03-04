@@ -5,5 +5,5 @@ source <(python ../meta-refeyn/resolve_commits.py ghp_OsdMigt9gvVarq17IuDCi3sAqs
 set +o allexport
 # export REFEYN_NO_CYTHONIZE=0
 env | grep REFEYN_
-devtool build-image refeyn-image-fat
+devtool build-image refeyn-image
 ../meta-refeyn/copyimgs.sh
