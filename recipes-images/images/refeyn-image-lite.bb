@@ -42,6 +42,7 @@ IMAGE_INSTALL += " \
     gptfdisk \
     systemd-boot-assessment \
     refeyn-overlays \
+    coreutils \
 "
 
 IMAGE_FEATURES += " \
