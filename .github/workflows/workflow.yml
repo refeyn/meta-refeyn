@@ -92,6 +92,13 @@ jobs:
           path: |
             toradex-refeyn/build/deploy-ti/images/aquila-am69-refeyn/Aquila-AM69-refeyn_Refeyn-Image-*-sysupdate.tar
 
+      - name: Upload Aquila-AM69-Refeyn-Fat-Update
+        uses: actions/upload-artifact@v7
+        with:
+          archive: false
+          path: |
+            toradex-refeyn/build/deploy-ti/images/aquila-am69-refeyn/Aquila-AM69-refeyn_Refeyn-Fat-Image-*-sysupdate.tar
+
       - name: Upload Aquila-AM69-Refeyn-Image-Licences
         uses: actions/upload-artifact@v7
         with:
