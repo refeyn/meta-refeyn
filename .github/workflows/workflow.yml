@@ -58,6 +58,7 @@ jobs:
           kas build meta-refeyn/kas-project.yml
 
       - name: Upload Aquila-AM69-Refeyn-Lite-Image
+        id: lite-tezi-image-upload
         uses: actions/upload-artifact@v7
         with:
           archive: false
@@ -65,6 +66,7 @@ jobs:
             toradex-refeyn/build/deploy-ti/images/aquila-am69-refeyn/Aquila-AM69-refeyn_Refeyn-Lite-Image-Tezi_*.tar
 
       - name: Upload Aquila-AM69-Refeyn-Image
+        id: tezi-image-upload
         uses: actions/upload-artifact@v7
         with:
           archive: false
@@ -72,6 +74,7 @@ jobs:
             toradex-refeyn/build/deploy-ti/images/aquila-am69-refeyn/Aquila-AM69-refeyn_Refeyn-Image-Tezi_*.tar
 
       - name: Upload Aquila-AM69-Refeyn-Fat-Image
+        id: fat-tezi-image-upload
         uses: actions/upload-artifact@v7
         with:
           archive: false
@@ -79,6 +82,7 @@ jobs:
             toradex-refeyn/build/deploy-ti/images/aquila-am69-refeyn/Aquila-AM69-refeyn_Refeyn-Fat-Image-Tezi_*.tar
 
       - name: Upload Aquila-AM69-Refeyn-Lite-Update
+        id: lite-sysupdate-image-upload
         uses: actions/upload-artifact@v7
         with:
           archive: false
@@ -86,6 +90,7 @@ jobs:
             toradex-refeyn/build/deploy-ti/images/aquila-am69-refeyn/Aquila-AM69-refeyn_Refeyn-Lite-Image-*-sysupdate.tar
 
       - name: Upload Aquila-AM69-Refeyn-Update
+        id: sysupdate-image-upload
         uses: actions/upload-artifact@v7
         with:
           archive: false
@@ -93,6 +98,7 @@ jobs:
             toradex-refeyn/build/deploy-ti/images/aquila-am69-refeyn/Aquila-AM69-refeyn_Refeyn-Image-*-sysupdate.tar
 
       - name: Upload Aquila-AM69-Refeyn-Fat-Update
+        id: fat-sysupdate-image-upload
         uses: actions/upload-artifact@v7
         with:
           archive: false
@@ -100,11 +106,41 @@ jobs:
             toradex-refeyn/build/deploy-ti/images/aquila-am69-refeyn/Aquila-AM69-refeyn_Refeyn-Fat-Image-*-sysupdate.tar
 
       - name: Upload Aquila-AM69-Refeyn-Image-Licences
+        id: licences-upload
         uses: actions/upload-artifact@v7
         with:
           archive: false
           path: |
             toradex-refeyn/build/tmp/deploy/licenses/aquila_am69_refeyn/Aquila-AM69-refeyn_Refeyn-Image/license.manifest
+
+      - name: Clone dev_utils
+        uses: actions/checkout@v4
+        with:
+          repository: 'refeyn/dev_utils'
+          token: ${{secrets.REFEYN_CI_TOKEN}}
+          path: dev_utils
+
+      - name: Build dev_utils venv
+        run: |
+          cd dev_utils
+          python setup_deploy.py
+
+      - name: Parse and upload coverage
+        env:
+          DEV_UTILS_INTERNAL_PORTAL_API_KEY: ${{secrets.DEV_UTILS_INTERNAL_PORTAL_API_KEY}}
+        run: |
+          fakesha="$(echo toradex-refeyn/build/deploy-ti/images/aquila-am69-refeyn/Aquila-AM69-refeyn_Refeyn-Image-*-sysupdate.tar | grep "\d{14}" -oP)"
+          cd dev_utils
+          . activate_deploy.sh
+          dev_utils portal upload-code-statistics ${{ github.event.repository.name }} $fakesha \
+            --commit-timestamp $(date -Iseconds) \
+            --build-url ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }} \
+            --artefact-url "Tezi image" "MyMass" ${{ steps.tezi-image-upload.outputs.artifact-url }} \
+            --artefact-url "Debugging Tezi image" "MyMass" ${{ steps.fat-tezi-image-upload.outputs.artifact-url }} \
+            --artefact-url "SW update" "MyMass" ${{ steps.sysupdate-image-upload.outputs.artifact-url }} \
+            --artefact-url "Debugging SW update" "MyMass" ${{ steps.fat-sysupdate-image-upload.outputs.artifact-url }} \
+            --artefact-url "Package licence manifest" "MyMass" ${{ steps.licences-upload.outputs.artifact-url }} \
+            ${{ github.event_name == 'schedule' && '--mark-on-master' || '' }} \
 
       - name: Cleanup
         if: always()
