@@ -23,7 +23,7 @@ repos:
   # https://git.toradex.com/cgit/toradex-manifest.git/tree/
   bitbake:
     url: "https://github.com/openembedded/bitbake"
-    commit: 8dcf084522b9c66a6639b5f117f554fde9b6b45a
+    commit: b2404004135b669f8258c85c7b5aed4570a805c7
     branch: "2.8"
     layers:
       .: disabled
