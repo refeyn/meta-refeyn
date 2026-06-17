@@ -44,7 +44,7 @@ jobs:
           cd toradex-refeyn
 
           set -o allexport
-          source <(python meta-refeyn/resolve_commits.py ${{secrets.REFEYN_CI_TOKEN}} ${{ inputs.lw8_ref || 'master' }})
+          source <(python meta-refeyn/resolve_commits.py ${{secrets.REFEYN_CI_TOKEN}} ${{ inputs.lw8_ref || 'release/26.1.0' }})
           set +o allexport
 
           env | grep REFEYN_
