@@ -11,7 +11,7 @@ on:
     lw8_ref:
       description: "lw8 branch, commit or tag"
       type: string
-      default: "release/26.1.0"
+      default: "release/2026.7.0"
       required: false
  push:
   tags:
@@ -44,7 +44,7 @@ jobs:
           cd toradex-refeyn
 
           set -o allexport
-          source <(python meta-refeyn/resolve_commits.py ${{secrets.REFEYN_CI_TOKEN}} ${{ inputs.lw8_ref || 'release/26.1.0' }})
+          source <(python meta-refeyn/resolve_commits.py ${{secrets.REFEYN_CI_TOKEN}} ${{ inputs.lw8_ref || 'release/2026.7.0' }})
           set +o allexport
 
           env | grep REFEYN_
