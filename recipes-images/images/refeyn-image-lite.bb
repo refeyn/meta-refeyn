@@ -43,6 +43,7 @@ IMAGE_INSTALL += " \
     systemd-boot-assessment \
     refeyn-overlays \
     coreutils \
+    iproute2 \
 "
 
 IMAGE_FEATURES += " \
