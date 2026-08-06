@@ -33,7 +33,7 @@ r = requests.post(
         "query": QUERY,
         "variables": {"owner": OWNER, "repo": REPO, "ref": ref},
     },
-    headers={"Authorization": f"token {ghtoken}"},
+    headers={"Authorization": f"token {ghtoken.strip()}"},
     timeout=60,
 )
 root = r.json()["data"]["repository"]["root"]
