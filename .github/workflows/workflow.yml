@@ -113,6 +113,33 @@ jobs:
           path: |
             toradex-refeyn/build/tmp/deploy/licenses/aquila_am69_refeyn/Aquila-AM69-refeyn_Refeyn-Image/license.manifest
 
+      - name: Upload Aquila-AM69-Refeyn-Image-CVEs
+        id: cve-upload
+        uses: actions/upload-artifact@v7
+        with:
+          archive: false
+          path: |
+            toradex-refeyn/build/deploy-ti/images/aquila-am69-refeyn/Aquila-AM69-refeyn_Refeyn-Image.cve
+
+      - name: Find LW8 deps
+        run: |
+          cd toradex-refeyn
+
+          set -o allexport
+          source <(python meta-refeyn/resolve_commits.py ${{secrets.REFEYN_CI_TOKEN}} ${{ inputs.lw8_ref || 'release/2026.7.0' }})
+          set +o allexport
+
+          export GITCONFIG_FILE=".gitconfig"
+          kas shell meta-refeyn/kas-project.yml -c "bitbake -g python3-lw8"
+
+      - name: Upload LW8-deps
+        id: lw8-deps-upload
+        uses: actions/upload-artifact@v7
+        with:
+          archive: false
+          path: |
+            toradex-refeyn/build/pn-buildlist
+
       - name: Clone dev_utils
         uses: actions/checkout@v4
         with:
