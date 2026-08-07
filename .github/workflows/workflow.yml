@@ -119,7 +119,7 @@ jobs:
         with:
           archive: false
           path: |
-            toradex-refeyn/build/deploy-ti/images/aquila-am69-refeyn/Aquila-AM69-refeyn_Refeyn-Image.cve
+            toradex-refeyn/build/deploy-ti/images/aquila-am69-refeyn/Aquila-AM69-refeyn_Refeyn-Image.json
 
       - name: Find LW8 deps
         run: |
