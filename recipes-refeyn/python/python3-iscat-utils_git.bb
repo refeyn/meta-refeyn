@@ -23,4 +23,5 @@ RDEPENDS:${PN} += " \
     python3-matplotlib python3-qasync python3-pyqtgraph python3-colorama \
     python3-licensing python3-gql python3-authlib python3-qdarkstyle \
     python3-defusedxml python3-systemd python3-sqlite3 python3-iscat \
+    python3-requests \
 "

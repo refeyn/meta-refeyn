@@ -49,7 +49,7 @@ repos:
 
   openembedded-core:
     url: "https://github.com/openembedded/openembedded-core"
-    commit: 6988157ad983978ffd6b12bcefedd4deaffdbbd1
+    commit: 543550522f831479f07d332a40ba343c53ae1065
     branch: scarthgap
     layers:
       meta:
