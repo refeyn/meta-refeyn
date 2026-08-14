@@ -105,22 +105,6 @@ jobs:
           path: |
             toradex-refeyn/build/deploy-ti/images/aquila-am69-refeyn/Aquila-AM69-refeyn_Refeyn-Fat-Image-*-sysupdate.tar
 
-      - name: Upload Aquila-AM69-Refeyn-Image-Licences
-        id: licences-upload
-        uses: actions/upload-artifact@v7
-        with:
-          archive: false
-          path: |
-            toradex-refeyn/build/tmp/deploy/licenses/aquila_am69_refeyn/Aquila-AM69-refeyn_Refeyn-Image/license.manifest
-
-      - name: Upload Aquila-AM69-Refeyn-Image-CVEs
-        id: cve-upload
-        uses: actions/upload-artifact@v7
-        with:
-          archive: false
-          path: |
-            toradex-refeyn/build/deploy-ti/images/aquila-am69-refeyn/Aquila-AM69-refeyn_Refeyn-Image.json
-
       - name: Find LW8 deps
         run: |
           cd toradex-refeyn
@@ -132,12 +116,16 @@ jobs:
           export GITCONFIG_FILE=".gitconfig"
           kas shell meta-refeyn/kas-project.yml -c "bitbake -g python3-lw8"
 
-      - name: Upload LW8-deps
-        id: lw8-deps-upload
+      - name: Upload Aquila-AM69-Refeyn-Image-Metadata
+        id: licences-upload
         uses: actions/upload-artifact@v7
         with:
-          archive: false
+          name: Aquila-AM69-Refeyn-Image-Metadata
           path: |
+            toradex-refeyn/build/tmp/deploy/licenses/aquila_am69_refeyn/Aquila-AM69-refeyn_Refeyn-Image/license.manifest
+            toradex-refeyn/build/deploy-ti/images/aquila-am69-refeyn/Aquila-AM69-refeyn_Refeyn-Image.json
+            toradex-refeyn/build/deploy-ti/images/aquila-am69-refeyn/Aquila-AM69-refeyn_Refeyn-Image.manifest
+            toradex-refeyn/build/deploy-ti/images/aquila-am69-refeyn/Aquila-AM69-refeyn_Refeyn-Image.spdx.tar.zst
             toradex-refeyn/build/pn-buildlist
 
       - name: Clone dev_utils
