@@ -144,7 +144,11 @@ jobs:
         env:
           DEV_UTILS_INTERNAL_PORTAL_API_KEY: ${{secrets.DEV_UTILS_INTERNAL_PORTAL_API_KEY}}
         run: |
-          fakesha="$(echo toradex-refeyn/build/deploy-ti/images/aquila-am69-refeyn/Aquila-AM69-refeyn_Refeyn-Image-*-sysupdate.tar | grep "\d{14}" -oP)"
+          fakesha="$(echo toradex-refeyn/build/deploy-ti/images/aquila-am69-refeyn/Aquila-AM69-refeyn_Refeyn-Image-*-sysupdate.tar | grep "\d{14}" -oP || echo -n)"
+          if [ -z "%fakesha" ]; then
+            echo "Not passing to MySpace"
+            exit 0
+          fi
           cd dev_utils
           . activate_deploy.sh
           dev_utils portal upload-code-statistics ${{ github.event.repository.name }} $fakesha \
