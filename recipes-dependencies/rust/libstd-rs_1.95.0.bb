@@ -17,10 +17,7 @@ inherit cargo
 
 CVE_PRODUCT = "rust"
 
-DEPENDS:append:libc-musl = " libunwind"
-# rv32 does not have libunwind ported yet
-DEPENDS:remove:riscv32 = "libunwind"
-DEPENDS:remove:riscv64 = "libunwind"
+DEPENDS:append:libc-musl = " libcxx"
 
 # Embed bitcode in order to allow compiling both with and without LTO
 RUSTFLAGS += "-Cembed-bitcode=yes"
@@ -34,7 +31,6 @@ CARGO_BUILD_FLAGS += "--features '${CARGO_FEATURES}'"
 CARGO_VENDORING_DIRECTORY = "${RUSTSRC}/vendor"
 
 do_compile:prepend () {
-    export CARGO_TARGET_DIR="${B}"
     # For Rust 1.13.0 and newer
     export RUSTC_BOOTSTRAP="1"
 }
@@ -45,8 +41,8 @@ do_install () {
     # With the incremental build support added in 1.24, the libstd deps directory also includes dependency
     # files that get installed. Those are really only needed to incrementally rebuild the libstd library
     # itself and don't need to be installed.
-    rm -f ${B}/${RUST_TARGET_SYS}/${BUILD_DIR}/deps/*.d
-    cp ${B}/${RUST_TARGET_SYS}/${BUILD_DIR}/deps/* ${D}${rustlibdir}
+    rm -f ${B}/target/${RUST_TARGET_SYS}/${BUILD_DIR}/deps/*.d
+    cp ${B}/target/${RUST_TARGET_SYS}/${BUILD_DIR}/deps/* ${D}${rustlibdir}
 }
 
 BBCLASSEXTEND = "nativesdk"

@@ -124,8 +124,8 @@ repos:
 
   meta-clang:
     url: "https://github.com/kraj/meta-clang"
-    commit: 9fbfa9db33131abdf3870a94f00199eb53e276e5
-    branch: scarthgap
+    commit: 407541071937acb1f7135a6c890ba4e56554d839
+    branch: scarthgap-clang20
 
   meta-clang-revival:
     url: "https://github.com/zboszor/meta-clang-revival"
@@ -166,7 +166,7 @@ local_conf_header:
     PACKAGE_CLASSES = "package_rpm"
 
   rust: |
-    RUSTVERSION = "1.87.0"
+    RUSTVERSION = "1.95.0"
 
   scipy: |
     FORTRAN:forcevariable = ",fortran"
