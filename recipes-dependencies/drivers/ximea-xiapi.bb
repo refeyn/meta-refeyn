@@ -1,10 +1,10 @@
 LICENSE = "Ximea-Licence"
-LIC_FILES_CHKSUM = "file://License.txt;md5=b9215a55b9de0276a924742b3cc99060"
+LIC_FILES_CHKSUM = "file://License.txt;md5=3017e4457b13e55516e7f913b9ed9fbe"
 
 NO_GENERIC_LICENSE[Ximea-Licence] = "License.txt"
 
-SRC_URI = "https://www.ximea.com/getattachment/35adfeed-8e15-4b4d-8364-bd5a65cba5c4/XIMEA_Linux_SP.tgz;subdir=src"
-SRC_URI[sha256sum] = "9d0d60fc4547e6c14df14218d21cb0c0326b5a734c9fcb7e9359129c1b52a236"
+SRC_URI = "https://www.ximea.com/attachment/Linux-ARM-SP-Stable.tgz;subdir=src"
+SRC_URI[sha256sum] = "5dfe9b92e5bc606ebb404bb5abf9b3fae33d37b90a98352119f48c74a08e7ebd"
 
 S = "${WORKDIR}/src/package"
 
@@ -54,7 +54,7 @@ do_install() {
 
     install -d ${D}${PYTHON_SITEPACKAGES_DIR}/ximea/libs/x${XIMEA_ARCH}
     install api/Python/v3/ximea/*.py ${D}${PYTHON_SITEPACKAGES_DIR}/ximea
-    cp -R api/Python/v3/ximea/libs/x${XIMEA_ARCH} ${D}${PYTHON_SITEPACKAGES_DIR}/ximea/libs
+    cp -R api/Python/v3/ximea/libs/linux/${XIMEA_ARCH} ${D}${PYTHON_SITEPACKAGES_DIR}/ximea/libs/linux
 
     cp bin/xiSample.${XIMEA_ARCH} $optpath/bin/xiSample
 
