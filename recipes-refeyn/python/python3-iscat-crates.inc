@@ -18,6 +18,7 @@ SRC_URI += " \
     crate://crates.io/crossbeam-utils/0.8.21 \
     crate://crates.io/csv/1.3.1 \
     crate://crates.io/csv-core/0.1.12 \
+    crate://crates.io/cty/0.2.2 \
     crate://crates.io/decorum/0.4.0 \
     crate://crates.io/either/1.15.0 \
     crate://crates.io/equivalent/1.0.2 \
@@ -151,6 +152,7 @@ SRC_URI[crossbeam-epoch-0.9.18.sha256sum] = "5b82ac4a3c2ca9c3460964f020e1402edd5
 SRC_URI[crossbeam-utils-0.8.21.sha256sum] = "d0a5c400df2834b80a4c3327b3aad3a4c4cd4de0629063962b03235697506a28"
 SRC_URI[csv-1.3.1.sha256sum] = "acdc4883a9c96732e4733212c01447ebd805833b7275a73ca3ee080fd77afdaf"
 SRC_URI[csv-core-0.1.12.sha256sum] = "7d02f3b0da4c6504f86e9cd789d8dbafab48c2321be74e9987593de5a894d93d"
+SRC_URI[cty-0.2.2.sha256sum] = "b365fabc795046672053e29c954733ec3b05e4be654ab130fe8f1f94d7051f35"
 SRC_URI[decorum-0.4.0.sha256sum] = "7fcc6bb0c903f3f815b48365bb9182092866f54a132d8ebe906f0b66952936e3"
 SRC_URI[either-1.15.0.sha256sum] = "48c757948c5ede0e46177b7add2e67155f70e33c07fea8284df6576da70b3719"
 SRC_URI[equivalent-1.0.2.sha256sum] = "877a4ace8713b0bcf2a4e7eec82529c029f1d0619886d18145fea96c3ffe5c0f"

@@ -38,7 +38,6 @@ EXTRA_OECMAKE += " \
 "
 
 do_compile:prepend() {
-    cp "${WORKDIR}/PySide6Config.abi3.cmake" "${RECIPE_SYSROOT}/usr/lib/cmake/PySide6/"
     export CMAKE_ARGS=" \
         ${OECMAKE_GENERATOR_ARGS} \
         ${OECMAKE_SOURCEPATH} \

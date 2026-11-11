@@ -1,4 +1,4 @@
-From 7385b9d2a44b5d343810b1b036b80dcc66ba0c06 Mon Sep 17 00:00:00 2001
+From 03a8c3a099e70626cff06515279e1502e5a22652 Mon Sep 17 00:00:00 2001
 From: Matthew Joyce <matthew.joyce@refeyn.com>
 Date: Mon, 4 Aug 2025 16:52:17 +0100
 Subject: [PATCH] Add environment variable for rotating libinput mouse devices
@@ -10,10 +10,10 @@ Subject: [PATCH] Add environment variable for rotating libinput mouse devices
  3 files changed, 28 insertions(+)
 
 diff --git a/src/platformsupport/input/libinput/qlibinputhandler.cpp b/src/platformsupport/input/libinput/qlibinputhandler.cpp
-index ef45533f1a9..7f34e6dbfc6 100644
+index 99d80dc80c6..8b5acafe72e 100644
 --- a/src/platformsupport/input/libinput/qlibinputhandler.cpp
 +++ b/src/platformsupport/input/libinput/qlibinputhandler.cpp
-@@ -130,6 +130,7 @@ void QLibInputHandler::processEvent(libinput_event *ev)
+@@ -133,6 +133,7 @@ void QLibInputHandler::processEvent(libinput_event *ev)
              inputManagerPriv->setDeviceCount(QInputDeviceManager::DeviceTypeTouch, count);
          }
          if (libinput_device_has_capability(dev, LIBINPUT_DEVICE_CAP_POINTER)) {
@@ -22,12 +22,12 @@ index ef45533f1a9..7f34e6dbfc6 100644
              ++count;
              inputManagerPriv->setDeviceCount(QInputDeviceManager::DeviceTypePointer, count);
 diff --git a/src/platformsupport/input/libinput/qlibinputpointer.cpp b/src/platformsupport/input/libinput/qlibinputpointer.cpp
-index 03351397b5e..73c0b84cb68 100644
+index 2098acc63e3..3b38e4676d6 100644
 --- a/src/platformsupport/input/libinput/qlibinputpointer.cpp
 +++ b/src/platformsupport/input/libinput/qlibinputpointer.cpp
-@@ -13,11 +13,36 @@
+@@ -15,11 +15,36 @@ QT_BEGIN_NAMESPACE
  
- QT_BEGIN_NAMESPACE
+ Q_STATIC_LOGGING_CATEGORY(qLcLibInputMouse, "qt.qpa.input.mouse")
  
 +Q_DECLARE_LOGGING_CATEGORY(qLcLibInput)
 +
@@ -63,7 +63,7 @@ index 03351397b5e..73c0b84cb68 100644
  {
      const uint32_t b = libinput_event_pointer_get_button(e);
 diff --git a/src/platformsupport/input/libinput/qlibinputpointer_p.h b/src/platformsupport/input/libinput/qlibinputpointer_p.h
-index f1709eaa341..d713c1b6f69 100644
+index 0f5fadaed9c..91d7a1fc919 100644
 --- a/src/platformsupport/input/libinput/qlibinputpointer_p.h
 +++ b/src/platformsupport/input/libinput/qlibinputpointer_p.h
 @@ -19,6 +19,7 @@
