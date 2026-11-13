@@ -13,7 +13,7 @@ SRC_URI = "git://git@github.com/refeyn/QuickGraphLib.git;protocol=ssh;branch=mas
            "
 
 PV = "v0.1.0+git${SRCPV}"
-SRCREV = "${AUTOREV}"
+SRCREV = "5dfe3852acc55863715289e083dac987668d3162"
 DEPENDS += " \
     qtbase \
     qtdeclarative \
