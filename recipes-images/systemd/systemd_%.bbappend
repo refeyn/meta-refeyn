@@ -4,6 +4,7 @@ FILESEXTRAPATHS:prepend := "${THISDIR}/${PN}:"
 
 SRC_URI += " \
     file://0001-systemd-Disable-tty1-console-if-splash-is-present.patch \
+    file://0002-Partial-backport-of-43025-Allow-in-versions-for-sysu.patch \
     file://rndis.network \
     file://persistent-journal.conf \
     file://50-refeyn.preset \

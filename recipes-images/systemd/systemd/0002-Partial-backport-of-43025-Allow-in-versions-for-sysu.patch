@@ -1,0 +1,46 @@
+From 2c69cea81ec488690f177dd0b51d45b5a1392f1d Mon Sep 17 00:00:00 2001
+From: Matthew Joyce <matthew.joyce@refeyn.com>
+Date: Tue, 17 Nov 2026 09:14:15 +0000
+Subject: [PATCH] Partial backport of #43025: Allow ~ in versions for
+ sysupdated
+
+---
+ src/sysupdate/sysupdate-pattern.c  | 2 +-
+ src/sysupdate/sysupdate-transfer.c | 4 ++--
+ 2 files changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/src/sysupdate/sysupdate-pattern.c b/src/sysupdate/sysupdate-pattern.c
+index ff018d8f6c..6e5d42924e 100644
+--- a/src/sysupdate/sysupdate-pattern.c
++++ b/src/sysupdate/sysupdate-pattern.c
+@@ -263,7 +263,7 @@ int pattern_match(const char *pattern, const char *s, InstanceMetadata *ret) {
+                 switch (e->type) {
+ 
+                 case PATTERN_VERSION:
+-                        if (!version_is_valid(t)) {
++                        if (!version_is_valid_versionspec(t)) {
+                                 log_debug("Version string is not valid, refusing: %s", t);
+                                 goto nope;
+                         }
+diff --git a/src/sysupdate/sysupdate-transfer.c b/src/sysupdate/sysupdate-transfer.c
+index f8f4a154f9..f37802f37d 100644
+--- a/src/sysupdate/sysupdate-transfer.c
++++ b/src/sysupdate/sysupdate-transfer.c
+@@ -113,7 +113,7 @@ static int config_parse_protect_version(
+                 return 0;
+         }
+ 
+-        if (!version_is_valid(resolved))  {
++        if (!version_is_valid_versionspec(resolved))  {
+                 log_syntax(unit, LOG_WARNING, filename, line, 0,
+                            "ProtectVersion= string is not valid, ignoring: %s", resolved);
+                 return 0;
+@@ -151,7 +151,7 @@ static int config_parse_min_version(
+                 return 0;
+         }
+ 
+-        if (!version_is_valid(rvalue)) {
++        if (!version_is_valid_versionspec(rvalue)) {
+                 log_syntax(unit, LOG_WARNING, filename, line, 0,
+                            "MinVersion= string is not valid, ignoring: %s", resolved);
+                 return 0;
